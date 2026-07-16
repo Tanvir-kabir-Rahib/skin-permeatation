@@ -1,0 +1,9 @@
+{
+  "models": [
+    "XGBoost",
+    "CatBoost",
+    "LGBM",
+    "ExtraTrees",
+    "HistGradientBoosting"
+  ]
+}

@@ -1,0 +1,7 @@
+random_state: 2024
+test_size: 0.15
+cv_folds: 5
+search_iterations: 20
+group_column: SMILES
+bootstrap_iterations: 1000
+descriptor_correlation_threshold: 0.95

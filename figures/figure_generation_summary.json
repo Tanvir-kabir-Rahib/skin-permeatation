@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "project_root": ".",
+    "paper_pdf": null,
+    "paper_pdf_found": false,
+    "skin_data": "data/final/clean_trial4.csv",
+    "descriptor_data": "data/final/clean_trial4.csv",
+    "external_data": "reports/tables/drugbank_predictions_and_clusters.csv",
+    "prediction_data": "reports/tables/improved_test_errors.csv",
+    "metrics_data": "reports/tables/improved_metrics.csv",
+    "model_dir": "models/reproduction/improved",
+    "target_column": "logkpl",
+    "identifier_columns": [
+      "Compound",
+      "SMILES"
+    ],
+    "descriptor_count": 99,
+    "modeling_descriptor_count": 146,
+    "best_model": "LGBM",
+    "best_model_path": "models/reproduction/improved/LGBM.joblib",
+    "external_validation_label": "Validation artifact (paper-reproduction)",
+    "descriptor_cleaning": {
+      "excluded_identifiers_and_target": [
+        "Compound",
+        "SMILES",
+        "logkpl"
+      ],
+      "leakage_columns": [],
+      "non_numeric_columns": [],
+      "all_missing_columns": [],
+      "constant_columns": [
+        "C2SP1",
+        "khs.sLi",
+        "khs.ssBe",
+        "khs.ssBH",
+        "khs.sssB",
+        "khs.tCH",
+        "khs.sNH3",
+        "khs.ssNH2",
+        "khs.dNH",
+        "khs.sSiH3",
+        "khs.ssSiH2",
+        "khs.sssSiH",
+        "khs.ssssSi",
+        "khs.sPH2",
+        "khs.ssPH",
+        "khs.sssP",
+        "khs.sssssP",
+        "khs.sSH",
+        "khs.ssS",
+        "khs.dssS",
+        "khs.sGeH3",
+        "khs.ssGeH2",
+        "khs.sssGeH",
+        "khs.ssssGe",
+        "khs.sAsH2",
+        "khs.ssAsH",
+        "khs.sssAs",
+        "khs.sssdAs",
+        "khs.sssssAs",
+        "khs.sSeH",
+        "khs.dSe",
+        "khs.ssSe",
+        "khs.aaSe",
+        "khs.dssSe",
+        "khs.ddssSe",
+        "khs.sSnH3",
+        "khs.ssSnH2",
+        "khs.sssSnH",
+        "khs.ssssSn",
+        "khs.sPbH3",
+        "khs.ssPbH2",
+        "khs.sssPbH",
+        "khs.ssssPb",
+        "nRings4",
+        "nRings7",
+        "nRings8",
+        "nRings9"
+      ],
+      "duplicate_columns": []
+    }
+  },
+  "generated": {
+    "fig01_project_workflow": [
+      "figures/fig01_project_workflow.png",
+      "figures/fig01_project_workflow.pdf"
+    ],
+    "fig02_dataset_characterization": [
+      "figures/fig02_dataset_characterization.png",
+      "figures/fig02_dataset_characterization.pdf"
+    ],
+    "fig03_descriptor_correlation_heatmap": [
+      "figures/fig03_descriptor_correlation_heatmap.png",
+      "figures/fig03_descriptor_correlation_heatmap.pdf"
+    ],
+    "fig04_key_descriptor_logkp_relationships": [
+      "figures/fig04_key_descriptor_logkp_relationships.png",
+      "figures/fig04_key_descriptor_logkp_relationships.pdf"
+    ],
+    "fig05_model_performance_comparison": [
+      "figures/fig05_model_performance_comparison.png",
+      "figures/fig05_model_performance_comparison.pdf"
+    ],
+    "fig06_predicted_vs_actual": [
+      "figures/fig06_predicted_vs_actual.png",
+      "figures/fig06_predicted_vs_actual.pdf"
+    ],
+    "fig07_residual_error_analysis": [
+      "figures/fig07_residual_error_analysis.png",
+      "figures/fig07_residual_error_analysis.pdf"
+    ],
+    "fig08_feature_importance_or_shap": [
+      "figures/fig08_feature_importance_or_shap.png",
+      "figures/fig08_feature_importance_or_shap.pdf"
+    ],
+    "fig09_dimensionality_reduction": [
+      "figures/fig09_dimensionality_reduction.png",
+      "figures/fig09_dimensionality_reduction.pdf"
+    ],
+    "fig10_clustering_analysis": [
+      "figures/fig10_clustering_analysis.png",
+      "figures/fig10_clustering_analysis.pdf"
+    ],
+    "fig11_cluster_property_comparison": [
+      "figures/fig11_cluster_property_comparison.png",
+      "figures/fig11_cluster_property_comparison.pdf"
+    ],
+    "fig12_predicted_logkp_group_comparison": [
+      "figures/fig12_predicted_logkp_group_comparison.png",
+      "figures/fig12_predicted_logkp_group_comparison.pdf"
+    ],
+    "fig14_applicability_domain": [
+      "figures/fig14_applicability_domain.png",
+      "figures/fig14_applicability_domain.pdf"
+    ]
+  },
+  "skipped": {
+    "fig13_group_statistical_heatmap": "underlying array is read-only"
+  }
+}

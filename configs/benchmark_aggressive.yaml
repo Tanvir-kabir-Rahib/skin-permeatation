@@ -1,0 +1,116 @@
+random_state: 22
+feature_selection_random_state: 28
+test_size: 0.15
+cv_folds: 3
+cv_repeats: 1
+search_iterations: 1
+n_jobs: 1
+estimator_n_jobs: 1
+correlation_threshold: 0.99
+correlation_threshold_options:
+  - 0.99
+optimization_scoring: neg_root_mean_squared_error
+use_target_transform: false
+skip_post_search_cv: true
+run_ensembles: false
+selector_k_options:
+  - all
+model_selector_k_options:
+  Gradient Boosting:
+    - 100
+model_param_overrides:
+  ExtraTrees:
+    model__n_estimators:
+      - 300
+    model__max_depth:
+      - null
+    model__max_features:
+      - 0.8
+    model__min_samples_leaf:
+      - 1
+  HistGradientBoosting:
+    model__learning_rate:
+      - 0.05
+    model__max_leaf_nodes:
+      - 31
+    model__min_samples_leaf:
+      - 5
+    model__l2_regularization:
+      - 0.0
+  Gradient Boosting:
+    model__loss:
+      - absolute_error
+    model__n_estimators:
+      - 250
+    model__learning_rate:
+      - 0.1
+    model__max_depth:
+      - 4
+    model__subsample:
+      - 0.75
+    model__min_samples_leaf:
+      - 6
+    model__max_features:
+      - 0.5
+  RF:
+    model__n_estimators:
+      - 300
+    model__max_depth:
+      - null
+    model__max_features:
+      - 0.8
+    model__min_samples_leaf:
+      - 1
+  ElasticNet:
+    model__alpha:
+      - 0.001
+    model__l1_ratio:
+      - 0.5
+  SVR (RBF):
+    model__C:
+      - 20
+    model__gamma:
+      - 0.01
+    model__epsilon:
+      - 0.05
+  XGBoost:
+    model__n_estimators:
+      - 300
+    model__learning_rate:
+      - 0.05
+    model__max_depth:
+      - 4
+    model__min_child_weight:
+      - 1
+    model__subsample:
+      - 0.85
+    model__colsample_bytree:
+      - 0.9
+    model__reg_lambda:
+      - 1.0
+  CatBoost:
+    model__iterations:
+      - 300
+    model__learning_rate:
+      - 0.05
+    model__depth:
+      - 6
+    model__l2_leaf_reg:
+      - 3
+    model__bagging_temperature:
+      - 0.0
+  LGBM:
+    model__n_estimators:
+      - 300
+    model__learning_rate:
+      - 0.05
+    model__num_leaves:
+      - 31
+    model__min_child_samples:
+      - 20
+    model__subsample:
+      - 0.85
+    model__colsample_bytree:
+      - 0.9
+    model__reg_lambda:
+      - 0.1

@@ -1,0 +1,354 @@
+2026-04-19 03:34:10,291 | INFO | skin_permeation.data_audit | Running data audit.
+2026-04-19 03:34:10,291 | INFO | skin_permeation.data_loading | Loading core datasets from E:\Skin-Permeation\data
+2026-04-19 03:34:10,301 | INFO | skin_permeation.data_loading | Loading core datasets from E:\Skin-Permeation\data
+2026-04-20 20:31:23,890 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-20 21:35:07,668 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:09:51,744 | INFO | skin_permeation.data_audit | Running data audit.
+2026-04-23 00:09:51,744 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:09:52,470 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:09:52,987 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:11:30,066 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:53:34,830 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:55:59,373 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:56:02,214 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:56:02,753 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-04-23 00:56:03,652 | WARNING | skin_permeation.cli | ATC analysis skipped: No ATC mapping file was found in data/. Add a CSV/XLSX containing DrugBank identifiers and ATC codes.
+2026-05-08 04:25:39,228 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-08 04:25:43,182 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-08 04:25:48,334 | WARNING | matplotlib | /Users/tanvir/.matplotlib is not a writable directory
+2026-05-08 04:25:48,335 | WARNING | matplotlib | Matplotlib created a temporary cache directory at /var/folders/j4/pp71bwj17753y6356sv_jpth0000gn/T/matplotlib-b8h2xwoz because there was an issue with the default path (/Users/tanvir/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-05-08 04:26:04,398 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-08 04:26:05,488 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-08 04:38:21,926 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-08 04:38:22,915 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-08 04:43:54,086 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-08 04:43:59,442 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-08 04:43:59,473 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-08 04:43:59,482 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-08 04:43:59,492 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-08 04:43:59,500 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-08 04:43:59,533 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-08 04:43:59,542 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-08 04:43:59,612 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-08 05:23:32,739 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-08 05:23:33,695 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-08 06:20:15,170 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-08 06:20:16,001 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-08 06:55:59,538 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8375, test RMSE 0.4576.
+2026-05-08 06:55:59,539 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-08 07:47:40,290 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8504, test RMSE 0.4390.
+2026-05-08 07:47:40,291 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-08 08:17:48,268 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.8597, test RMSE 0.4251.
+2026-05-08 08:17:48,268 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-09 22:34:16,055 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 22:34:16,870 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-09 23:55:03,831 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-09 23:55:04,963 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 23:55:06,172 | WARNING | matplotlib | /Users/tanvir/.matplotlib is not a writable directory
+2026-05-09 23:55:06,173 | WARNING | matplotlib | Matplotlib created a temporary cache directory at /var/folders/j4/pp71bwj17753y6356sv_jpth0000gn/T/matplotlib-g7s6o_r0 because there was an issue with the default path (/Users/tanvir/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-05-09 23:55:06,828 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ExtraTrees because it is not enabled in the config.
+2026-05-09 23:55:06,829 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model HistGradientBoosting because it is not enabled in the config.
+2026-05-09 23:55:06,829 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-09 23:55:19,432 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-09 23:55:20,529 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 23:55:21,581 | WARNING | matplotlib | /Users/tanvir/.matplotlib is not a writable directory
+2026-05-09 23:55:21,582 | WARNING | matplotlib | Matplotlib created a temporary cache directory at /var/folders/j4/pp71bwj17753y6356sv_jpth0000gn/T/matplotlib-cipt6bji because there was an issue with the default path (/Users/tanvir/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-05-09 23:55:22,237 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ExtraTrees because it is not enabled in the config.
+2026-05-09 23:55:22,237 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model HistGradientBoosting because it is not enabled in the config.
+2026-05-09 23:55:22,237 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-09 23:55:31,967 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-09 23:55:38,097 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:55:38,164 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:55:38,247 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:55:38,248 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-09 23:55:38,255 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:55:38,285 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-09 23:55:38,294 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-09 23:55:38,350 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-09 23:55:38,915 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9015, test RMSE 0.3563.
+2026-05-09 23:55:38,915 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model RF because it is not enabled in the config.
+2026-05-09 23:55:38,915 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ElasticNet because it is not enabled in the config.
+2026-05-09 23:55:38,916 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model SVR (RBF) because it is not enabled in the config.
+2026-05-09 23:55:38,916 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model XGBoost because it is not enabled in the config.
+2026-05-09 23:55:38,916 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model CatBoost because it is not enabled in the config.
+2026-05-09 23:55:38,916 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model LGBM because it is not enabled in the config.
+2026-05-09 23:56:47,525 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-09 23:56:48,481 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 23:56:49,495 | WARNING | matplotlib | /Users/tanvir/.matplotlib is not a writable directory
+2026-05-09 23:56:49,496 | WARNING | matplotlib | Matplotlib created a temporary cache directory at /var/folders/j4/pp71bwj17753y6356sv_jpth0000gn/T/matplotlib-2vpxc50d because there was an issue with the default path (/Users/tanvir/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-05-09 23:56:50,135 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ExtraTrees because it is not enabled in the config.
+2026-05-09 23:56:50,135 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model HistGradientBoosting because it is not enabled in the config.
+2026-05-09 23:56:50,135 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-09 23:56:59,853 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-09 23:57:04,903 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:57:04,908 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:57:04,929 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-09 23:57:04,934 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:57:04,951 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:57:04,966 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-09 23:57:04,991 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-09 23:57:05,009 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-09 23:57:05,460 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-09 23:57:05,461 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model RF because it is not enabled in the config.
+2026-05-09 23:57:05,461 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ElasticNet because it is not enabled in the config.
+2026-05-09 23:57:05,461 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model SVR (RBF) because it is not enabled in the config.
+2026-05-09 23:57:05,461 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model XGBoost because it is not enabled in the config.
+2026-05-09 23:57:05,462 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model CatBoost because it is not enabled in the config.
+2026-05-09 23:57:05,462 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model LGBM because it is not enabled in the config.
+2026-05-09 23:57:48,477 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-09 23:57:49,578 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 23:57:50,207 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ExtraTrees because it is not enabled in the config.
+2026-05-09 23:57:50,207 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model HistGradientBoosting because it is not enabled in the config.
+2026-05-09 23:57:50,207 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-09 23:57:54,920 | WARNING | matplotlib | /Users/tanvir/.matplotlib is not a writable directory
+2026-05-09 23:57:54,921 | WARNING | matplotlib | Matplotlib created a temporary cache directory at /var/folders/j4/pp71bwj17753y6356sv_jpth0000gn/T/matplotlib-cwe9rf6v because there was an issue with the default path (/Users/tanvir/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-05-09 23:57:59,958 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-09 23:58:05,005 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:58:05,013 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-09 23:58:05,027 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-09 23:58:05,048 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:58:05,056 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:58:05,080 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-09 23:58:05,092 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:58:05,109 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-09 23:58:05,561 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-09 23:58:05,562 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model RF because it is not enabled in the config.
+2026-05-09 23:58:05,562 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ElasticNet because it is not enabled in the config.
+2026-05-09 23:58:05,562 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model SVR (RBF) because it is not enabled in the config.
+2026-05-09 23:58:25,149 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-09 23:58:26,226 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 23:58:26,856 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ExtraTrees because it is not enabled in the config.
+2026-05-09 23:58:26,857 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model HistGradientBoosting because it is not enabled in the config.
+2026-05-09 23:58:26,857 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-09 23:58:36,617 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-09 23:58:41,674 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-09 23:58:41,681 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-09 23:58:41,694 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:58:41,710 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-09 23:58:41,714 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-09 23:58:41,720 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:58:41,735 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-09 23:58:41,760 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-09 23:58:42,207 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-09 23:58:42,208 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model RF because it is not enabled in the config.
+2026-05-09 23:58:42,208 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ElasticNet because it is not enabled in the config.
+2026-05-09 23:58:42,209 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model SVR (RBF) because it is not enabled in the config.
+2026-05-09 23:58:46,799 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-09 23:58:47,873 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-09 23:58:48,526 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ExtraTrees because it is not enabled in the config.
+2026-05-09 23:58:48,527 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model HistGradientBoosting because it is not enabled in the config.
+2026-05-09 23:58:48,527 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-09 23:58:53,784 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-09 23:58:53,784 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model RF because it is not enabled in the config.
+2026-05-09 23:58:53,784 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model ElasticNet because it is not enabled in the config.
+2026-05-09 23:58:53,785 | INFO | skin_permeation.modeling.benchmark | Skipping benchmark model SVR (RBF) because it is not enabled in the config.
+2026-05-10 00:03:52,873 | INFO | skin_permeation.data_audit | Running data audit.
+2026-05-10 00:03:52,873 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 00:03:53,599 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 00:03:54,122 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 00:05:00,473 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 00:05:00,935 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 00:13:08,817 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.7588, test RMSE 0.5548.
+2026-05-10 00:13:08,818 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-10 00:23:26,003 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.7393, test RMSE 0.5767.
+2026-05-10 00:23:26,004 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-10 00:32:14,371 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.7510, test RMSE 0.5636.
+2026-05-10 00:32:14,372 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-10 00:45:13,185 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.7513, test RMSE 0.5633.
+2026-05-10 00:45:13,189 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ElasticNet.
+2026-05-10 00:47:52,964 | INFO | skin_permeation.modeling.benchmark | Finished ElasticNet: test R2 0.6516, test RMSE 0.6667.
+2026-05-10 00:47:52,965 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-10 00:49:10,627 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.7752, test RMSE 0.5356.
+2026-05-10 00:49:10,627 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-10 00:56:02,898 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.7589, test RMSE 0.5547.
+2026-05-10 00:56:02,898 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-10 01:49:02,116 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.7576, test RMSE 0.5561.
+2026-05-10 01:49:02,116 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-10 01:52:09,634 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.7529, test RMSE 0.5615.
+2026-05-10 02:04:50,031 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 02:07:09,983 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 02:07:12,746 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 02:07:13,287 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 02:07:14,176 | WARNING | skin_permeation.cli | ATC analysis skipped: No ATC mapping file was found in data/. Add a CSV/XLSX containing DrugBank identifiers and ATC codes.
+2026-05-10 02:08:14,374 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 02:08:15,105 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 02:15:48,661 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.7588, test RMSE 0.5548.
+2026-05-10 02:15:48,662 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-10 02:35:47,101 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 02:35:47,827 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 03:53:09,173 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-10 03:53:10,540 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 03:53:11,756 | WARNING | matplotlib | /Users/tanvir/.matplotlib is not a writable directory
+2026-05-10 03:53:11,756 | WARNING | matplotlib | Matplotlib created a temporary cache directory at /var/folders/j4/pp71bwj17753y6356sv_jpth0000gn/T/matplotlib-1jyur8l8 because there was an issue with the default path (/Users/tanvir/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-05-10 03:53:12,497 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 03:53:19,717 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-10 03:53:25,046 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-10 03:53:25,052 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-10 03:53:25,163 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-10 03:53:25,175 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-10 03:53:25,181 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-10 03:53:25,193 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-10 03:53:25,196 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-10 03:53:25,238 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-10 03:53:25,733 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8798, test RMSE 0.3935.
+2026-05-10 03:53:25,733 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-10 03:53:29,226 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8738, test RMSE 0.4032.
+2026-05-10 03:53:29,226 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-10 03:53:31,061 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-10 03:53:31,062 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-10 03:53:34,157 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.8714, test RMSE 0.4070.
+2026-05-10 03:53:34,157 | INFO | skin_permeation.modeling.benchmark | Skipping disabled benchmark model ElasticNet.
+2026-05-10 03:53:34,158 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-10 03:53:34,822 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.8821, test RMSE 0.3897.
+2026-05-10 03:53:34,822 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-10 03:53:35,898 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.8852, test RMSE 0.3845.
+2026-05-10 03:53:35,899 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-10 03:53:38,697 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.8783, test RMSE 0.3959.
+2026-05-10 03:53:38,698 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-10 03:53:39,445 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.8978, test RMSE 0.3628.
+2026-05-10 03:54:06,434 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-10 03:54:07,742 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 03:54:09,489 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 03:54:16,635 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-05-10 03:54:21,550 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompact.ttf: <flag 'StyleFlags'> invalid value 2686976
+    given 0b0 1010010000000000000000
+  allowed 0b0 0000000000000000000011
+2026-05-10 03:54:21,567 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-10 03:54:21,580 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-05-10 03:54:21,595 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFNSMono.ttf: <flag 'StyleFlags'> invalid value 393216
+    given 0b0 1100000000000000000
+  allowed 0b0 0000000000000000011
+2026-05-10 03:54:21,605 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-05-10 03:54:21,652 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)
+2026-05-10 03:54:21,654 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/SFCompactItalic.ttf: <flag 'StyleFlags'> invalid value 2686977
+    given 0b0 1010010000000000000001
+  allowed 0b0 0000000000000000000011
+2026-05-10 03:54:21,675 | INFO | matplotlib.font_manager | generated new fontManager
+2026-05-10 03:54:22,119 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8798, test RMSE 0.3935.
+2026-05-10 03:54:22,120 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-10 03:54:23,783 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8738, test RMSE 0.4032.
+2026-05-10 03:54:23,784 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-10 03:54:25,547 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-10 03:54:25,548 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-10 03:54:28,536 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.8714, test RMSE 0.4070.
+2026-05-10 03:54:28,537 | INFO | skin_permeation.modeling.benchmark | Skipping disabled benchmark model ElasticNet.
+2026-05-10 03:54:28,537 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-10 03:54:29,145 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.8821, test RMSE 0.3897.
+2026-05-10 03:54:29,146 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-10 03:54:30,164 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.8852, test RMSE 0.3845.
+2026-05-10 03:54:30,164 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-10 03:54:32,958 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.8783, test RMSE 0.3959.
+2026-05-10 03:54:32,958 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-10 03:54:33,714 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.8978, test RMSE 0.3628.
+2026-05-10 03:54:37,815 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-10 03:54:38,962 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 03:54:40,514 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 03:54:43,313 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8798, test RMSE 0.3935.
+2026-05-10 03:54:43,313 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-10 03:54:45,193 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8738, test RMSE 0.4032.
+2026-05-10 03:54:45,193 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-10 03:54:47,202 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-10 03:54:47,203 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-10 03:54:50,338 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.8714, test RMSE 0.4070.
+2026-05-10 03:54:50,339 | INFO | skin_permeation.modeling.benchmark | Skipping disabled benchmark model ElasticNet.
+2026-05-10 03:54:50,340 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-10 03:54:50,955 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.8821, test RMSE 0.3897.
+2026-05-10 03:54:50,955 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-10 03:54:52,063 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.8852, test RMSE 0.3845.
+2026-05-10 03:54:52,064 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-10 03:54:54,891 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.8783, test RMSE 0.3959.
+2026-05-10 03:54:54,891 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-10 03:54:55,637 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.8978, test RMSE 0.3628.
+2026-05-10 03:58:33,405 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-10 03:58:34,216 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-10 03:58:36,589 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8807, test RMSE 0.3920.
+2026-05-10 03:58:36,589 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-10 03:58:38,167 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8738, test RMSE 0.4032.
+2026-05-10 03:58:38,167 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-10 03:58:39,839 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9101, test RMSE 0.3403.
+2026-05-10 03:58:39,839 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-10 03:58:42,478 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.8710, test RMSE 0.4077.
+2026-05-10 03:58:42,478 | INFO | skin_permeation.modeling.benchmark | Skipping disabled benchmark model ElasticNet.
+2026-05-10 03:58:42,478 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-10 03:58:43,019 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.8821, test RMSE 0.3897.
+2026-05-10 03:58:43,019 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-10 03:58:43,960 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.8852, test RMSE 0.3845.
+2026-05-10 03:58:43,960 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-10 03:58:46,709 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.8783, test RMSE 0.3959.
+2026-05-10 03:58:46,709 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-10 03:58:47,380 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.8978, test RMSE 0.3628.
+2026-05-12 03:16:46,166 | INFO | numexpr.utils | NumExpr defaulting to 10 threads.
+2026-05-12 03:16:47,340 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-12 03:16:49,011 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-12 03:16:51,779 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8798, test RMSE 0.3935.
+2026-05-12 03:16:51,780 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-12 03:16:53,550 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8738, test RMSE 0.4032.
+2026-05-12 03:16:53,551 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-12 03:16:55,389 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9180, test RMSE 0.3249.
+2026-05-12 03:16:55,389 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-12 03:16:58,450 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.8714, test RMSE 0.4070.
+2026-05-12 03:16:58,450 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ElasticNet.
+2026-05-12 03:16:59,524 | INFO | skin_permeation.modeling.benchmark | Finished ElasticNet: test R2 0.8259, test RMSE 0.4735.
+2026-05-12 03:16:59,524 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-12 03:17:00,161 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.8821, test RMSE 0.3897.
+2026-05-12 03:17:00,162 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-12 03:17:01,245 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.8852, test RMSE 0.3845.
+2026-05-12 03:17:01,245 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-12 03:17:04,191 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.8783, test RMSE 0.3959.
+2026-05-12 03:17:04,192 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-12 03:17:04,983 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.8978, test RMSE 0.3628.
+2026-05-12 03:22:58,429 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-05-12 03:22:59,225 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ExtraTrees.
+2026-05-12 03:23:01,588 | INFO | skin_permeation.modeling.benchmark | Finished ExtraTrees: test R2 0.8807, test RMSE 0.3920.
+2026-05-12 03:23:01,588 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model HistGradientBoosting.
+2026-05-12 03:23:03,185 | INFO | skin_permeation.modeling.benchmark | Finished HistGradientBoosting: test R2 0.8738, test RMSE 0.4032.
+2026-05-12 03:23:03,185 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model Gradient Boosting.
+2026-05-12 03:23:04,856 | INFO | skin_permeation.modeling.benchmark | Finished Gradient Boosting: test R2 0.9101, test RMSE 0.3403.
+2026-05-12 03:23:04,857 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model RF.
+2026-05-12 03:23:07,488 | INFO | skin_permeation.modeling.benchmark | Finished RF: test R2 0.8710, test RMSE 0.4077.
+2026-05-12 03:23:07,488 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model ElasticNet.
+2026-05-12 03:23:08,422 | INFO | skin_permeation.modeling.benchmark | Finished ElasticNet: test R2 0.8259, test RMSE 0.4735.
+2026-05-12 03:23:08,422 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model SVR (RBF).
+2026-05-12 03:23:08,980 | INFO | skin_permeation.modeling.benchmark | Finished SVR (RBF): test R2 0.8821, test RMSE 0.3897.
+2026-05-12 03:23:08,981 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model XGBoost.
+2026-05-12 03:23:09,944 | INFO | skin_permeation.modeling.benchmark | Finished XGBoost: test R2 0.8852, test RMSE 0.3845.
+2026-05-12 03:23:09,944 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model CatBoost.
+2026-05-12 03:23:12,615 | INFO | skin_permeation.modeling.benchmark | Finished CatBoost: test R2 0.8783, test RMSE 0.3959.
+2026-05-12 03:23:12,615 | INFO | skin_permeation.modeling.benchmark | Tuning benchmark model LGBM.
+2026-05-12 03:23:13,283 | INFO | skin_permeation.modeling.benchmark | Finished LGBM: test R2 0.8978, test RMSE 0.3628.

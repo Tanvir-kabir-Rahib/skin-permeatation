@@ -1,0 +1,19 @@
+Metric,Value,Acceptance Criterion,Result
+R2_ext,0.7988393552116125,R2_ext > 0.60,Pass
+RMSE_ext,0.4609817448290185,Lower is better,Report only
+MAE_ext,0.2897017854978407,Lower is better,Report only
+Q2_F1,0.800909237610455,Q2_F1 > 0.70,Pass
+Q2_F2,0.7988393552116125,Q2_F2 > 0.70,Pass
+Q2_F3,0.8452580317718827,Q2_F3 > 0.70,Pass
+CCC_ext,0.8803671700200552,CCC_ext > 0.85,Pass
+r_m^2,0.5814957467602162,r_m^2 > 0.65,Fail
+r_m'^2,0.7579231833244402,Report alongside r_m^2,Report only
+Average r_m^2,0.6697094650423282,Average r_m^2 > 0.65,Pass
+Delta r_m^2,0.176427436564224,Delta r_m^2 < 0.20,Pass
+R0^2,0.7279232433569645,Report for Golbraikh-Tropsha,Report only
+R0'^2,0.8015972488934877,Report for Golbraikh-Tropsha,Report only
+k,0.9523438277962404,0.85 <= k <= 1.15,Pass
+k',1.0204781040114523,0.85 <= k' <= 1.15,Pass
+abs(R2_ext - R0^2) / R2_ext,0.08877393357249205,< 0.10 OR reverse ratio < 0.10,Pass
+abs(R2_ext - R0'^2) / R2_ext,0.0034523758298620785,< 0.10 OR direct ratio < 0.10,Pass
+Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass

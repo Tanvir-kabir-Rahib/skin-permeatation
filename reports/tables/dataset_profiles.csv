@@ -1,0 +1,8 @@
+name,rows,columns,duplicate_rows,duplicate_smiles,missing_values,target_columns,identifier_columns
+Skin Permeation.xlsx,449,241,5,305,1101,"['Texpi', 'logkpl', 'logJmaxm']","['Compound', 'SMILES', 'CAS No']"
+data-original.csv,476,20,0,329,400,"['Texpi', 'logkpl', 'logJmaxm']","['Compound', 'SMILES', 'CAS No']"
+data-descriptors.csv,476,225,329,329,581,['Texpi'],['SMILES']
+trial4.csv,445,226,28,299,0,"['logkpl', 'Texpi']","['Compound', 'SMILES']"
+clean_trial4.csv,417,149,0,271,0,"['logkpl', 'Texpi']","['Compound', 'SMILES']"
+DrugBank-descriptors.csv,2326,225,0,4,5031,[],"['Name', 'SMILES']"
+drug_bank_clean.csv,2293,224,0,4,0,[],"['Name', 'SMILES']"

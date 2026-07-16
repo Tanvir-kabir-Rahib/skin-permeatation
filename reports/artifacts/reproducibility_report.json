@@ -1,0 +1,135 @@
+{
+  "matched_exactly": [
+    {
+      "claim": "145 descriptors remained after removing zero-value and highly correlated descriptors.",
+      "expected": 145,
+      "observed": 145,
+      "status": "matched exactly",
+      "rationale": "The final cleaned training file contains 145 descriptor columns after removing metadata and Texpi."
+    },
+    {
+      "claim": "The train/test split was 85/15.",
+      "expected": "85/15",
+      "observed": "85/15 in regression notebook",
+      "status": "matched exactly",
+      "rationale": "Regression-Model.ipynb uses train_test_split with test_size=0.15 and random_state=1."
+    },
+    {
+      "claim": "DrugBank clustering used 2326 FDA-approved compounds and four clusters.",
+      "expected": {
+        "rows": 2326,
+        "clusters": 4
+      },
+      "observed": {
+        "rows": 2326,
+        "clusters": 4
+      },
+      "status": "matched exactly",
+      "rationale": "The raw DrugBank descriptor file has 2326 rows, and the clustering notebook fixes k=4 after elbow inspection."
+    },
+    {
+      "claim": "The final LGBM model was used for DrugBank prediction.",
+      "expected": "LGBM",
+      "observed": "LGBM",
+      "status": "matched exactly",
+      "rationale": "The clustering notebook loads models/LGBMRegressor_model.sav and scaler.pkl before predicting DrugBank logKp."
+    },
+    {
+      "claim": "Duplicate rows were fully removed before final modeling.",
+      "expected": true,
+      "observed": true,
+      "status": "matched exactly",
+      "rationale": "The reconstruction drops 28 duplicated rows, leaving zero exact duplicates in clean_trial4.csv."
+    }
+  ],
+  "approximately_matched": [
+    {
+      "claim": "Dataset contains 441 records for 140 molecules.",
+      "expected": {
+        "records": 441,
+        "molecules": 140
+      },
+      "observed": {
+        "records": 417,
+        "molecules": 146
+      },
+      "status": "approximate",
+      "rationale": "The cleaned modeling file has 417 rows and 146 unique SMILES after duplicate removal; the paper's 441-record count appears to refer to a less-deduplicated stage."
+    },
+    {
+      "claim": "222 1D/2D descriptors were computed.",
+      "expected": 222,
+      "observed": 223,
+      "status": "approximate",
+      "rationale": "The generated CSV contains 223 descriptors excluding SMILES and Texpi, creating a one-descriptor mismatch with the manuscript text."
+    }
+  ],
+  "could_not_match": [
+    {
+      "claim": "ATC analysis covered 83 groups and 2456 FDA-approved drugs.",
+      "expected": {
+        "groups": 83,
+        "rows": 2456
+      },
+      "observed": null,
+      "status": "could not match",
+      "rationale": "No ATC mapping file is present in the uploaded project, so the exact ATC aggregation cannot be reconstructed from the available files alone."
+    }
+  ],
+  "paper_metrics_reference": {
+    "MLR (10 features)": {
+      "r2": 0.338,
+      "rmse": 0.814,
+      "mae": 0.624,
+      "cv_mae": 0.599
+    },
+    "Decision Tree": {
+      "r2": 0.729,
+      "rmse": 0.535,
+      "mae": 0.323,
+      "cv_mae": 0.473
+    },
+    "RF": {
+      "r2": 0.788,
+      "rmse": 0.473,
+      "mae": 0.314,
+      "cv_mae": 0.444
+    },
+    "XGBoost": {
+      "r2": 0.798,
+      "rmse": 0.462,
+      "mae": 0.281,
+      "cv_mae": 0.446
+    },
+    "Gradient Boosting": {
+      "r2": 0.818,
+      "rmse": 0.439,
+      "mae": 0.276,
+      "cv_mae": 0.441
+    },
+    "CatBoost": {
+      "r2": 0.797,
+      "rmse": 0.464,
+      "mae": 0.3,
+      "cv_mae": 0.436
+    },
+    "LGBM": {
+      "r2": 0.819,
+      "rmse": 0.437,
+      "mae": 0.278,
+      "cv_mae": 0.445
+    },
+    "ANN": {
+      "r2": 0.797,
+      "rmse": 0.462,
+      "mae": 0.298,
+      "cv_mae": 0.412
+    }
+  },
+  "mismatch_explanations": [
+    "The published descriptor count likely excludes one generator output column that still appears in the repository export.",
+    "The row-count mismatch is consistent with optimistic deduplication and repeated-measure handling choices between manuscript stages.",
+    "The baseline notebook standardizes the full dataset before splitting, which introduces leakage and can inflate reported performance.",
+    "Random train/test splitting across repeated molecules can leak near-identical descriptor rows between train and test partitions."
+  ]
+}

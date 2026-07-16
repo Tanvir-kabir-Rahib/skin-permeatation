@@ -1,0 +1,6 @@
+family,descriptor_count,descriptors
+lipophilicity,4,"ALogp2, JPLogP, MLogP, XLogP"
+hydrogen_bonding,2,"nHBAcc, nHBDon"
+topology,17,"ATSc2, ATSc3, ATSc4, ATSc5, ATSm1, BCUTw-1l, BCUTw-1h, BCUTc-1l, BCUTc-1h, BCUTp-1l, BCUTp-1h, WTPT-2, WTPT-3, WTPT-4, WTPT-5, WPATH, Zagreb"
+lipinski,1,LipinskiFailures
+surface_area,1,TopoPSA

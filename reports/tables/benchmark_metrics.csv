@@ -1,0 +1,10 @@
+model,artifact_path,r2,rmse,mae,cv_rmse,mae_ci_low,mae_ci_high,cv_mae,tuning_rmse
+Gradient Boosting,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/Gradient_Boosting.joblib,0.9100892450116213,0.3403353222303039,0.23984811811646503,0.6871384163415888,,,,0.6871384163415888
+LGBM,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/LGBM.joblib,0.8978055314873721,0.36283978237671877,0.26652458741224905,0.7029846525149236,,,,0.7029846525149236
+XGBoost,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/XGBoost.joblib,0.8852212114454576,0.3845315879742605,0.2746074099767776,0.6942151645385631,,,,0.6942151645385631
+SVR (RBF),/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/SVR_RBF.joblib,0.8821042648801815,0.3897178074107551,0.2738058117979076,0.7357423184814739,,,,0.7357423184814739
+ExtraTrees,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ExtraTrees.joblib,0.8807246175869434,0.39199146580951666,0.2782253452864863,0.6816062250291521,,,,0.6816062250291521
+CatBoost,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/CatBoost.joblib,0.87831997002753,0.39592311446973977,0.2916869311046544,0.6655621128136894,,,,0.6655621128136894
+HistGradientBoosting,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/HistGradientBoosting.joblib,0.8737870983302318,0.40323022562475874,0.29012500719693946,0.6903456786053229,,,,0.6903456786053229
+RF,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/RF.joblib,0.8709906489805258,0.4076728583540482,0.29964099411991985,0.6790784596061444,,,,0.6790784596061444
+ElasticNet,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ElasticNet.joblib,0.8259369255038231,0.47353766490872196,0.35378113762527036,0.7912615081477283,,,,0.7912615081477283

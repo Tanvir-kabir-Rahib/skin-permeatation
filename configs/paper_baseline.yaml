@@ -1,0 +1,11 @@
+random_state: 1
+test_size: 0.15
+cv_folds: 5
+scale_before_split: true
+run_ann: true
+ann:
+  learning_rate: 0.0001
+  dropout: 0.2
+  epochs: 2500
+  batch_size: 32
+  patience: 150

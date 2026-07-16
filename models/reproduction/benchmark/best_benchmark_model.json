@@ -1,0 +1,14 @@
+{
+  "model": "CatBoost",
+  "selection_basis": "lowest repeated-CV RMSE on the training set",
+  "metrics": {
+    "r2": 0.87831997002753,
+    "rmse": 0.39592311446973977,
+    "mae": 0.2916869311046544,
+    "cv_rmse": 0.6655621128136894,
+    "mae_ci_low": NaN,
+    "mae_ci_high": NaN,
+    "cv_mae": NaN,
+    "tuning_rmse": 0.6655621128136894
+  }
+}
