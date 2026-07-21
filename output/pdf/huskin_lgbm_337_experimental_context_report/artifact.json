@@ -1,0 +1,1795 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Experimental context and variability in 337 LGBM-matched HuSkinDB measurements",
+    "description": "Technical analysis of conditions, references, and within-compound variability for the LGBM ±0.6 subset.",
+    "generatedAt": "2026-07-21T00:13:41.929Z",
+    "sources": [
+      {
+        "id": "huskin_lgbm_selected",
+        "label": "HuSkinDB LGBM ±0.6 selected measurement table",
+        "path": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_selected_measurement_conditions.csv",
+        "query": {
+          "description": "Measurement-level analysis of experimental conditions, citations, and within-compound variability.",
+          "executed_at": "2026-07-21T00:13:41.929Z",
+          "language": "SQL",
+          "tables_used": [
+            "lgbm_within_0.6_selected_measurement_conditions.csv"
+          ],
+          "filters": [
+            "Absolute_Error_LGBM <= 0.6 (inclusive)",
+            "One source CSV row retained per experimental measurement",
+            "Sentinel values including unknown, N/A, and not reported treated as unavailable"
+          ],
+          "metric_definitions": [
+            "Experimental range = maximum experimental logKp minus minimum experimental logKp for a canonical compound.",
+            "Permeability fold-range = 10 raised to the experimental logKp range.",
+            "Condition completeness = reported condition fields divided by 14.",
+            "Repeated compound = canonical compound with at least two selected measurement rows."
+          ],
+          "engine": "DuckDB",
+          "sql": "SELECT * FROM read_csv_auto('results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_selected_measurement_conditions.csv') WHERE Absolute_Error_LGBM <= 0.6"
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "selected_rows",
+        "dataset": "summary",
+        "sourceId": "huskin_lgbm_selected",
+        "description": "Measurement rows satisfying the inclusive ±0.6 absolute-error rule.",
+        "metrics": [
+          {
+            "label": "Selected measurements",
+            "field": "selected_rows",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "unique_compounds",
+        "dataset": "summary",
+        "sourceId": "huskin_lgbm_selected",
+        "description": "Distinct compounds identified by canonical SMILES.",
+        "metrics": [
+          {
+            "label": "Unique compounds",
+            "field": "unique_compounds",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "repeated_compounds",
+        "dataset": "summary",
+        "sourceId": "huskin_lgbm_selected",
+        "description": "Compounds with at least two selected measurement rows.",
+        "metrics": [
+          {
+            "label": "Repeated compounds",
+            "field": "repeated_compounds",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "reference_count",
+        "dataset": "summary",
+        "sourceId": "huskin_lgbm_selected",
+        "description": "Distinct reference and DOI pairs represented.",
+        "metrics": [
+          {
+            "label": "References",
+            "field": "references",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "condition_completeness",
+        "dataset": "summary",
+        "sourceId": "huskin_lgbm_selected",
+        "description": "Available values across 337 rows and 14 experimental-condition fields.",
+        "metrics": [
+          {
+            "label": "Condition cells available (%)",
+            "field": "condition_completeness_percent",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "compound_variability_chart",
+        "title": "Largest within-compound experimental logKp ranges",
+        "subtitle": "Top 15 repeatedly measured compounds; range in log10(cm/s).",
+        "type": "horizontalBar",
+        "intent": "comparison",
+        "question": "Which repeated compounds show the largest selected-subset experimental variability?",
+        "rationale": "Sorted horizontal bars support direct comparison of long compound names and range magnitude.",
+        "comparisonContext": {
+          "grain": "canonical compound",
+          "unit": "log10(cm/s)",
+          "denominator": "selected measurements per compound"
+        },
+        "dataset": "compound_variability_top",
+        "sourceId": "huskin_lgbm_selected",
+        "encodings": {
+          "x": {
+            "field": "Compound_Name",
+            "type": "nominal",
+            "label": "Compound"
+          },
+          "y": {
+            "field": "Experimental_Range",
+            "type": "quantitative",
+            "label": "Experimental logKp range",
+            "unit": "log10(cm/s)"
+          }
+        },
+        "xAxisTitle": "",
+        "yAxisTitle": "Experimental logKp range (log10 cm/s)",
+        "valueFormat": "number",
+        "unit": "log10(cm/s)",
+        "maxRows": 15,
+        "referenceLines": [
+          {
+            "axis": "y",
+            "value": 0.5,
+            "label": "0.5 log unit",
+            "lineStyle": "dashed",
+            "color": "neutral"
+          },
+          {
+            "axis": "y",
+            "value": 1,
+            "label": "1.0 log unit",
+            "lineStyle": "dotted",
+            "color": "neutral"
+          }
+        ],
+        "surface": {
+          "surface": "card",
+          "viewMode": "both"
+        }
+      },
+      {
+        "id": "condition_missingness_chart",
+        "title": "Unavailable experimental-condition fields",
+        "subtitle": "Share of the 337 rows recorded as missing or an unavailable sentinel.",
+        "type": "horizontalBar",
+        "intent": "comparison",
+        "question": "Which experimental-condition fields are least completely reported?",
+        "rationale": "A sorted horizontal bar chart makes completeness gaps and long field labels easy to compare.",
+        "comparisonContext": {
+          "grain": "condition field",
+          "unit": "percent of selected rows",
+          "denominator": "337 selected measurements"
+        },
+        "dataset": "condition_profile",
+        "sourceId": "huskin_lgbm_selected",
+        "encodings": {
+          "x": {
+            "field": "Field",
+            "type": "nominal",
+            "label": "Condition field"
+          },
+          "y": {
+            "field": "Unavailable_Percent",
+            "type": "quantitative",
+            "label": "Unavailable rows",
+            "unit": "%"
+          }
+        },
+        "xAxisTitle": "",
+        "yAxisTitle": "Unavailable rows (%)",
+        "valueFormat": "number",
+        "unit": "%",
+        "maxRows": 14,
+        "surface": {
+          "surface": "card",
+          "viewMode": "both"
+        }
+      },
+      {
+        "id": "reference_coverage_chart",
+        "title": "Largest references in the selected subset",
+        "subtitle": "Top 15 citations by selected measurement-row count.",
+        "type": "horizontalBar",
+        "intent": "comparison",
+        "question": "How concentrated are selected measurements across references?",
+        "rationale": "Sorted horizontal bars show the largest source contributions without implying source quality.",
+        "comparisonContext": {
+          "grain": "reference/DOI pair",
+          "unit": "measurement rows",
+          "denominator": "337 selected measurements"
+        },
+        "dataset": "reference_top",
+        "sourceId": "huskin_lgbm_selected",
+        "encodings": {
+          "x": {
+            "field": "reference",
+            "type": "nominal",
+            "label": "Reference"
+          },
+          "y": {
+            "field": "Selected_Measurements",
+            "type": "quantitative",
+            "label": "Selected measurement rows"
+          }
+        },
+        "xAxisTitle": "",
+        "yAxisTitle": "Selected measurement rows",
+        "valueFormat": "number",
+        "maxRows": 15,
+        "surface": {
+          "surface": "card",
+          "viewMode": "both"
+        }
+      },
+      {
+        "id": "donor_ph_chart",
+        "title": "Experimental logKp across reported donor-pH series",
+        "subtitle": "Within-reference measurements from Vaidyanathan (1985) and Roy (1990); colors identify compounds.",
+        "type": "scatter",
+        "intent": "relationship",
+        "question": "How does experimental logKp vary across reported donor pH within selected same-compound series?",
+        "rationale": "A grouped scatter preserves individual measurements and exposes non-monotonic points without asserting causality.",
+        "comparisonContext": {
+          "grain": "experimental measurement",
+          "unit": "experimental log10(cm/s)",
+          "denominator": "selected pH-reported rows"
+        },
+        "combinationRationale": "Color separates three compound-specific pH series while retaining one measurement per point.",
+        "dataset": "ph_series",
+        "sourceId": "huskin_lgbm_selected",
+        "encodings": {
+          "x": {
+            "field": "Donor_pH_numeric",
+            "type": "quantitative",
+            "label": "Reported donor pH"
+          },
+          "y": {
+            "field": "logkp (cm/s)",
+            "type": "quantitative",
+            "label": "Experimental logKp",
+            "unit": "log10(cm/s)"
+          },
+          "color": {
+            "field": "Compound name",
+            "type": "nominal",
+            "label": "Compound"
+          },
+          "label": {
+            "field": "Compound name",
+            "type": "text"
+          }
+        },
+        "xAxisTitle": "Reported donor pH",
+        "yAxisTitle": "Experimental logKp (log10 cm/s)",
+        "valueFormat": "number",
+        "unit": "log10(cm/s)",
+        "maxRows": 30,
+        "surface": {
+          "surface": "card",
+          "viewMode": "both"
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "variability_extremes_table",
+        "title": "Minimum-versus-maximum rows for the most variable compounds",
+        "subtitle": "Top 15 repeated compounds; references and reported condition differences for the two extreme rows.",
+        "dataset": "variability_extremes",
+        "sourceId": "huskin_lgbm_selected",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "Experimental_Range",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "Compound_Name",
+            "label": "Compound",
+            "type": "text"
+          },
+          {
+            "field": "Selected_Measurements",
+            "label": "Rows",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Min",
+            "label": "Min logKp",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Max",
+            "label": "Max logKp",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Range",
+            "label": "Range",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Fold_Range_Kp",
+            "label": "Fold range",
+            "type": "number"
+          },
+          {
+            "field": "Predicted_Range",
+            "label": "Prediction range",
+            "type": "number"
+          },
+          {
+            "field": "Low_Reference",
+            "label": "Minimum reference",
+            "type": "text"
+          },
+          {
+            "field": "High_Reference",
+            "label": "Maximum reference",
+            "type": "text"
+          },
+          {
+            "field": "Differing_Conditions",
+            "label": "Reported fields that differ",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "same_reference_table",
+        "title": "Repeated compound series within a single reference",
+        "subtitle": "Top 15 compound/reference groups ranked by experimental logKp range.",
+        "dataset": "same_reference_series",
+        "sourceId": "huskin_lgbm_selected",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "Experimental_Range",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "Compound_Name",
+            "label": "Compound",
+            "type": "text"
+          },
+          {
+            "field": "Reference",
+            "label": "Reference",
+            "type": "text"
+          },
+          {
+            "field": "Measurements",
+            "label": "Rows",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Min",
+            "label": "Min logKp",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Max",
+            "label": "Max logKp",
+            "type": "number"
+          },
+          {
+            "field": "Experimental_Range",
+            "label": "Range",
+            "type": "number"
+          },
+          {
+            "field": "Varying_Conditions",
+            "label": "Varying reported conditions",
+            "type": "text"
+          },
+          {
+            "field": "Donor_pH_Spearman_Rho",
+            "label": "Donor-pH Spearman ρ",
+            "type": "number"
+          },
+          {
+            "field": "Donor_pH_Spearman_P",
+            "label": "p-value",
+            "type": "number"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Experimental context and variability in 337 LGBM-matched HuSkinDB measurements"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Technical summary\n\nThe 337 selected measurements represent **171 compounds** and **71 reference/DOI pairs**. Only 54 compounds have repeated selected measurements; 117 compounds therefore have unknown within-compound variability. Among repeated compounds, 21 span more than 0.5 log10 unit and three exceed 1.0 log10 unit. Their median experimental range is 0.381 log10 unit, versus a median LGBM prediction range of 0.0137. The selected data describe substantial protocol/source heterogeneity that the current model largely cannot vary with."
+      },
+      {
+        "id": "metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "selected_rows",
+          "unique_compounds",
+          "repeated_compounds",
+          "reference_count",
+          "condition_completeness"
+        ]
+      },
+      {
+        "id": "variability_finding",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Experimental variability is concentrated in a minority of repeat-measured compounds\n\nEstradiol, 1-butanol, and caffeine have selected-subset experimental ranges above 1.0 log10 unit; methotrexate reaches exactly 1.000. For the 54 repeated compounds, the median range is 0.381 and 22 receive an identical LGBM prediction across all their selected rows. Even the largest prediction range is below 0.1. This gap indicates limited representation of row-specific experimental context, not proof that any one condition caused the observed differences."
+      },
+      {
+        "id": "compound_chart_block",
+        "type": "chart",
+        "chartId": "compound_variability_chart",
+        "layout": "full"
+      },
+      {
+        "id": "extremes_note",
+        "type": "markdown",
+        "body": "The table pairs each compound's minimum and maximum selected experimental rows. Read the listed condition differences as a protocol audit: several fields usually change together, so the table cannot assign the range to a single factor."
+      },
+      {
+        "id": "extremes_table_block",
+        "type": "table",
+        "tableId": "variability_extremes_table",
+        "layout": "full"
+      },
+      {
+        "id": "condition_finding",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Missing experimental context limits adjustment for protocol effects\n\nAcross 4,718 condition cells, 70.8% are available. The median measurement is missing four of 14 condition fields; only 13 rows report all 14. Storage duration is unavailable in 71.5% of rows, acceptor pH in 58.2%, and donor pH in 54.0%. Used layer is nearly complete (99.4%) and the neat indicator is complete."
+      },
+      {
+        "id": "condition_chart_block",
+        "type": "chart",
+        "chartId": "condition_missingness_chart",
+        "layout": "full"
+      },
+      {
+        "id": "reference_finding",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Protocol signatures are completely coupled to literature sources\n\nThe citations span 1964–2012. Coverage is not dominated by one paper: the top five references contribute 22.3% of rows and the top ten contribute 35.9%. However, all 140 recorded condition signatures occur within only one reference. Consequently, reference/laboratory effects and protocol effects cannot be separated using simple grouped comparisons in this selected subset."
+      },
+      {
+        "id": "reference_chart_block",
+        "type": "chart",
+        "chartId": "reference_coverage_chart",
+        "layout": "full"
+      },
+      {
+        "id": "ph_finding",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Same-reference pH series are the clearest condition-linked examples\n\nWithin one citation, methotrexate spans 1.000 log10 unit while reported donor pH changes. The Roy (1990) selected series spans 0.836 for fentanyl and 0.746 for sufentanil, with strong monotonic rank associations across reported pH (Spearman ρ≈0.98), although one pH 7.4 row also differs in skin site, layer, and preparation. These are biologically plausible condition-linked patterns, but they remain observational and partially confounded."
+      },
+      {
+        "id": "ph_chart_block",
+        "type": "chart",
+        "chartId": "donor_ph_chart",
+        "layout": "full"
+      },
+      {
+        "id": "same_ref_table_block",
+        "type": "table",
+        "tableId": "same_reference_table",
+        "layout": "full"
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Scope, data, and definitions\n\nOne row is one reported measurement. Compounds are grouped by canonical SMILES. The cohort includes only rows with absolute LGBM prediction error ≤0.6. Experimental variability is max minus min logKp within a compound; fold range is 10 raised to that difference. `Unknown`, empty, N/A, and not-reported values count as unavailable. A condition context combines all 14 condition fields with reference and DOI."
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "body": "## Methodology\n\nThe analysis profiles completeness, citation concentration, repeated-measurement counts, within-compound experimental and prediction ranges, condition-signature uniqueness, and repeated series within a citation. It preserves every source measurement and adds annotations rather than averaging measurements. Exact row counts, calculations, and charts are reproducible in the companion notebook."
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "huskin_lgbm_selected",
+        "body": "## Limitations and robustness checks\n\nThis subset is selected using experimental logKp, creating outcome-dependent selection bias; it is not an unbiased validation cohort. Most compounds have only one selected measurement. Conditions are incompletely reported, several fields co-vary, and condition signatures are nested within references. The pH associations are descriptive, not causal. Row count, source-row uniqueness, the inclusive ±0.6 rule, 171-compound count, 71-reference count, and notebook execution were verified."
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## Recommended next steps\n\n1. Fit any condition-effect analysis on the full, unfiltered HuSkinDB table, not this outcome-selected subset.\n2. Use a hierarchical model with compound and reference effects before estimating pH, temperature, layer, preparation, donor/acceptor medium, or cell-type associations.\n3. Add ionization/pH and other protocol variables to future prediction models; the current LGBM condition input is limited to experimental temperature (`Texpi`).\n4. Treat single-measurement compounds as variability unknown, not variability low."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## Further questions\n\nCan the original papers resolve the high missingness in storage duration and pH? Are units and skin-thickness conventions harmonized across references? Does a full-dataset multilevel model retain the pH patterns after controlling for compound, reference, skin layer, preparation, and medium?"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-21T00:13:41.929Z",
+    "status": "ready",
+    "datasets": {
+      "summary": [
+        {
+          "selected_rows": 337,
+          "unique_compounds": 171,
+          "repeated_compounds": 54,
+          "references": 71,
+          "condition_completeness_percent": 70.7927
+        }
+      ],
+      "condition_profile": [
+        {
+          "Field": "storage duration (days)",
+          "Available_Rows": 96,
+          "Unavailable_Rows": 241,
+          "Unavailable_Percent": 71.51335312,
+          "Distinct_Reported_Values": 15,
+          "Top_Reported_Values": "7 (14) | 14 (13) | 90 (11) | 8.5 (9) | 180 (7) | 28 (7) | 0.5 (7) | 120 (6)"
+        },
+        {
+          "Field": "acceptor pH",
+          "Available_Rows": 141,
+          "Unavailable_Rows": 196,
+          "Unavailable_Percent": 58.16023739,
+          "Distinct_Reported_Values": 10,
+          "Top_Reported_Values": "7.4 (99) | 4 (9) | 6.5 (8) | 7.3 (7) | 7 (6) | 7.6 (4) | 7.5 (4) | 7.1 (2)"
+        },
+        {
+          "Field": "donor pH",
+          "Available_Rows": 155,
+          "Unavailable_Rows": 182,
+          "Unavailable_Percent": 54.00593472,
+          "Distinct_Reported_Values": 42,
+          "Top_Reported_Values": "7.4 (57) | 7 (21) | 4 (14) | 9.7 (5) | 7.5 (4) | 7.3 (3) | 2 (3) | 5.0 (3)"
+        },
+        {
+          "Field": "donor type",
+          "Available_Rows": 212,
+          "Unavailable_Rows": 125,
+          "Unavailable_Percent": 37.09198813,
+          "Distinct_Reported_Values": 28,
+          "Top_Reported_Values": "PBS (64) | Water (31) | NaCl solution (17) | Succinate solution (14) | NaCl, sodium azide (14) | Potassium phosphate buffer (12) | Sorensen buffer (8) | Propylene glycol/water (50%) (7)"
+        },
+        {
+          "Field": "acceptor type",
+          "Available_Rows": 217,
+          "Unavailable_Rows": 120,
+          "Unavailable_Percent": 35.60830861,
+          "Distinct_Reported_Values": 22,
+          "Top_Reported_Values": "PBS (71) | NaCl solution (35) | Water (22) | PBS with ethanol (11) | Ringer solution (10) | PBS with bovine serum albumin (9) | Succinate solution (9) | PBS with sodium azide (7)"
+        },
+        {
+          "Field": "storage temperature (°C)",
+          "Available_Rows": 224,
+          "Unavailable_Rows": 113,
+          "Unavailable_Percent": 33.53115727,
+          "Distinct_Reported_Values": 14,
+          "Top_Reported_Values": "-20 (84) | 4 (72) | -80 (15) | -30 (10) | 5 (8) | -17 (7) | -25 (6) | -70 (5)"
+        },
+        {
+          "Field": "donor/skin surface temperature (°C)",
+          "Available_Rows": 235,
+          "Unavailable_Rows": 102,
+          "Unavailable_Percent": 30.26706231,
+          "Distinct_Reported_Values": 9,
+          "Top_Reported_Values": "37 (63) | 32 (56) | 25 (50) | 30 (32) | 35 (10) | 31 (8) | 26 (6) | 40 (6)"
+        },
+        {
+          "Field": "acceptor temperature (°C)",
+          "Available_Rows": 249,
+          "Unavailable_Rows": 88,
+          "Unavailable_Percent": 26.11275964,
+          "Distinct_Reported_Values": 10,
+          "Top_Reported_Values": "37 (118) | 32 (45) | 25 (31) | 30 (23) | 35 (10) | 31 (7) | 26 (6) | 22 (4)"
+        },
+        {
+          "Field": "cell type",
+          "Available_Rows": 265,
+          "Unavailable_Rows": 72,
+          "Unavailable_Percent": 21.36498516,
+          "Distinct_Reported_Values": 7,
+          "Top_Reported_Values": "Glass diffusion cell (95) | Franz cell (82) | Pyrex cell (43) | Flow through cell (40) | Semi-automated apparatus (2) | Static diffusion cell (2) | Teflon cell (1)"
+        },
+        {
+          "Field": "skin preparation",
+          "Available_Rows": 284,
+          "Unavailable_Rows": 53,
+          "Unavailable_Percent": 15.72700297,
+          "Distinct_Reported_Values": 28,
+          "Top_Reported_Values": "heat separation (136) | fat removed (21) | exposure to ammonia fumes (18) | prepared with NaBr solution (15) | dermatomed (14) | dry heat separation (14) | dermatomed 500um (13) | dermatomed 250-280um (9)"
+        },
+        {
+          "Field": "skin source type",
+          "Available_Rows": 294,
+          "Unavailable_Rows": 43,
+          "Unavailable_Percent": 12.75964392,
+          "Distinct_Reported_Values": 7,
+          "Top_Reported_Values": "Cadaver (172) | Abdominoplasty (76) | Mammaplasty (16) | Abdominoplasty or cadaver (9) | Surgery (9) | Amputated limb (6) | Abdominoplasty or mammaplasty (6)"
+        },
+        {
+          "Field": "skin source site",
+          "Available_Rows": 296,
+          "Unavailable_Rows": 41,
+          "Unavailable_Percent": 12.16617211,
+          "Distinct_Reported_Values": 12,
+          "Top_Reported_Values": "abdomen (208) | thigh (38) | breast (16) | abdomen, chest, back (8) | abdomen, breast (6) | abdomen, back (6) | thigh, leg (4) | leg (3)"
+        },
+        {
+          "Field": "used layer",
+          "Available_Rows": 335,
+          "Unavailable_Rows": 2,
+          "Unavailable_Percent": 0.59347181,
+          "Distinct_Reported_Values": 6,
+          "Top_Reported_Values": "epidermis (171) | epidermis, dermis (132) | stratum corneum (17) | dermis (12) | epidermis without stratum corneum (2) | epidermis, dermis without stratum corneum (1)"
+        },
+        {
+          "Field": "neat",
+          "Available_Rows": 337,
+          "Unavailable_Rows": 0,
+          "Unavailable_Percent": 0,
+          "Distinct_Reported_Values": 2,
+          "Top_Reported_Values": "0 (319) | 1 (18)"
+        }
+      ],
+      "compound_variability_top": [
+        {
+          "Compound_Name": "Estradiol",
+          "Selected_Measurements": 12,
+          "Experimental_Min": -6.684,
+          "Experimental_Max": -5.556,
+          "Experimental_Range": 1.128,
+          "Experimental_Fold_Range_Kp": 13.42764961,
+          "Predicted_Range": 0.03264409,
+          "Condition_Signatures": 12,
+          "References": 10,
+          "Variability_Band": "High (>1.0 log unit)"
+        },
+        {
+          "Compound_Name": "1-Butanol",
+          "Selected_Measurements": 10,
+          "Experimental_Min": -6.556,
+          "Experimental_Max": -5.481,
+          "Experimental_Range": 1.075,
+          "Experimental_Fold_Range_Kp": 11.88502227,
+          "Predicted_Range": 0.028886,
+          "Condition_Signatures": 10,
+          "References": 8,
+          "Variability_Band": "High (>1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Caffeine",
+          "Selected_Measurements": 6,
+          "Experimental_Min": -7.556,
+          "Experimental_Max": -6.541,
+          "Experimental_Range": 1.015,
+          "Experimental_Fold_Range_Kp": 10.35142167,
+          "Predicted_Range": 0.04003743,
+          "Condition_Signatures": 6,
+          "References": 5,
+          "Variability_Band": "High (>1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Methotrexate",
+          "Selected_Measurements": 7,
+          "Experimental_Min": -7.503,
+          "Experimental_Max": -6.503,
+          "Experimental_Range": 1,
+          "Experimental_Fold_Range_Kp": 10,
+          "Predicted_Range": 0,
+          "Condition_Signatures": 6,
+          "References": 1,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "1-Hexanol",
+          "Selected_Measurements": 10,
+          "Experimental_Min": -5.778,
+          "Experimental_Max": -4.859,
+          "Experimental_Range": 0.919,
+          "Experimental_Fold_Range_Kp": 8.29850768,
+          "Predicted_Range": 0.07566118,
+          "Condition_Signatures": 10,
+          "References": 5,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "1-Decanol",
+          "Selected_Measurements": 4,
+          "Experimental_Min": -5.515,
+          "Experimental_Max": -4.602,
+          "Experimental_Range": 0.913,
+          "Experimental_Fold_Range_Kp": 8.18464788,
+          "Predicted_Range": 0.07673322,
+          "Condition_Signatures": 4,
+          "References": 4,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Fentanyl",
+          "Selected_Measurements": 10,
+          "Experimental_Min": -5.849,
+          "Experimental_Max": -5.013,
+          "Experimental_Range": 0.836,
+          "Experimental_Fold_Range_Kp": 6.85488226,
+          "Predicted_Range": 0.01005755,
+          "Condition_Signatures": 10,
+          "References": 3,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Ethanol",
+          "Selected_Measurements": 7,
+          "Experimental_Min": -7.079,
+          "Experimental_Max": -6.278,
+          "Experimental_Range": 0.801,
+          "Experimental_Fold_Range_Kp": 6.32411851,
+          "Predicted_Range": 0.06715993,
+          "Condition_Signatures": 7,
+          "References": 5,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Salicylic acid",
+          "Selected_Measurements": 3,
+          "Experimental_Min": -6.216,
+          "Experimental_Max": -5.416,
+          "Experimental_Range": 0.8,
+          "Experimental_Fold_Range_Kp": 6.30957344,
+          "Predicted_Range": 0.02313191,
+          "Condition_Signatures": 3,
+          "References": 3,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Nicotine",
+          "Selected_Measurements": 3,
+          "Experimental_Min": -6.036,
+          "Experimental_Max": -5.27,
+          "Experimental_Range": 0.766,
+          "Experimental_Fold_Range_Kp": 5.83445104,
+          "Predicted_Range": 0.01401409,
+          "Condition_Signatures": 3,
+          "References": 3,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Sufentanil",
+          "Selected_Measurements": 9,
+          "Experimental_Min": -5.764,
+          "Experimental_Max": -5.018,
+          "Experimental_Range": 0.746,
+          "Experimental_Fold_Range_Kp": 5.57185749,
+          "Predicted_Range": 0,
+          "Condition_Signatures": 9,
+          "References": 2,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Testosterone",
+          "Selected_Measurements": 11,
+          "Experimental_Min": -6.214,
+          "Experimental_Max": -5.476,
+          "Experimental_Range": 0.738,
+          "Experimental_Fold_Range_Kp": 5.47015963,
+          "Predicted_Range": 0.01697367,
+          "Condition_Signatures": 11,
+          "References": 7,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "Bis(2-ethylhexyl)phthalate",
+          "Selected_Measurements": 2,
+          "Experimental_Min": -7.653,
+          "Experimental_Max": -6.979,
+          "Experimental_Range": 0.674,
+          "Experimental_Fold_Range_Kp": 4.72063041,
+          "Predicted_Range": 0,
+          "Condition_Signatures": 2,
+          "References": 2,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "1-Pentanol",
+          "Selected_Measurements": 4,
+          "Experimental_Min": -5.778,
+          "Experimental_Max": -5.176,
+          "Experimental_Range": 0.602,
+          "Experimental_Fold_Range_Kp": 3.9994475,
+          "Predicted_Range": 0.08369436,
+          "Condition_Signatures": 4,
+          "References": 3,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        },
+        {
+          "Compound_Name": "1-Octanol",
+          "Selected_Measurements": 9,
+          "Experimental_Min": -5.141,
+          "Experimental_Max": -4.586,
+          "Experimental_Range": 0.555,
+          "Experimental_Fold_Range_Kp": 3.58921935,
+          "Predicted_Range": 0.0562661,
+          "Condition_Signatures": 9,
+          "References": 7,
+          "Variability_Band": "Moderate (>0.5 to 1.0 log unit)"
+        }
+      ],
+      "reference_top": [
+        {
+          "reference": "Roberts, 1977",
+          "DOI": "10.1111/j.2042-7158.1977.tb11434.x ",
+          "DOI_URL": "https://doi.org/10.1111/j.2042-7158.1977.tb11434.x",
+          "Selected_Measurements": 18,
+          "Unique_Compounds": 18,
+          "Condition_Signatures": 1,
+          "Experimental_Min": -5.81,
+          "Experimental_Max": -4.778,
+          "Experimental_Range": 1.032,
+          "Selected_Row_Share_Percent": 5.34124629,
+          "Reference_Year": 1977
+        },
+        {
+          "reference": "Scheuplein, 1973",
+          "DOI": "10.1111/1523-1747.ep12723090",
+          "DOI_URL": "https://doi.org/10.1111/1523-1747.ep12723090",
+          "Selected_Measurements": 17,
+          "Unique_Compounds": 10,
+          "Condition_Signatures": 4,
+          "Experimental_Min": -6.857,
+          "Experimental_Max": -4.653,
+          "Experimental_Range": 2.204,
+          "Selected_Row_Share_Percent": 5.04451039,
+          "Reference_Year": 1973
+        },
+        {
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416",
+          "DOI_URL": "https://doi.org/10.1023/A:1015912932416",
+          "Selected_Measurements": 16,
+          "Unique_Compounds": 2,
+          "Condition_Signatures": 8,
+          "Experimental_Min": -5.849,
+          "Experimental_Max": -5.013,
+          "Experimental_Range": 0.836,
+          "Selected_Row_Share_Percent": 4.74777448,
+          "Reference_Year": 1990
+        },
+        {
+          "reference": "Buist, 2010",
+          "DOI": "10.1016/j.yrtph.2010.02.008",
+          "DOI_URL": "https://doi.org/10.1016/j.yrtph.2010.02.008",
+          "Selected_Measurements": 14,
+          "Unique_Compounds": 14,
+          "Condition_Signatures": 1,
+          "Experimental_Min": -7.653,
+          "Experimental_Max": -5.065,
+          "Experimental_Range": 2.588,
+          "Selected_Row_Share_Percent": 4.15430267,
+          "Reference_Year": 2010
+        },
+        {
+          "reference": "Zhang, 2009",
+          "DOI": "10.1007/s11095-009-9912-4",
+          "DOI_URL": "https://doi.org/10.1007/s11095-009-9912-4",
+          "Selected_Measurements": 10,
+          "Unique_Compounds": 10,
+          "Condition_Signatures": 1,
+          "Experimental_Min": -5.632,
+          "Experimental_Max": -4.651,
+          "Experimental_Range": 0.981,
+          "Selected_Row_Share_Percent": 2.96735905,
+          "Reference_Year": 2009
+        },
+        {
+          "reference": "Chantasart, 2010",
+          "DOI": "10.1007/s11095-010-0181-z",
+          "DOI_URL": "https://doi.org/10.1007/s11095-010-0181-z",
+          "Selected_Measurements": 10,
+          "Unique_Compounds": 8,
+          "Condition_Signatures": 2,
+          "Experimental_Min": -5.481,
+          "Experimental_Max": -4.81,
+          "Experimental_Range": 0.671,
+          "Selected_Row_Share_Percent": 2.96735905,
+          "Reference_Year": 2010
+        },
+        {
+          "reference": "Sznitowska, 2001",
+          "DOI": "10.1016/s0168-3659(01)00443-6",
+          "DOI_URL": "https://doi.org/10.1016/s0168-3659(01)00443-6",
+          "Selected_Measurements": 10,
+          "Unique_Compounds": 2,
+          "Condition_Signatures": 10,
+          "Experimental_Min": -7.681,
+          "Experimental_Max": -5.476,
+          "Experimental_Range": 2.205,
+          "Selected_Row_Share_Percent": 2.96735905,
+          "Reference_Year": 2001
+        },
+        {
+          "reference": "Anderson, 1988",
+          "DOI": "10.1023/a:1015989929342",
+          "DOI_URL": "https://doi.org/10.1023/a:1015989929342",
+          "Selected_Measurements": 9,
+          "Unique_Compounds": 7,
+          "Condition_Signatures": 2,
+          "Experimental_Min": -6.757,
+          "Experimental_Max": -5.824,
+          "Experimental_Range": 0.933,
+          "Selected_Row_Share_Percent": 2.67062315,
+          "Reference_Year": 1988
+        },
+        {
+          "reference": "Cross, 2003",
+          "DOI": "10.1046/j.1523-1747.2003.12131.x",
+          "DOI_URL": "https://doi.org/10.1046/j.1523-1747.2003.12131.x",
+          "Selected_Measurements": 9,
+          "Unique_Compounds": 5,
+          "Condition_Signatures": 3,
+          "Experimental_Min": -6.352,
+          "Experimental_Max": -4.586,
+          "Experimental_Range": 1.766,
+          "Selected_Row_Share_Percent": 2.67062315,
+          "Reference_Year": 2003
+        },
+        {
+          "reference": "Mitragotri, 2000",
+          "DOI": "10.1023/A:1007547809430",
+          "DOI_URL": "https://doi.org/10.1023/A:1007547809430",
+          "Selected_Measurements": 8,
+          "Unique_Compounds": 8,
+          "Condition_Signatures": 1,
+          "Experimental_Min": -8.079,
+          "Experimental_Max": -4.602,
+          "Experimental_Range": 3.477,
+          "Selected_Row_Share_Percent": 2.37388724,
+          "Reference_Year": 2000
+        },
+        {
+          "reference": "Scheuplein, 1965",
+          "DOI": "10.1038/jid.1965.140",
+          "DOI_URL": "https://doi.org/10.1038/jid.1965.140",
+          "Selected_Measurements": 8,
+          "Unique_Compounds": 8,
+          "Condition_Signatures": 1,
+          "Experimental_Min": -6.556,
+          "Experimental_Max": -4.84,
+          "Experimental_Range": 1.716,
+          "Selected_Row_Share_Percent": 2.37388724,
+          "Reference_Year": 1965
+        },
+        {
+          "reference": "Swart, 2005",
+          "DOI": "10.1016/j.ijpharm.2005.05.030",
+          "DOI_URL": "https://doi.org/10.1016/j.ijpharm.2005.05.030",
+          "Selected_Measurements": 8,
+          "Unique_Compounds": 8,
+          "Condition_Signatures": 1,
+          "Experimental_Min": -7.7,
+          "Experimental_Max": -5.331,
+          "Experimental_Range": 2.369,
+          "Selected_Row_Share_Percent": 2.37388724,
+          "Reference_Year": 2005
+        },
+        {
+          "reference": "Xu, 2002",
+          "DOI": "10.1006/taap.2002.9494",
+          "DOI_URL": "https://doi.org/10.1006/taap.2002.9494",
+          "Selected_Measurements": 8,
+          "Unique_Compounds": 8,
+          "Condition_Signatures": 2,
+          "Experimental_Min": -6.515,
+          "Experimental_Max": -4.301,
+          "Experimental_Range": 2.214,
+          "Selected_Row_Share_Percent": 2.37388724,
+          "Reference_Year": 2002
+        },
+        {
+          "reference": "Michaels A. S., 1975",
+          "DOI": "10.1002/aic.690210522",
+          "DOI_URL": "https://doi.org/10.1002/aic.690210522",
+          "Selected_Measurements": 8,
+          "Unique_Compounds": 5,
+          "Condition_Signatures": 8,
+          "Experimental_Min": -7.852,
+          "Experimental_Max": -5.556,
+          "Experimental_Range": 2.296,
+          "Selected_Row_Share_Percent": 2.37388724,
+          "Reference_Year": 1975
+        },
+        {
+          "reference": "Hadgraft, 1987",
+          "DOI": "10.1016/0378-5173(87)90210-9",
+          "DOI_URL": "https://doi.org/10.1016/0378-5173(87)90210-9",
+          "Selected_Measurements": 7,
+          "Unique_Compounds": 7,
+          "Condition_Signatures": 5,
+          "Experimental_Min": -7.509,
+          "Experimental_Max": -5.27,
+          "Experimental_Range": 2.239,
+          "Selected_Row_Share_Percent": 2.07715134,
+          "Reference_Year": 1987
+        }
+      ],
+      "same_reference_series": [
+        {
+          "Compound_Name": "Methotrexate",
+          "Reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1",
+          "Measurements": 7,
+          "Experimental_Min": -7.503,
+          "Experimental_Max": -6.503,
+          "Experimental_Range": 1,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "donor pH",
+          "Donor_pH_Spearman_Rho": 0.61263747,
+          "Donor_pH_Spearman_P": 0.14358858
+        },
+        {
+          "Compound_Name": "Estradiol",
+          "Reference": "Pershing, 1993",
+          "DOI": "10.1023/A:1018974131236",
+          "Measurements": 2,
+          "Experimental_Min": -6.556,
+          "Experimental_Max": -5.556,
+          "Experimental_Range": 1,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "donor type",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Fentanyl",
+          "Reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416",
+          "Measurements": 8,
+          "Experimental_Min": -5.849,
+          "Experimental_Max": -5.013,
+          "Experimental_Range": 0.836,
+          "Varying_Condition_Count": 5,
+          "Varying_Conditions": "skin source site | used layer | skin preparation | donor pH | donor type",
+          "Donor_pH_Spearman_Rho": 0.97619048,
+          "Donor_pH_Spearman_P": 0.00003314
+        },
+        {
+          "Compound_Name": "Sufentanil",
+          "Reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416",
+          "Measurements": 8,
+          "Experimental_Min": -5.764,
+          "Experimental_Max": -5.018,
+          "Experimental_Range": 0.746,
+          "Varying_Condition_Count": 5,
+          "Varying_Conditions": "skin source site | used layer | skin preparation | donor pH | donor type",
+          "Donor_pH_Spearman_Rho": 0.97619048,
+          "Donor_pH_Spearman_P": 0.00003314
+        },
+        {
+          "Compound_Name": "1-Hexanol",
+          "Reference": "Cross, 2003",
+          "DOI": "10.1046/j.1523-1747.2003.12131.x",
+          "Measurements": 3,
+          "Experimental_Min": -5.778,
+          "Experimental_Max": -5.051,
+          "Experimental_Range": 0.727,
+          "Varying_Condition_Count": 2,
+          "Varying_Conditions": "used layer | skin preparation",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Estradiol",
+          "Reference": "Goodman, 1988",
+          "DOI": "10.1111/1523-1747.ep12475655",
+          "Measurements": 2,
+          "Experimental_Min": -6.684,
+          "Experimental_Max": -6.018,
+          "Experimental_Range": 0.666,
+          "Varying_Condition_Count": 2,
+          "Varying_Conditions": "donor type | acceptor type",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "1-Pentanol",
+          "Reference": "Scheuplein, 1973",
+          "DOI": "10.1111/1523-1747.ep12723090",
+          "Measurements": 2,
+          "Experimental_Min": -5.778,
+          "Experimental_Max": -5.176,
+          "Experimental_Range": 0.602,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "used layer",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Ephedrine",
+          "Reference": "Michaels A. S., 1975",
+          "DOI": "10.1002/aic.690210522",
+          "Measurements": 4,
+          "Experimental_Min": -6.326,
+          "Experimental_Max": -5.778,
+          "Experimental_Range": 0.548,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "donor pH",
+          "Donor_pH_Spearman_Rho": 0.77459667,
+          "Donor_pH_Spearman_P": 0.22540333
+        },
+        {
+          "Compound_Name": "Lysine",
+          "Reference": "Sznitowska, 1993",
+          "DOI": "10.1016/0378-5173(93)90321-6",
+          "Measurements": 2,
+          "Experimental_Min": -7.328,
+          "Experimental_Max": -6.86,
+          "Experimental_Range": 0.468,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "donor pH",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "1-Butanol",
+          "Reference": "Scheuplein, 1973",
+          "DOI": "10.1111/1523-1747.ep12723090",
+          "Measurements": 2,
+          "Experimental_Min": -6.556,
+          "Experimental_Max": -6.158,
+          "Experimental_Range": 0.398,
+          "Varying_Condition_Count": 2,
+          "Varying_Conditions": "used layer | neat",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Butoxyethanol",
+          "Reference": "Wilkinson, 2006",
+          "DOI": "10.1007/s00420-005-0056-5",
+          "Measurements": 2,
+          "Experimental_Min": -6.364,
+          "Experimental_Max": -5.982,
+          "Experimental_Range": 0.382,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "skin preparation",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "2-Propoxyethanol",
+          "Reference": "Venier, 2004",
+          "DOI": "10.1016/j.tiv.2004.03.004",
+          "Measurements": 2,
+          "Experimental_Min": -6.923,
+          "Experimental_Max": -6.543,
+          "Experimental_Range": 0.38,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "neat",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Caffeine",
+          "Reference": "Wilkinson, 2006",
+          "DOI": "10.1007/s00420-005-0056-5",
+          "Measurements": 2,
+          "Experimental_Min": -6.915,
+          "Experimental_Max": -6.541,
+          "Experimental_Range": 0.374,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "skin preparation",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Ethylene glycol mono methyl ether acetate",
+          "Reference": "Venier, 2004",
+          "DOI": "10.1016/j.tiv.2004.03.004",
+          "Measurements": 2,
+          "Experimental_Min": -6.637,
+          "Experimental_Max": -6.299,
+          "Experimental_Range": 0.338,
+          "Varying_Condition_Count": 1,
+          "Varying_Conditions": "neat",
+          "Donor_pH_Spearman_Rho": null,
+          "Donor_pH_Spearman_P": null
+        },
+        {
+          "Compound_Name": "Hydrocortisone",
+          "Reference": "Sznitowska, 2001",
+          "DOI": "10.1016/s0168-3659(01)00443-6",
+          "Measurements": 5,
+          "Experimental_Min": -7.681,
+          "Experimental_Max": -7.357,
+          "Experimental_Range": 0.324,
+          "Varying_Condition_Count": 2,
+          "Varying_Conditions": "donor pH | donor type",
+          "Donor_pH_Spearman_Rho": -0.8720816,
+          "Donor_pH_Spearman_P": 0.05385422
+        }
+      ],
+      "variability_extremes": [
+        {
+          "Compound_Name": "Estradiol",
+          "Selected_Measurements": 12,
+          "Experimental_Min": -6.684,
+          "Experimental_Max": -5.556,
+          "Experimental_Range": 1.128,
+          "Experimental_Fold_Range_Kp": 13.42764961,
+          "Predicted_Range": 0.03264409,
+          "Low_Source_Data_Row": 119,
+          "High_Source_Data_Row": 483,
+          "Low_Reference": "Goodman, 1988",
+          "High_Reference": "Pershing, 1993",
+          "Low_DOI": "10.1111/1523-1747.ep12475655",
+          "High_DOI": "10.1023/A:1018974131236",
+          "Differing_Condition_Count": 9,
+          "Differing_Conditions": "skin source type | used layer | skin preparation | storage temperature (°C) | storage duration (days) | donor/skin surface temperature (°C) | donor type | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "1-Butanol",
+          "Selected_Measurements": 10,
+          "Experimental_Min": -6.556,
+          "Experimental_Max": -5.481,
+          "Experimental_Range": 1.075,
+          "Experimental_Fold_Range_Kp": 11.88502227,
+          "Predicted_Range": 0.028886,
+          "Low_Source_Data_Row": 442,
+          "High_Source_Data_Row": 69,
+          "Low_Reference": "Scheuplein, 1973",
+          "High_Reference": "Chantasart, 2010",
+          "Low_DOI": "10.1111/1523-1747.ep12723090",
+          "High_DOI": "10.1007/s11095-010-0181-z",
+          "Differing_Condition_Count": 8,
+          "Differing_Conditions": "skin source type | used layer | storage temperature (°C) | neat | donor/skin surface temperature (°C) | acceptor temperature (°C) | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "Caffeine",
+          "Selected_Measurements": 6,
+          "Experimental_Min": -7.556,
+          "Experimental_Max": -6.541,
+          "Experimental_Range": 1.015,
+          "Experimental_Fold_Range_Kp": 10.35142167,
+          "Predicted_Range": 0.04003743,
+          "Low_Source_Data_Row": 171,
+          "High_Source_Data_Row": 533,
+          "Low_Reference": "Mitragotri, 1995",
+          "High_Reference": "Wilkinson, 2006",
+          "Low_DOI": "10.1002/jps.2600840607",
+          "High_DOI": "10.1007/s00420-005-0056-5",
+          "Differing_Condition_Count": 12,
+          "Differing_Conditions": "skin source type | skin source site | used layer | skin preparation | storage temperature (°C) | storage duration (days) | donor/skin surface temperature (°C) | donor type | acceptor temperature (°C) | acceptor pH | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "Methotrexate",
+          "Selected_Measurements": 7,
+          "Experimental_Min": -7.503,
+          "Experimental_Max": -6.503,
+          "Experimental_Range": 1,
+          "Experimental_Fold_Range_Kp": 10,
+          "Predicted_Range": 0,
+          "Low_Source_Data_Row": 508,
+          "High_Source_Data_Row": 512,
+          "Low_Reference": "Vaidyanathan, 1985",
+          "High_Reference": "Vaidyanathan, 1985",
+          "Low_DOI": "10.1016/0378-5173(85)90106-1",
+          "High_DOI": "10.1016/0378-5173(85)90106-1",
+          "Differing_Condition_Count": 1,
+          "Differing_Conditions": "donor pH"
+        },
+        {
+          "Compound_Name": "1-Hexanol",
+          "Selected_Measurements": 10,
+          "Experimental_Min": -5.778,
+          "Experimental_Max": -4.859,
+          "Experimental_Range": 0.919,
+          "Experimental_Fold_Range_Kp": 8.29850768,
+          "Predicted_Range": 0.07566118,
+          "Low_Source_Data_Row": 419,
+          "High_Source_Data_Row": 369,
+          "Low_Reference": "Cross, 2003",
+          "High_Reference": "Bond, 1988",
+          "Low_DOI": "10.1046/j.1523-1747.2003.12131.x",
+          "High_DOI": "10.1111/1523-1747.ep12460958",
+          "Differing_Condition_Count": 12,
+          "Differing_Conditions": "skin source type | skin source site | skin preparation | storage temperature (°C) | storage duration (days) | donor/skin surface temperature (°C) | donor pH | donor type | acceptor temperature (°C) | acceptor pH | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "1-Decanol",
+          "Selected_Measurements": 4,
+          "Experimental_Min": -5.515,
+          "Experimental_Max": -4.602,
+          "Experimental_Range": 0.913,
+          "Experimental_Fold_Range_Kp": 8.18464788,
+          "Predicted_Range": 0.07673322,
+          "Low_Source_Data_Row": 60,
+          "High_Source_Data_Row": 185,
+          "Low_Reference": "Buist, 2010",
+          "High_Reference": "Mitragotri, 2000",
+          "Low_DOI": "10.1016/j.yrtph.2010.02.008",
+          "High_DOI": "10.1023/A:1007547809430",
+          "Differing_Condition_Count": 8,
+          "Differing_Conditions": "skin source site | skin preparation | storage temperature (°C) | donor pH | donor type | acceptor pH | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "Fentanyl",
+          "Selected_Measurements": 10,
+          "Experimental_Min": -5.849,
+          "Experimental_Max": -5.013,
+          "Experimental_Range": 0.836,
+          "Experimental_Fold_Range_Kp": 6.85488226,
+          "Predicted_Range": 0.01005755,
+          "Low_Source_Data_Row": 460,
+          "High_Source_Data_Row": 465,
+          "Low_Reference": "Roy, 1990",
+          "High_Reference": "Roy, 1990",
+          "Low_DOI": "10.1023/A:1015912932416",
+          "High_DOI": "10.1023/A:1015912932416",
+          "Differing_Condition_Count": 2,
+          "Differing_Conditions": "donor pH | donor type"
+        },
+        {
+          "Compound_Name": "Ethanol",
+          "Selected_Measurements": 7,
+          "Experimental_Min": -7.079,
+          "Experimental_Max": -6.278,
+          "Experimental_Range": 0.801,
+          "Experimental_Fold_Range_Kp": 6.32411851,
+          "Predicted_Range": 0.06715993,
+          "Low_Source_Data_Row": 38,
+          "High_Source_Data_Row": 79,
+          "Low_Reference": "Blank, 1964",
+          "High_Reference": "Cross, 2003",
+          "Low_DOI": "10.1038/jid.1964.174",
+          "High_DOI": "10.1046/j.1523-1747.2003.12131.x",
+          "Differing_Condition_Count": 10,
+          "Differing_Conditions": "skin source type | used layer | skin preparation | donor/skin surface temperature (°C) | donor pH | donor type | acceptor temperature (°C) | acceptor pH | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "Salicylic acid",
+          "Selected_Measurements": 3,
+          "Experimental_Min": -6.216,
+          "Experimental_Max": -5.416,
+          "Experimental_Range": 0.8,
+          "Experimental_Fold_Range_Kp": 6.30957344,
+          "Predicted_Range": 0.02313191,
+          "Low_Source_Data_Row": 477,
+          "High_Source_Data_Row": 101,
+          "Low_Reference": "Schmook, 2001",
+          "High_Reference": "Degim, 1998",
+          "Low_DOI": "10.1016/S0378-5173(00)00665-7",
+          "High_DOI": "10.1016/S0378-5173(98)00113-6",
+          "Differing_Condition_Count": 9,
+          "Differing_Conditions": "skin source type | skin preparation | storage temperature (°C) | storage duration (days) | donor/skin surface temperature (°C) | donor type | acceptor temperature (°C) | acceptor pH | acceptor type"
+        },
+        {
+          "Compound_Name": "Nicotine",
+          "Selected_Measurements": 3,
+          "Experimental_Min": -6.036,
+          "Experimental_Max": -5.27,
+          "Experimental_Range": 0.766,
+          "Experimental_Fold_Range_Kp": 5.83445104,
+          "Predicted_Range": 0.01401409,
+          "Low_Source_Data_Row": 100,
+          "High_Source_Data_Row": 126,
+          "Low_Reference": "Degim, 1998",
+          "High_Reference": "Hadgraft, 1987",
+          "Low_DOI": "10.1016/S0378-5173(98)00113-6",
+          "High_DOI": "10.1016/0378-5173(87)90210-9",
+          "Differing_Condition_Count": 9,
+          "Differing_Conditions": "skin source type | skin preparation | storage temperature (°C) | storage duration (days) | donor/skin surface temperature (°C) | donor pH | donor type | acceptor pH | acceptor type"
+        },
+        {
+          "Compound_Name": "Sufentanil",
+          "Selected_Measurements": 9,
+          "Experimental_Min": -5.764,
+          "Experimental_Max": -5.018,
+          "Experimental_Range": 0.746,
+          "Experimental_Fold_Range_Kp": 5.57185749,
+          "Predicted_Range": 0,
+          "Low_Source_Data_Row": 469,
+          "High_Source_Data_Row": 474,
+          "Low_Reference": "Roy, 1990",
+          "High_Reference": "Roy, 1990",
+          "Low_DOI": "10.1023/A:1015912932416",
+          "High_DOI": "10.1023/A:1015912932416",
+          "Differing_Condition_Count": 2,
+          "Differing_Conditions": "donor pH | donor type"
+        },
+        {
+          "Compound_Name": "Testosterone",
+          "Selected_Measurements": 11,
+          "Experimental_Min": -6.214,
+          "Experimental_Max": -5.476,
+          "Experimental_Range": 0.738,
+          "Experimental_Fold_Range_Kp": 5.47015963,
+          "Predicted_Range": 0.01697367,
+          "Low_Source_Data_Row": 175,
+          "High_Source_Data_Row": 402,
+          "Low_Reference": "Mitragotri, 1995",
+          "High_Reference": "Sznitowska, 2001",
+          "Low_DOI": "10.1002/jps.2600840607",
+          "High_DOI": "10.1016/s0168-3659(01)00443-6",
+          "Differing_Condition_Count": 10,
+          "Differing_Conditions": "skin source site | used layer | skin preparation | storage temperature (°C) | storage duration (days) | donor/skin surface temperature (°C) | donor pH | acceptor temperature (°C) | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "Bis(2-ethylhexyl)phthalate",
+          "Selected_Measurements": 2,
+          "Experimental_Min": -7.653,
+          "Experimental_Max": -6.979,
+          "Experimental_Range": 0.674,
+          "Experimental_Fold_Range_Kp": 4.72063041,
+          "Predicted_Range": 0,
+          "Low_Source_Data_Row": 57,
+          "High_Source_Data_Row": 33,
+          "Low_Reference": "Buist, 2010",
+          "High_Reference": "Barber, 1992",
+          "Low_DOI": "10.1016/j.yrtph.2010.02.008",
+          "High_DOI": "10.1016/0272-0590(92)90086-W",
+          "Differing_Condition_Count": 12,
+          "Differing_Conditions": "skin source type | skin source site | used layer | skin preparation | storage temperature (°C) | storage duration (days) | neat | donor type | acceptor temperature (°C) | acceptor pH | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "1-Pentanol",
+          "Selected_Measurements": 4,
+          "Experimental_Min": -5.778,
+          "Experimental_Max": -5.176,
+          "Experimental_Range": 0.602,
+          "Experimental_Fold_Range_Kp": 3.9994475,
+          "Predicted_Range": 0.08369436,
+          "Low_Source_Data_Row": 40,
+          "High_Source_Data_Row": 454,
+          "Low_Reference": "Blank, 1964",
+          "High_Reference": "Scheuplein, 1973",
+          "Low_DOI": "10.1038/jid.1964.174",
+          "High_DOI": "10.1111/1523-1747.ep12723090",
+          "Differing_Condition_Count": 8,
+          "Differing_Conditions": "used layer | skin preparation | storage temperature (°C) | donor/skin surface temperature (°C) | donor type | acceptor temperature (°C) | acceptor type | cell type"
+        },
+        {
+          "Compound_Name": "1-Octanol",
+          "Selected_Measurements": 9,
+          "Experimental_Min": -5.141,
+          "Experimental_Max": -4.586,
+          "Experimental_Range": 0.555,
+          "Experimental_Fold_Range_Kp": 3.58921935,
+          "Predicted_Range": 0.0562661,
+          "Low_Source_Data_Row": 452,
+          "High_Source_Data_Row": 83,
+          "Low_Reference": "Scheuplein, 1973",
+          "High_Reference": "Cross, 2003",
+          "Low_DOI": "10.1111/1523-1747.ep12723090",
+          "High_DOI": "10.1046/j.1523-1747.2003.12131.x",
+          "Differing_Condition_Count": 10,
+          "Differing_Conditions": "skin source type | used layer | storage temperature (°C) | donor/skin surface temperature (°C) | donor pH | donor type | acceptor temperature (°C) | acceptor pH | acceptor type | cell type"
+        }
+      ],
+      "ph_series": [
+        {
+          "Source_Data_Row": 460,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.849,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 6.02,
+          "donor type": "Citrate-phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 461,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.705,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 6.95,
+          "donor type": "Citrate-phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 232,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.503,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 7.4,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis",
+          "skin preparation": "heat separation",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 462,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.452,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 7.43,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 463,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.206,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 7.95,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 464,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.115,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 8.52,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 465,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.013,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 9.04,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 466,
+          "Compound name": "Fentanyl",
+          "logkp (cm/s)": -5.039,
+          "Predicted_logKp_LGBM": -5.51023571,
+          "Donor_pH_numeric": 9.37,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 508,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -7.503,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 1.98,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 509,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -7.209,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 2.98,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 510,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -6.613,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 3.87,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 507,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -7.007,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 4.12,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 511,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -6.807,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 4.12,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 512,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -6.503,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 5.29,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 513,
+          "Compound name": "Methotrexate",
+          "logkp (cm/s)": -6.84,
+          "Predicted_logKp_LGBM": -6.95158058,
+          "Donor_pH_numeric": 6.34,
+          "donor type": "Propylene glycol/water (50%)",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "unknown",
+          "reference": "Vaidyanathan, 1985",
+          "DOI": "10.1016/0378-5173(85)90106-1"
+        },
+        {
+          "Source_Data_Row": 469,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.764,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 6.02,
+          "donor type": "Citrate-phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 470,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.552,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 6.95,
+          "donor type": "Citrate-phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 233,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.374,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 7.4,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis",
+          "skin preparation": "heat separation",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 471,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.36,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 7.43,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 472,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.193,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 7.95,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 473,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.082,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 8.52,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 474,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.018,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 9.04,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        },
+        {
+          "Source_Data_Row": 475,
+          "Compound name": "Sufentanil",
+          "logkp (cm/s)": -5.029,
+          "Predicted_logKp_LGBM": -5.39696371,
+          "Donor_pH_numeric": 9.37,
+          "donor type": "Potassium phosphate buffer",
+          "used layer": "epidermis, dermis",
+          "skin preparation": "dermatomed",
+          "reference": "Roy, 1990",
+          "DOI": "10.1023/A:1015912932416"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "huskin_lgbm_selected",
+      "label": "HuSkinDB LGBM ±0.6 selected measurement table",
+      "path": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_selected_measurement_conditions.csv",
+      "query": {
+        "description": "Measurement-level analysis of experimental conditions, citations, and within-compound variability.",
+        "executed_at": "2026-07-21T00:13:41.929Z",
+        "language": "SQL",
+        "tables_used": [
+          "lgbm_within_0.6_selected_measurement_conditions.csv"
+        ],
+        "filters": [
+          "Absolute_Error_LGBM <= 0.6 (inclusive)",
+          "One source CSV row retained per experimental measurement",
+          "Sentinel values including unknown, N/A, and not reported treated as unavailable"
+        ],
+        "metric_definitions": [
+          "Experimental range = maximum experimental logKp minus minimum experimental logKp for a canonical compound.",
+          "Permeability fold-range = 10 raised to the experimental logKp range.",
+          "Condition completeness = reported condition fields divided by 14.",
+          "Repeated compound = canonical compound with at least two selected measurement rows."
+        ],
+        "engine": "DuckDB",
+        "sql": "SELECT * FROM read_csv_auto('results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_selected_measurement_conditions.csv') WHERE Absolute_Error_LGBM <= 0.6"
+      }
+    }
+  ]
+}

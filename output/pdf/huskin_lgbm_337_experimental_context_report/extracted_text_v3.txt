@@ -1,0 +1,285 @@
+Data Analytics report                                                                                                                              Jul 21, 2026, 12:13 AM
+Experimental context and variability in 337 LGBM-matched HuSkinDB                                                                                  UTC
+measurements
+Technical analysis of conditions, references, and within-compound variability for the LGBM ±0.6 subset.
+                        Technical summary
+                        The 337 selected measurements represent 171 compounds and 71 reference/DOI pairs. Only 54 compounds have
+                        repeated selected measurements; 117 compounds therefore have unknown within-compound variability. Among
+                        repeated compounds, 21 span more than 0.5 log10 unit and three exceed 1.0 log10 unit. Their median experimental
+                        range is 0.381 log10 unit, versus a median LGBM prediction range of 0.0137. The selected data describe substantial
+                        protocol/source heterogeneity that the current model largely cannot vary with.
+                        Source: HuSkinDB LGBM ±0.6 selected measurement table
+                        Table: lgbm_within_0.6_selected_measurement_conditions.csv
+
+                           Selected measurements                         Unique compounds                     Repeated compounds
+                           337
+                           Measurement rows satisfying the
+                                                                         171
+                                                                         Distinct compounds identified by
+                                                                                                              54
+                                                                                                              Compounds with at least two
+                           inclusive ±0.6 absolute-error rule.           canonical SMILES.                    selected measurement rows.
+                           Source: HuSkinDB LGBM ±0.6                    Source: HuSkinDB LGBM ±0.6           Source: HuSkinDB LGBM ±0.6
+                           selected measurement table                    selected measurement table           selected measurement table
+                           Table:                                        Table:                               Table:
+                           lgbm_within_0.6_selected_measureme            lgbm_within_0.6_selected_measureme   lgbm_within_0.6_selected_measureme
+                           nt_conditions.csv                             nt_conditions.csv                    nt_conditions.csv
+   References                                    Condition cells available (%)
+   71
+   Distinct reference and DOI pairs
+                                                 70.79
+                                                 Available values across 337 rows
+   represented.                                  and 14 experimental-condition
+                                                 fields.
+   Source: HuSkinDB LGBM ±0.6
+   selected measurement table                    Source: HuSkinDB LGBM ±0.6
+   Table:                                        selected measurement table
+   lgbm_within_0.6_selected_measureme            Table:
+   nt_conditions.csv                             lgbm_within_0.6_selected_measureme
+                                                 nt_conditions.csv
+
+Experimental variability is concentrated in a minority of repeat-measured compounds
+Estradiol, 1-butanol, and caffeine have selected-subset experimental ranges above 1.0 log10 unit; methotrexate
+reaches exactly 1.000. For the 54 repeated compounds, the median range is 0.381 and 22 receive an identical LGBM
+prediction across all their selected rows. Even the largest prediction range is below 0.1. This gap indicates limited
+representation of row-specific experimental context, not proof that any one condition caused the observed
+differences.
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Largest within-compound experimental logKp ranges
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Compound                                                                                              Experimental logKp range
+Estradiol                                                                                                      1.13log10(cm/s)
+1-Butanol                                                                                                      1.08log10(cm/s)
+Caffeine                                                                                                       1.02log10(cm/s)
+Methotrexate                                                                                                      1log10(cm/s)
+1-Hexanol                                                                                                      0.92log10(cm/s)
+1-Decanol                                                                                                      0.91log10(cm/s)
+Fentanyl                                                                                                       0.84log10(cm/s)
+Compound                                                                                                Experimental logKp range
+Ethanol                                                                                                           0.8log10(cm/s)
+Salicylic acid                                                                                                    0.8log10(cm/s)
+Nicotine                                                                                                         0.77log10(cm/s)
+Sufentanil                                                                                                       0.75log10(cm/s)
+Testosterone                                                                                                     0.74log10(cm/s)
+Bis(2-ethylhexyl)phthalate                                                                                       0.67log10(cm/s)
+1-Pentanol                                                                                                        0.6log10(cm/s)
+1-Octanol                                                                                                        0.56log10(cm/s)
+
+The table pairs each compound's minimum and maximum selected experimental rows. Read the listed condition
+differences as a protocol audit: several fields usually change together, so the table cannot assign the range to a single
+factor.
+Minimum-versus-maximum rows for the most variable compounds
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Compound               Rows      Min     Max    Range    Fold Predictio Minimum reference Maximum reference Reported fields that differ
+                              logKp    logKp            range n range
+Estradiol                12    -6.68    -5.56    1.13   13.43     0.03 Goodman, 1988       Pershing, 1993     skin source type | used layer | skin preparation |
+                                                                                                              storage temperature (°C) | storage duration
+                                                                                                              (days) | donor/skin surface temperature (°C) |
+                                                                                                              donor type | acceptor type | cell type
+1-Butanol                10   -6.56    -5.48     1.08   11.89     0.03 Scheuplein, 1973 Chantasart, 2010 skin source type | used layer | storage
+                                                                                                              temperature (°C) | neat | donor/skin surface
+                                                                                                              temperature (°C) | acceptor temperature (°C) |
+                                                                                                              acceptor type | cell type
+Caffeine                  6   -7.56    -6.54     1.02   10.35     0.04 Mitragotri, 1995    Wilkinson, 2006    skin source type | skin source site | used layer |
+                                                                                                              skin preparation | storage temperature (°C) |
+                                                                                                              storage duration (days) | donor/skin surface
+                                                                                                              temperature (°C) | donor type | acceptor
+                                                                                                              temperature (°C) | acceptor pH | acceptor type |
+                                                                                                              cell type
+Methotrexate              7    -7.5     -6.5        1      10         0 Vaidyanathan, 1985 Vaidyanathan, 1985 donor pH
+1-Hexanol                10   -5.78    -4.86     0.92     8.3     0.08 Cross, 2003         Bond, 1988         skin source type | skin source site | skin
+                                                                                                              preparation | storage temperature (°C) | storage
+                                                                                                              duration (days) | donor/skin surface
+                                                                                                              temperature (°C) | donor pH | donor type |
+                                                                                                              acceptor temperature (°C) | acceptor pH |
+                                                                                                              acceptor type | cell type
+1-Decanol                 4   -5.52     -4.6     0.91    8.18     0.08 Buist, 2010         Mitragotri, 2000   skin source site | skin preparation | storage
+                                                                                                              temperature (°C) | donor pH | donor type |
+                                                                                                              acceptor pH | acceptor type | cell type
+Fentanyl                 10   -5.85    -5.01     0.84    6.85     0.01 Roy, 1990           Roy, 1990          donor pH | donor type
+Ethanol                   7   -7.08    -6.28      0.8    6.32     0.07 Blank, 1964         Cross, 2003        skin source type | used layer | skin preparation |
+                                                                                                              donor/skin surface temperature (°C) | donor pH
+                                                                                                              | donor type | acceptor temperature (°C) |
+                                                                                                              acceptor pH | acceptor type | cell type
+Salicylic acid            3   -6.22    -5.42      0.8    6.31     0.02 Schmook, 2001       Degim, 1998        skin source type | skin preparation | storage
+                                                                                                              temperature (°C) | storage duration (days) |
+                                                                                                              donor/skin surface temperature (°C) | donor
+                                                                                                              type | acceptor temperature (°C) | acceptor pH |
+                                                                                                              acceptor type
+Nicotine                  3   -6.04    -5.27     0.77    5.83     0.01 Degim, 1998         Hadgraft, 1987     skin source type | skin preparation | storage
+                                                                                                              temperature (°C) | storage duration (days) |
+                                                                                                              donor/skin surface temperature (°C) | donor pH
+                                                                                                              | donor type | acceptor pH | acceptor type
+Sufentanil                9   -5.76    -5.02     0.75    5.57         0 Roy, 1990          Roy, 1990          donor pH | donor type
+Testosterone             11   -6.21    -5.48     0.74    5.47     0.02 Mitragotri, 1995    Sznitowska, 2001 skin source site | used layer | skin preparation |
+                                                                                                              storage temperature (°C) | storage duration
+                                                                                                              (days) | donor/skin surface temperature (°C) |
+                                                                                                              donor pH | acceptor temperature (°C) | acceptor
+                                                                                                              type | cell type
+Bis(2-                    2   -7.65    -6.98     0.67    4.72         0 Buist, 2010        Barber, 1992       skin source type | skin source site | used layer |
+ethylhexyl)phthalate                                                                                          skin preparation | storage temperature (°C) |
+                                                                                                              storage duration (days) | neat | donor type |
+Compound                     Rows      Min     Max   Range    Fold Predictio Minimum reference Maximum reference Reported fields that differ
+                                     logKp   logKp           range n range
+                                                                                                                 acceptor temperature (°C) | acceptor pH |
+                                                                                                                 acceptor type | cell type
+1-Pentanol                       4   -5.78   -5.18     0.6       4     0.08 Blank, 1964        Scheuplein, 1973 used layer | skin preparation | storage
+                                                                                                                 temperature (°C) | donor/skin surface
+                                                                                                                 temperature (°C) | donor type | acceptor
+                                                                                                                 temperature (°C) | acceptor type | cell type
+1-Octanol                        9   -5.14   -4.59    0.56    3.59     0.06 Scheuplein, 1973 Cross, 2003         skin source type | used layer | storage
+                                                                                                                 temperature (°C) | donor/skin surface
+                                                                                                                 temperature (°C) | donor pH | donor type |
+                                                                                                                 acceptor temperature (°C) | acceptor pH |
+                                                                                                                 acceptor type | cell type
+
+Missing experimental context limits adjustment for protocol effects
+Across 4,718 condition cells, 70.8% are available. The median measurement is missing four of 14 condition fields; only
+13 rows report all 14. Storage duration is unavailable in 71.5% of rows, acceptor pH in 58.2%, and donor pH in 54.0%.
+Used layer is nearly complete (99.4%) and the neat indicator is complete.
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Unavailable experimental-condition fields
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Condition field                                                                                                                                   Unavailable rows
+storage duration (days)                                                                                                                                   71.51%
+acceptor pH                                                                                                                                               58.16%
+donor pH                                                                                                                                                  54.01%
+donor type                                                                                                                                                37.09%
+acceptor type                                                                                                                                             35.61%
+storage temperature (°C)                                                                                                                                  33.53%
+donor/skin surface temperature                                                                                                                            30.27%
+(°C)
+acceptor temperature (°C)                                                                                                                                 26.11%
+cell type                                                                                                                                                 21.36%
+skin preparation                                                                                                                                          15.73%
+skin source type                                                                                                                                          12.76%
+skin source site                                                                                                                                          12.17%
+Condition field                                                                                            Unavailable rows
+used layer                                                                                                           0.59%
+neat                                                                                                                    0%
+
+Protocol signatures are completely coupled to literature sources
+The citations span 1964–2012. Coverage is not dominated by one paper: the top five references contribute 22.3% of
+rows and the top ten contribute 35.9%. However, all 140 recorded condition signatures occur within only one
+reference. Consequently, reference/laboratory effects and protocol effects cannot be separated using simple grouped
+comparisons in this selected subset.
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Largest references in the selected subset
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Reference                                                                                        Selected measurement rows
+Roberts, 1977                                                                                                           18
+Scheuplein, 1973                                                                                                        17
+Roy, 1990                                                                                                               16
+Buist, 2010                                                                                                             14
+Zhang, 2009                                                                                                             10
+Chantasart, 2010                                                                                                        10
+Sznitowska, 2001                                                                                                        10
+Anderson, 1988                                                                                                           9
+Cross, 2003                                                                                                              9
+Mitragotri, 2000                                                                                                         8
+Scheuplein, 1965                                                                                                         8
+Swart, 2005                                                                                                              8
+Xu, 2002                                                                                                                 8
+Michaels A. S., 1975                                                                                                     8
+Hadgraft, 1987                                                                                                           7
+Same-reference pH series are the clearest condition-linked examples
+Within one citation, methotrexate spans 1.000 log10 unit while reported donor pH changes. The Roy (1990) selected
+series spans 0.836 for fentanyl and 0.746 for sufentanil, with strong monotonic rank associations across reported pH
+(Spearman ρ≈0.98), although one pH 7.4 row also differs in skin site, layer, and preparation. These are biologically
+plausible condition-linked patterns, but they remain observational and partially confounded.
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Experimental logKp across reported donor-pH series
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+         Reported donor pH                                   Experimental logKp Compound
+                      6.02                                     -5.85log10(cm/s) Fentanyl
+                      6.95                                     -5.71log10(cm/s) Fentanyl
+                       7.4                                      -5.5log10(cm/s) Fentanyl
+                      7.43                                     -5.45log10(cm/s) Fentanyl
+                      7.95                                     -5.21log10(cm/s) Fentanyl
+                      8.52                                     -5.12log10(cm/s) Fentanyl
+                      9.04                                     -5.01log10(cm/s) Fentanyl
+                      9.37                                     -5.04log10(cm/s) Fentanyl
+                      1.98                                      -7.5log10(cm/s) Methotrexate
+                      2.98                                     -7.21log10(cm/s) Methotrexate
+                      3.87                                     -6.61log10(cm/s) Methotrexate
+                      4.12                                     -7.01log10(cm/s) Methotrexate
+                      4.12                                     -6.81log10(cm/s) Methotrexate
+                      5.29                                      -6.5log10(cm/s) Methotrexate
+                      6.34                                     -6.84log10(cm/s) Methotrexate
+                      6.02                                     -5.76log10(cm/s) Sufentanil
+                      6.95                                     -5.55log10(cm/s) Sufentanil
+                       7.4                                     -5.37log10(cm/s) Sufentanil
+                      7.43                                     -5.36log10(cm/s) Sufentanil
+                      7.95                                     -5.19log10(cm/s) Sufentanil
+             Reported donor pH                                       Experimental logKp Compound
+                          8.52                                         -5.08log10(cm/s) Sufentanil
+                          9.04                                         -5.02log10(cm/s) Sufentanil
+                          9.37                                         -5.03log10(cm/s) Sufentanil
+
+Repeated compound series within a single reference
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Compound                    Reference              Rows Min logKp Max logKp         Range Varying reported conditions          Donor-pH   p-value
+                                                                                                                             Spearman ρ
+Methotrexate                Vaidyanathan, 1985        7       -7.5        -6.5           1 donor pH                                0.61     0.14
+Estradiol                   Pershing, 1993            2      -6.56       -5.56           1 donor type                                 —        —
+Fentanyl                    Roy, 1990                 8      -5.85       -5.01        0.84 skin source site | used layer |         0.98        0
+                                                                                           skin preparation | donor pH |
+                                                                                           donor type
+Sufentanil                  Roy, 1990                 8      -5.76       -5.02        0.75 skin source site | used layer |         0.98        0
+                                                                                           skin preparation | donor pH |
+                                                                                           donor type
+1-Hexanol                   Cross, 2003               3      -5.78       -5.05        0.73 used layer | skin preparation              —        —
+Estradiol                   Goodman, 1988             2      -6.68       -6.02        0.67 donor type | acceptor type                 —        —
+1-Pentanol                  Scheuplein, 1973          2      -5.78       -5.18         0.6 used layer                                 —        —
+Ephedrine                   Michaels A. S., 1975      4      -6.33       -5.78        0.55 donor pH                                0.77     0.23
+Lysine                      Sznitowska, 1993          2      -7.33       -6.86        0.47 donor pH                                   —        —
+1-Butanol                   Scheuplein, 1973          2      -6.56       -6.16         0.4 used layer | neat                          —        —
+Butoxyethanol               Wilkinson, 2006           2      -6.36       -5.98        0.38 skin preparation                           —        —
+2-Propoxyethanol            Venier, 2004              2      -6.92       -6.54        0.38 neat                                       —        —
+Caffeine                    Wilkinson, 2006           2      -6.92       -6.54        0.37 skin preparation                           —        —
+Ethylene glycol mono methyl Venier, 2004              2      -6.64        -6.3        0.34 neat                                       —        —
+ether acetate
+Hydrocortisone              Sznitowska, 2001          5      -7.68       -7.36        0.32 donor pH | donor type                  -0.87     0.05
+
+Scope, data, and definitions
+One row is one reported measurement. Compounds are grouped by canonical SMILES. The cohort includes only rows
+with absolute LGBM prediction error ≤0.6. Experimental variability is max minus min logKp within a compound; fold
+range is 10 raised to that difference. Unknown, empty, N/A, and not-reported values count as unavailable. A condition
+context combines all 14 condition fields with reference and DOI.
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Methodology
+The analysis profiles completeness, citation concentration, repeated-measurement counts, within-compound
+experimental and prediction ranges, condition-signature uniqueness, and repeated series within a citation. It preserves
+every source measurement and adds annotations rather than averaging measurements. Exact row counts, calculations,
+and charts are reproducible in the companion notebook.
+Limitations and robustness checks
+This subset is selected using experimental logKp, creating outcome-dependent selection bias; it is not an unbiased
+validation cohort. Most compounds have only one selected measurement. Conditions are incompletely reported,
+several fields co-vary, and condition signatures are nested within references. The pH associations are descriptive, not
+causal. Row count, source-row uniqueness, the inclusive ±0.6 rule, 171-compound count, 71-reference count, and
+notebook execution were verified.
+Source: HuSkinDB LGBM ±0.6 selected measurement table
+Table: lgbm_within_0.6_selected_measurement_conditions.csv
+Recommended next steps
+    1. Fit any condition-effect analysis on the full, unfiltered HuSkinDB table, not this outcome-selected subset.
+    2. Use a hierarchical model with compound and reference effects before estimating pH, temperature, layer,
+       preparation, donor/acceptor medium, or cell-type associations.
+    3. Add ionization/pH and other protocol variables to future prediction models; the current LGBM condition input is
+       limited to experimental temperature (Texpi).
+    4. Treat single-measurement compounds as variability unknown, not variability low.
+Further questions
+Can the original papers resolve the high missingness in storage duration and pH? Are units and skin-thickness
+conventions harmonized across references? Does a full-dataset multilevel model retain the pH patterns after
+controlling for compound, reference, skin layer, preparation, and medium?
+
