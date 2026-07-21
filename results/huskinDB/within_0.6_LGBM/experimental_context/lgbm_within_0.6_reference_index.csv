@@ -1,0 +1,72 @@
+Reference,DOI,DOI_URL,Selected_Measurements,Unique_Compounds,Compound_Names,Experimental_logKp_Min,Experimental_logKp_Max,Condition_Combinations
+"Roberts, 1977",10.1111/j.2042-7158.1977.tb11434.x ,https://doi.org/10.1111/j.2042-7158.1977.tb11434.x,18,18,"2,4,6-Trichlorophenol || 2,4-Dichlorophenol || o-Chlorophenol || o-Cresol || 3,4-Xylenol || m-Cresol || m-Nitrophenol || p-Bromophenol || p-Chlorophenol || p-Cresol || p-Ethylphenol || p-Nitrophenol || 2-Naphthol || Chlorocresol || Chloroxylenol || Methyl 4-hydroxybenzoate || Phenol || Thymol",-5.81000000,-4.77800000,1
+"Scheuplein, 1973",10.1111/1523-1747.ep12723090,https://doi.org/10.1111/1523-1747.ep12723090,17,10,1-Butanol || 1-Decanol || Ethanol || 1-Heptanol || 1-Hexanol || Methanol || 1-Nonanol || 1-Octanol || 1-Pentanol || 1-Propanol,-6.85700000,-4.65300000,4
+"Roy, 1990",10.1023/A:1015912932416,https://doi.org/10.1023/A:1015912932416,16,2,Fentanyl || Sufentanil,-5.84900000,-5.01300000,8
+"Buist, 2010",10.1016/j.yrtph.2010.02.008,https://doi.org/10.1016/j.yrtph.2010.02.008,14,14,"2,4-Dichlorophenol || Acetic acid || Benzoic acid || Bis(2-ethylhexyl)phthalate || Butoxyethanol || Cortisone || 1-Decanol || Diazinon || Ethacrynic acid || Linolenic acid || Octylparaben || Oleic acid || Propylparaben || Testosterone",-7.65300000,-5.06500000,1
+"Chantasart, 2010",10.1007/s11095-010-0181-z,https://doi.org/10.1007/s11095-010-0181-z,10,8,1-Butanol || 1-Hexanol || 1-Hexyl-2-Pyrrolidone || 1-Octanol || 1-Octyl-2-Pyrrolidone || 2-Phenylethanol || Carvacrol || Thymol,-5.48100000,-4.81000000,2
+"Sznitowska, 2001",10.1016/s0168-3659(01)00443-6,https://doi.org/10.1016/s0168-3659(01)00443-6,10,2,Hydrocortisone || Testosterone,-7.68100000,-5.47600000,10
+"Zhang, 2009",10.1007/s11095-009-9912-4,https://doi.org/10.1007/s11095-009-9912-4,10,10,2-Naphthol || 4-Propoxyphenol || Carvacrol || Chlorocresol || Chloroxylenol || Methyl 4-hydroxybenzoate || Methyl salicylate || o-t-Butylphenol || p-n-Butylphenol || Thymol,-5.63200000,-4.65100000,1
+"Anderson, 1988",10.1023/a:1015989929342,https://doi.org/10.1023/a:1015989929342,9,7,Fluocinonide || Hydrocortisone 21-Hemisuccinate || Hydrocortisone 21-Hemipimelate || Hydrocortisone 21-(6-hydroxyhexanoate) || Hydrocortisone 21-methylpimelate || Hydrocortisone 21-pimelamate || Hydrocortisone 21-propionate,-6.75700000,-5.82400000,2
+"Cross, 2003",10.1046/j.1523-1747.2003.12131.x,https://doi.org/10.1046/j.1523-1747.2003.12131.x,9,5,Ethanol || 1-Butanol || 1-Decanol || 1-Hexanol || 1-Octanol,-6.35200000,-4.58600000,3
+"Michaels A. S., 1975",10.1002/aic.690210522,https://doi.org/10.1002/aic.690210522,8,5,Chlorpheniramine || Ephedrine || Estradiol || Fentanyl || Scopolamine,-7.85200000,-5.55600000,8
+"Mitragotri, 2000",10.1023/A:1007547809430,https://doi.org/10.1023/A:1007547809430,8,8,Aldosterone || 1-Decanol || Estradiol || Lidocaine || Naphthol || 1-Octanol || Progesterone || Testosterone,-8.07900000,-4.60200000,1
+"Scheuplein, 1965",10.1038/jid.1965.140,https://doi.org/10.1038/jid.1965.140,8,8,1-Butanol || Ethanol || 1-Heptanol || 1-Hexanol || Methanol || 1-Octanol || 1-Pentanol || 1-Propanol,-6.55600000,-4.84000000,1
+"Swart, 2005",10.1016/j.ijpharm.2005.05.030,https://doi.org/10.1016/j.ijpharm.2005.05.030,8,8,Flurbiprofen || Flurbiprofen glucoside || Flurbiprofen mannoside || Ibuprofen || Ibuprofen glucoside || Ibuprofen mannoside || Ketoprofen || Naproxen mannoside,-7.70000000,-5.33100000,1
+"Xu, 2002",10.1006/taap.2002.9494,https://doi.org/10.1006/taap.2002.9494,8,8,Bromoacetic acid || Bromochloroacetic acid || Bromodichloromethane || Chloroacetic acid || Chloroform || Dibromoacetic acid || Dichloroacetic acid || Trichloroacetic acid,-6.51500000,-4.30100000,2
+"Hadgraft, 1987",10.1016/0378-5173(87)90210-9,https://doi.org/10.1016/0378-5173(87)90210-9,7,7,Amobarbital || Barbital || Hydrocortisone || Isoquinoline || Nicotine || Phenobarbital || Salicylic acid,-7.50900000,-5.27000000,5
+"Scheuplein, 1967",10.1038/jid.1967.11,https://doi.org/10.1038/jid.1967.11,7,7,"2,3-Butanediol || Butan-2-one || 2-Ethoxyethanol || Diethyl ether || 1-Butanol || 1-Heptanol || 1-Propanol",-7.85700000,-4.98100000,1
+"Sznitowska, 1993",10.1016/0378-5173(93)90321-6,https://doi.org/10.1016/0378-5173(93)90321-6,7,3,Aspartic acid || Histidine || Lysine,-7.90700000,-6.86000000,5
+"Vaidyanathan, 1985",10.1016/0378-5173(85)90106-1,https://doi.org/10.1016/0378-5173(85)90106-1,7,1,Methotrexate,-7.50300000,-6.50300000,6
+"Wilkinson, 2006",10.1007/s00420-005-0056-5,https://doi.org/10.1007/s00420-005-0056-5,7,3,Caffeine || Butoxyethanol || Propoxur,-6.91500000,-5.79700000,7
+"du Plessis, 2002",10.1016/S0928-0987(02)00085-4,https://doi.org/10.1016/S0928-0987(02)00085-4,7,7,"1,2,4-Benzenetriol || Catechol || Hydroquinone || Phenol || Phloroglucinol || Pyrogallol || Resorcinol",-7.45600000,-5.58600000,1
+"Bronaugh, 1984",10.1111/1523-1747.ep12263302,https://doi.org/10.1111/1523-1747.ep12263302,6,6,2-Nitro-p-Phenylenediamine || 4-Amino-2-Nitrophenol || 4-Chloro-m-Phenylenediamine || o-Phenylenediamine || p-Phenylenediamine || 2-Amino-4-Nitrophenol,-7.62200000,-6.23400000,2
+"Degim, 1998",10.1016/S0378-5173(98)00113-6,https://doi.org/10.1016/S0378-5173(98)00113-6,6,6,Acetylsalicylic Acid || Benzoic acid || Diclofenac || Ibuprofen || Nicotine || Salicylic acid,-6.55600000,-4.99600000,1
+"Mitragotri, 1995",10.1002/jps.2600840607,https://doi.org/10.1002/jps.2600840607,6,6,Benzene || 1-Butanol || Caffeine || Estradiol || Progesterone || Testosterone,-7.55600000,-4.35200000,1
+"Scheuplein, 1969",10.1038/jid.1969.9,https://doi.org/10.1038/jid.1969.9,6,6,Cortexone || Estriol || Estrone || Hydroxypregnenolone || 17-Hydroxyprogesterone || Pregnenolone,-7.95400000,-6.00000000,1
+"Venier, 2004",10.1016/j.tiv.2004.03.004,https://doi.org/10.1016/j.tiv.2004.03.004,6,3,Ethylene glycol mono isopropyl ether || Ethylene glycol mono methyl ether acetate || 2-Propoxyethanol,-7.12500000,-6.29900000,2
+"Anderson, 1989",10.1111/1523-1747.ep12277592,https://doi.org/10.1111/1523-1747.ep12277592,5,5,4-Hydroxybenzyl alcohol || 4-Hydroxyphenylacetamide || 4-Hydroxyphenylacetic acid || Methyl 4-hydroxyphenylacetate || Toluene,-6.90300000,-3.63700000,1
+"Blank, 1967",10.1038/jid.1967.184,https://doi.org/10.1038/jid.1967.184,5,5,"2,3-Butanediol || 1-Butanol || Butan-2-one || 2-Ethoxyethanol || Diethyl ether",-7.85700000,-5.35200000,1
+"Bond, 1988",10.1111/1523-1747.ep12460958,https://doi.org/10.1111/1523-1747.ep12460958,5,2,1-Hexanol || Water,-6.42600000,-4.85900000,4
+"Astley, 1976",10.1002/jps.2600650210 ,https://doi.org/10.1002/jps.2600650210,4,1,Water,-6.60600000,-6.32300000,4
+"Blank, 1964",10.1038/jid.1964.174,https://doi.org/10.1038/jid.1964.174,4,4,Ethanol || 1-Octanol || 1-Pentanol || 1-Propanol,-7.07900000,-4.84000000,1
+"Clowes, 1994",10.1016/0887-2333(94)90078-7,https://doi.org/10.1016/0887-2333(94)90078-7,4,2,Water || Mannitol,-8.15800000,-6.59700000,2
+"Dugard, 1984",10.1289/ehp.8457193,https://doi.org/10.1289/ehp.8457193,4,4,2-Methoxyethanol || 2-Ethoxyethanol || 2-Ethoxyethyl acetate || 1-Methoxy-2-Propanol,-6.64900000,-6.09500000,1
+"Henning, 2008",10.1159/000112958,https://doi.org/10.1159/000112958,4,1,Flufenamic acid,-6.20100000,-6.09400000,4
+"Johnson, 1995",10.1002/jps.2600840922,https://doi.org/10.1002/jps.2600840922,4,4,Aldosterone || Estradiol || Hydrocortisone || Progesterone,-7.79300000,-5.07900000,1
+"Johnson, 1996",10.1021/js960079z,https://doi.org/10.1021/js960079z,4,4,Dexamethasone || Estradiol || Lidocaine || Testosterone,-7.75000000,-5.82700000,1
+"Modamio, 2000",10.1016/S0378-5173(99)00380-4,https://doi.org/10.1016/S0378-5173(99)00380-4,4,4,Atenolol || Metoprolol || Oxprenolol || Propranolol,-7.85700000,-6.30600000,1
+"Peck, 1994",10.1023/A:1018998529283,https://doi.org/10.1023/A:1018998529283,4,4,Mannitol || Raffinose || Sucrose || Urea,-8.20800000,-7.31700000,1
+"Akomeah, 2007",10.1002/jps.20773,https://doi.org/10.1002/jps.20773,3,3,Butyl 4-hydroxybenzoat || Caffeine || Methyl 4-hydroxybenzoate,-7.05300000,-4.53800000,1
+"Dalpozzo, 1991",10.1002/jps.2600800114,https://doi.org/10.1002/jps.2600800114,3,3,Butyl nicotinate || Methyltriglycol nicotinate || n-Hexyl nicotinate,-7.30800000,-5.30300000,1
+"Mitragotri, 1996",10.1023/A:1016096626810,https://doi.org/10.1023/A:1016096626810,3,3,Aldosterone || 1-Butanol || Estradiol,-7.85700000,-6.07900000,1
+"Roy, 1989",10.1023/A:1015944018555,https://doi.org/10.1023/A:1015944018555,3,3,Fentanyl || Meperidine || Sufentanil,-5.98800000,-5.47700000,1
+"Roy, 1993",10.1002/jps.2600821217,https://doi.org/10.1002/jps.2600821217,3,2,Butyl p-aminobenzoate || Ethyl p-aminobenzoate,-5.25500000,-4.41000000,2
+"Siddiqui, 1989",10.1007/bf01061455,https://doi.org/10.1007/bf01061455,3,3,Betamethasone-17-valerate || Prednisolone || Triamcinolone,-8.95600000,-6.49600000,1
+"Wester, 1998",10.1006/toxs.1998.2490,https://doi.org/10.1006/toxs.1998.2490,3,3,Boric acid || Borax || Disodium octaborate tetrahydrate,-7.65300000,-7.19900000,1
+"Barber, 1992",10.1016/0272-0590(92)90086-W,https://doi.org/10.1016/0272-0590(92)90086-W,2,2,2-Ethylhexanol || Bis(2-ethylhexyl)phthalate,-6.97900000,-4.34300000,1
+"Bronaugh, 1986",10.1111/j.1365-2133.1986.tb06214.x ,https://doi.org/10.1111/j.1365-2133.1986.tb06214.x,2,2,Caffeine || Testosterone,-6.82800000,-5.73000000,1
+"Galey, 1976",10.1111/1523-1747.ep12598596,https://doi.org/10.1111/1523-1747.ep12598596,2,2,Estradiol || Amphetamine,-5.96700000,-4.59200000,2
+"Goodman, 1988",10.1111/1523-1747.ep12475655,https://doi.org/10.1111/1523-1747.ep12475655,2,1,Estradiol,-6.68400000,-6.01800000,2
+"Kushla, 1991",10.1016/0378-5173(91)90387-4,https://doi.org/10.1016/0378-5173(91)90387-4,2,1,Lidocaine,-5.70700000,-5.53000000,2
+"Modamio, 1998",10.1016/S0378-5173(98)00214-2,https://doi.org/10.1016/S0378-5173(98)00214-2,2,2,Bisoprolol Fumarate || Celiprolol Hydrochloride,-7.12500000,-6.78500000,1
+"Pershing, 1993",10.1023/A:1018974131236,https://doi.org/10.1023/A:1018974131236,2,1,Estradiol,-6.55600000,-5.55600000,2
+"Qvist, 2000",10.1016/S0928-0987(00)00091-9,https://doi.org/10.1016/S0928-0987(00)00091-9,2,2,Nicotine || Testosterone,-5.85600000,-5.54600000,2
+"Rigg, 1990",10.1111/1523-1747.ep12874561,https://doi.org/10.1111/1523-1747.ep12874561,2,2,Water || 5-Fluorouracil,-8.01500000,-6.42900000,2
+"Romonchuk, 2010",10.1159/000272121,https://doi.org/10.1159/000272121,2,2,4-Cyanophenol || Methyl 4-hydroxybenzoate,-5.73100000,-5.63400000,1
+"Scott, 1990",10.1111/1523-1747.ep12475447,https://doi.org/10.1111/1523-1747.ep12475447,2,2,Ethanol || Mannitol,-7.77100000,-7.05500000,1
+"Southwell, 1984",10.1016/0378-5173(84)90145-5,https://doi.org/10.1016/0378-5173(84)90145-5,2,2,Methanol || 1-Octanol,-6.35200000,-4.77100000,1
+"Wilkinson, 2002",10.1007/s00420-002-0367-8,https://doi.org/10.1007/s00420-002-0367-8,2,2,1-Methoxy-2-Propanol || 2-Butoxyethanol,-6.39700000,-5.26800000,1
+"Blank, 1985",10.1111/1523-1747.ep12277325,https://doi.org/10.1111/1523-1747.ep12277325,1,1,Benzene,-4.51100000,-4.51100000,1
+"Cnubben, 2002",10.1006/rtph.2001.1530,https://doi.org/10.1006/rtph.2001.1530,1,1,2-Phenylphenol,-5.29400000,-5.29400000,1
+"Dias, 1999",10.1016/S0378-5173(99)00067-8,https://doi.org/10.1016/S0378-5173(99)00067-8,1,1,Caffeine,-7.14500000,-7.14500000,1
+"Dick, 1997",10.1177/096032719701601104,https://doi.org/10.1177/096032719701601104,1,1,Lindane,-6.69100000,-6.69100000,1
+"Dolezal, 1993",10.1023/A:1018914806761,https://doi.org/10.1023/A:1018914806761,1,1,Theophylline,-7.12500000,-7.12500000,1
+"Knutson, 1993",10.1016/0168-3659(93)90170-A,https://doi.org/10.1016/0168-3659(93)90170-A,1,1,Estradiol,-5.77000000,-5.77000000,1
+"Krishnan, 2011",10.1002/bip.21520,https://doi.org/10.1002/bip.21520,1,1,5-Aminolevulinic acid,-7.71100000,-7.71100000,1
+"Legoabe, 2010",10.1211/jpp.62.06.0012,https://doi.org/10.1211/jpp.62.06.0012,1,1,"N4-acetyl-4-amino-1-[(2R,3S,4R,5R)-3,4-dihydroxy-5 (hydroxymethyl)oxolan-2-yl] pyrimidin-2-one",-6.88900000,-6.88900000,1
+"Lundh, 1997",10.1007/s004200050223,https://doi.org/10.1007/s004200050223,1,1,Dimethylethylamine,-6.07900000,-6.07900000,1
+"Roy, 1995",10.1002/jps.2600841010 ,https://doi.org/10.1002/jps.2600841010,1,1,Ketorolac,-5.79900000,-5.79900000,1
+"Schmook, 2001",10.1016/S0378-5173(00)00665-7,https://doi.org/10.1016/S0378-5173(00)00665-7,1,1,Salicylic acid,-6.21600000,-6.21600000,1
+"Trabaris, 2012",10.1002/jat.1657,https://doi.org/10.1002/jat.1657,1,1,Chloral hydrate,-5.96500000,-5.96500000,1
+"Valjakka-Koskela, 2000",10.1016/S0928-0987(00)00120-2,https://doi.org/10.1016/S0928-0987(00)00120-2,1,1,Levosimendan,-6.48400000,-6.48400000,1
+"Volpato, 1998",10.1016/S0168-3659(97)00152-1,https://doi.org/10.1016/S0168-3659(97)00152-1,1,1,Acyclovir,-7.07900000,-7.07900000,1

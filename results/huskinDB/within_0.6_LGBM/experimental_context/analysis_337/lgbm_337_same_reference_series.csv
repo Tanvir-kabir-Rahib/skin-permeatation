@@ -1,0 +1,40 @@
+Compound_Name,Canonical_SMILES,Reference,DOI,Measurements,Experimental_Min,Experimental_Max,Experimental_Range,Varying_Condition_Count,Varying_Conditions,Donor_pH_Spearman_Rho,Donor_pH_Spearman_P
+Methotrexate,CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1,"Vaidyanathan, 1985",10.1016/0378-5173(85)90106-1,7,-7.50300000,-6.50300000,1.00000000,1,donor pH,0.61263747,0.14358858
+Estradiol,C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CC[C@@H]2O,"Pershing, 1993",10.1023/A:1018974131236,2,-6.55600000,-5.55600000,1.00000000,1,donor type,,
+Fentanyl,CCC(=O)N(c1ccccc1)C1CCN(CCc2ccccc2)CC1,"Roy, 1990",10.1023/A:1015912932416,8,-5.84900000,-5.01300000,0.83600000,5,skin source site | used layer | skin preparation | donor pH | donor type,0.97619048,0.00003314
+Sufentanil,CCC(=O)N(c1ccccc1)C1(COC)CCN(CCc2cccs2)CC1,"Roy, 1990",10.1023/A:1015912932416,8,-5.76400000,-5.01800000,0.74600000,5,skin source site | used layer | skin preparation | donor pH | donor type,0.97619048,0.00003314
+1-Hexanol,CCCCCCO,"Cross, 2003",10.1046/j.1523-1747.2003.12131.x,3,-5.77800000,-5.05100000,0.72700000,2,used layer | skin preparation,,
+Estradiol,C[C@]12CC[C@@H]3c4ccc(O)cc4CC[C@H]3[C@@H]1CC[C@@H]2O,"Goodman, 1988",10.1111/1523-1747.ep12475655,2,-6.68400000,-6.01800000,0.66600000,2,donor type | acceptor type,,
+1-Pentanol,CCCCCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-5.77800000,-5.17600000,0.60200000,1,used layer,,
+Ephedrine,CN[C@@H](C)[C@H](O)c1ccccc1,"Michaels A. S., 1975",10.1002/aic.690210522,4,-6.32600000,-5.77800000,0.54800000,1,donor pH,0.77459667,0.22540333
+Lysine,NCCCC[C@H](N)C(=O)O,"Sznitowska, 1993",10.1016/0378-5173(93)90321-6,2,-7.32800000,-6.86000000,0.46800000,1,donor pH,,
+1-Butanol,CCCCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-6.55600000,-6.15800000,0.39800000,2,used layer | neat,,
+Butoxyethanol,CCCCOC(C)O,"Wilkinson, 2006",10.1007/s00420-005-0056-5,2,-6.36400000,-5.98200000,0.38200000,1,skin preparation,,
+2-Propoxyethanol,CCCOCCO,"Venier, 2004",10.1016/j.tiv.2004.03.004,2,-6.92300000,-6.54300000,0.38000000,1,neat,,
+Caffeine,Cn1c(=O)c2c(ncn2C)n(C)c1=O,"Wilkinson, 2006",10.1007/s00420-005-0056-5,2,-6.91500000,-6.54100000,0.37400000,1,skin preparation,,
+Ethylene glycol mono methyl ether acetate,COCCOC(C)=O,"Venier, 2004",10.1016/j.tiv.2004.03.004,2,-6.63700000,-6.29900000,0.33800000,1,neat,,
+Hydrocortisone,C[C@]12CCC(=O)C=C1CC[C@@H]1[C@@H]2[C@@H](O)C[C@@]2(C)[C@H]1CC[C@]2(O)C(=O)CO,"Sznitowska, 2001",10.1016/s0168-3659(01)00443-6,5,-7.68100000,-7.35700000,0.32400000,2,donor pH | donor type,-0.87208160,0.05385422
+1-Octanol,CCCCCCCCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-5.14100000,-4.84000000,0.30100000,1,used layer,,
+Water,O,"Astley, 1976",10.1002/jps.2600650210 ,4,-6.60600000,-6.32300000,0.28300000,1,storage duration (days),,
+1-Hexanol,CCCCCCO,"Bond, 1988",10.1111/1523-1747.ep12460958,3,-5.11400000,-4.85900000,0.25500000,3,skin source type | skin source site | skin preparation,,
+Mannitol,OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO,"Clowes, 1994",10.1016/0887-2333(94)90078-7,2,-8.15800000,-7.92300000,0.23500000,4,used layer | skin preparation | storage duration (days) | acceptor temperature (°C),,
+Ethylene glycol mono isopropyl ether,CC(C)OCCO,"Venier, 2004",10.1016/j.tiv.2004.03.004,2,-7.12500000,-6.91300000,0.21200000,1,neat,,
+Butyl p-aminobenzoate,CCCCOC(=O)c1ccc(N)cc1,"Roy, 1993",10.1002/jps.2600821217,2,-4.60700000,-4.41000000,0.19700000,2,used layer | skin preparation,,
+1-Hexanol,CCCCCCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-5.44200000,-5.25500000,0.18700000,1,used layer,,
+Lidocaine,CCN(CC)CC(=O)Nc1c(C)cccc1C,"Kushla, 1991",10.1016/0378-5173(91)90387-4,2,-5.70700000,-5.53000000,0.17700000,1,donor pH,,
+1-Propanol,CCCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-6.47700000,-6.30100000,0.17600000,2,used layer | neat,,
+1-Butanol,CCCCO,"Cross, 2003",10.1046/j.1523-1747.2003.12131.x,2,-5.81600000,-5.65900000,0.15700000,2,used layer | skin preparation,,
+Aspartic acid,NC(CC(=O)O)C(=O)O,"Sznitowska, 1993",10.1016/0378-5173(93)90321-6,2,-7.58500000,-7.43200000,0.15300000,1,donor pH,,
+Testosterone,C[C@]12CC[C@H]3[C@@H](CCC4=CC(=O)CC[C@@]43C)[C@@H]1CC[C@@H]2O,"Sznitowska, 2001",10.1016/s0168-3659(01)00443-6,5,-5.59600000,-5.47600000,0.12000000,2,donor pH | donor type,-0.13518452,0.82840342
+Propoxur,CNC(=O)Oc1ccccc1OC(C)C,"Wilkinson, 2006",10.1007/s00420-005-0056-5,3,-5.91200000,-5.79700000,0.11500000,3,skin source type | skin source site | donor type,,
+Water,O,"Clowes, 1994",10.1016/0887-2333(94)90078-7,2,-6.70700000,-6.59700000,0.11000000,4,used layer | skin preparation | storage duration (days) | acceptor temperature (°C),,
+1-Heptanol,CCCCCCCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-5.15800000,-5.05100000,0.10700000,1,used layer,,
+Flufenamic acid,O=C(O)c1ccccc1Nc1cccc(C(F)(F)F)c1,"Henning, 2008",10.1159/000112958,4,-6.20100000,-6.09400000,0.10700000,2,used layer | skin preparation,,
+Histidine,N[C@@H](Cc1c[nH]cn1)C(=O)O,"Sznitowska, 1993",10.1016/0378-5173(93)90321-6,3,-7.90700000,-7.81200000,0.09500000,1,donor pH,0.50000000,0.66666667
+Ethanol,CCO,"Cross, 2003",10.1046/j.1523-1747.2003.12131.x,2,-6.35200000,-6.27800000,0.07400000,2,used layer | skin preparation,,
+Ethanol,CCO,"Scheuplein, 1973",10.1111/1523-1747.ep12723090,2,-6.69900000,-6.65300000,0.04600000,1,neat,,
+1-Octanol,CCCCCCCCO,"Chantasart, 2010",10.1007/s11095-010-0181-z,2,-4.87000000,-4.83300000,0.03700000,2,used layer | skin preparation,,
+1-Octyl-2-Pyrrolidone,CCCCCCCCN1CCCC1=O,"Chantasart, 2010",10.1007/s11095-010-0181-z,2,-4.82700000,-4.81000000,0.01700000,2,used layer | skin preparation,,
+Water,O,"Bond, 1988",10.1111/1523-1747.ep12460958,2,-6.42600000,-6.41000000,0.01600000,1,skin preparation,,
+Hydrocortisone 21-propionate,CCC(=O)OCC(=O)[C@@]1(O)CC[C@H]2[C@@H]3CCC4=CC(=O)CC[C@]4(C)[C@H]3[C@@H](O)C[C@@]21C,"Anderson, 1988",10.1023/a:1015989929342,2,-6.03800000,-6.02500000,0.01300000,1,used layer,,
+Fluocinonide,CC(=O)OCC(=O)[C@@]12OC(C)(C)O[C@@H]1C[C@H]1[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@@]12C,"Anderson, 1988",10.1023/a:1015989929342,2,-6.32600000,-6.32600000,0.00000000,1,used layer,,

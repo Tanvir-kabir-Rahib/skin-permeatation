@@ -1,0 +1,49 @@
+HuSkinDB benchmark inference summary
+Dataset: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data/huskinDB/huskinDB.csv
+Rows: 546
+SMILES column: Smiles
+Experimental logKp column: logkp (cm/s)
+Missing SMILES: 0
+Valid SMILES: 546
+Invalid SMILES: 0
+Duplicate rows by canonical SMILES: 295
+Duplicate canonical-SMILES groups: 89
+Missing experimental logKp: 0
+Model native target unit: cm/h
+Reported prediction unit: cm/s
+Applied prediction offset: -3.556302500767 log10 units
+Models loaded successfully:
+- CatBoost: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/CatBoost.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (CatBoostRegressor)
+- ElasticNet: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ElasticNet.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> scaler (RobustScaler) -> selector (SelectKBest) -> model (ElasticNet)
+- ExtraTrees: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ExtraTrees.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (ExtraTreesRegressor)
+- Gradient Boosting: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/Gradient_Boosting.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (GradientBoostingRegressor)
+- HistGradientBoosting: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/HistGradientBoosting.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (HistGradientBoostingRegressor)
+- LGBM: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/LGBM.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (LGBMRegressor)
+- RF: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/RF.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (RandomForestRegressor)
+- SVR (RBF): /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/SVR_RBF.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> scaler (RobustScaler) -> selector (SelectKBest) -> model (SVR)
+- StackingRegressor: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/StackingRegressor.joblib [joblib]; 146 features; embedded stacking estimator (XGBoost, CatBoost, LGBM, ExtraTrees, HistGradientBoosting); final=RidgeCV
+- XGBoost: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/XGBoost.joblib [joblib]; 146 features; embedded Pipeline: corr (CorrelationFilter) -> selector (SelectKBest) -> model (XGBRegressor)
+Models/artifacts skipped:
+- best_benchmark_model.joblib: duplicate convenience alias of the model named in best_benchmark_model.json; not scored twice
+Descriptors/features reused or derived from CSV (1): Texpi
+HuSkinDB LogP and molecular weight were preserved but not used directly: the fitted panel requires CDK XLogP (not a harmless alias for the supplied LogP), and MW is not among the 146 final benchmark inputs.
+Descriptors generated with RDKit (80): khs.sLi, khs.ssBe, khs.ssBH, khs.sssB, khs.sCH3, khs.dCH2, khs.tCH, khs.dsCH, khs.aaCH, khs.sssCH, khs.ddC, khs.dssC, khs.aasC, khs.aaaC, khs.sNH3, khs.sNH2, khs.ssNH2, khs.dNH, khs.ssNH, khs.aaNH, khs.tN, khs.dsN, khs.aaN, khs.sssN, khs.ddsN, khs.aasN, khs.ssssN, khs.dO, khs.ssO, khs.aaO, khs.sF, khs.sSiH3, khs.ssSiH2, khs.sssSiH, khs.ssssSi, khs.sPH2, khs.ssPH, khs.sssP, khs.dsssP, khs.sssssP, khs.sSH, khs.dS, khs.ssS, khs.aaS, khs.dssS, khs.ddssS, khs.sCl, khs.sGeH3, khs.ssGeH2, khs.sssGeH, khs.ssssGe, khs.sAsH2, khs.ssAsH, khs.sssAs, khs.sssdAs, khs.sssssAs, khs.sSeH, khs.dSe, khs.ssSe, khs.aaSe, khs.dssSe, khs.ddssSe, khs.sBr, khs.sSnH3, khs.ssSnH2, khs.sssSnH, khs.ssssSn, khs.sPbH3, khs.ssPbH2, khs.sssPbH, khs.ssssPb, nAromRings, nRings3, nRings4, nRings5, nRings6, nRings7, nRings8, nRings9, Zagreb
+Training-compatible descriptors generated with CDK (65): ALogp2, nAcid, nAromBond, ATSc2, ATSc3, ATSc4, ATSc5, ATSm1, BCUTw-1l, BCUTw-1h, BCUTc-1l, BCUTc-1h, BCUTp-1l, BCUTp-1h, nBase, C2SP1, C1SP2, C2SP2, C3SP2, C1SP3, C2SP3, SC-4, FMF, nHBAcc, nHBDon, HybRatio, JPLogP, Kier2, Kier3, khs.ssCH2, khs.sOH, nAtomLC, nAtomP, nAtomLAC, MDEC-11, MDEC-12, MDEC-13, MDEC-14, MDEC-22, MDEC-33, MDEC-34, MDEC-44, MDEO-11, MDEO-12, MDEO-22, MDEN-11, MDEN-12, MDEN-13, MDEN-22, MDEN-23, MDEN-33, MLogP, topoShape, nRotB, LipinskiFailures, nRingBlocks, nAromBlocks, TopoPSA, VAdjMat, WTPT-2, WTPT-3, WTPT-4, WTPT-5, WPATH, XLogP
+Descriptors unsupported by exact RDKit mapping (65): ALogp2, ATSc2, ATSc3, ATSc4, ATSc5, ATSm1, BCUTc-1h, BCUTc-1l, BCUTp-1h, BCUTp-1l, BCUTw-1h, BCUTw-1l, C1SP2, C1SP3, C2SP1, C2SP2, C2SP3, C3SP2, FMF, HybRatio, JPLogP, Kier2, Kier3, LipinskiFailures, MDEC-11, MDEC-12, MDEC-13, MDEC-14, MDEC-22, MDEC-33, MDEC-34, MDEC-44, MDEN-11, MDEN-12, MDEN-13, MDEN-22, MDEN-23, MDEN-33, MDEO-11, MDEO-12, MDEO-22, MLogP, SC-4, TopoPSA, VAdjMat, WPATH, WTPT-2, WTPT-3, WTPT-4, WTPT-5, XLogP, khs.sOH, khs.ssCH2, nAcid, nAromBlocks, nAromBond, nAtomLAC, nAtomLC, nAtomP, nBase, nHBAcc, nHBDon, nRingBlocks, nRotB, topoShape
+Metric summary (sorted by RMSE):
+               Model                    Prediction_Column                                                                                                             Artifact_Path Model_Native_Unit Output_Unit  Prediction_Unit_Offset  Evaluated_Compounds        R2     RMSE      MAE     Bias  Pearson_r  Spearman_rho
+                LGBM                 Predicted_logKp_LGBM                 /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/LGBM.joblib              cm/h        cm/s               -3.556303                  546  0.268706 1.168987 0.753265 0.243659   0.551494      0.592227
+            Ensemble             Predicted_logKp_Ensemble                                              MeanEnsemble.json: CatBoost, ExtraTrees, HistGradientBoosting, LGBM, XGBoost              cm/h        cm/s               -3.556303                  546  0.254319 1.180429 0.760895 0.260741   0.541851      0.576484
+            CatBoost             Predicted_logKp_CatBoost             /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/CatBoost.joblib              cm/h        cm/s               -3.556303                  546  0.254289 1.180453 0.777470 0.260457   0.539866      0.569637
+             XGBoost              Predicted_logKp_XGBoost              /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/XGBoost.joblib              cm/h        cm/s               -3.556303                  546  0.253668 1.180945 0.762170 0.258129   0.542724      0.586093
+                  RF         Predicted_logKp_RandomForest                   /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/RF.joblib              cm/h        cm/s               -3.556303                  546  0.249057 1.184587 0.770675 0.241769   0.533305      0.571516
+          ExtraTrees           Predicted_logKp_ExtraTrees           /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ExtraTrees.joblib              cm/h        cm/s               -3.556303                  546  0.222667 1.205223 0.780257 0.256627   0.516579      0.550896
+HistGradientBoosting Predicted_logKp_HistGradientBoosting /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/HistGradientBoosting.joblib              cm/h        cm/s               -3.556303                  546  0.217098 1.209532 0.790859 0.284831   0.519353      0.551690
+   Gradient Boosting     Predicted_logKp_GradientBoosting    /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/Gradient_Boosting.joblib              cm/h        cm/s               -3.556303                  546  0.203261 1.220173 0.783190 0.260580   0.501115      0.539734
+           SVR (RBF)              Predicted_logKp_SVR_RBF              /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/SVR_RBF.joblib              cm/h        cm/s               -3.556303                  546  0.113627 1.286980 0.865567 0.334507   0.445288      0.481388
+   StackingRegressor    Predicted_logKp_StackingRegressor    /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/StackingRegressor.joblib              cm/h        cm/s               -3.556303                  546 -0.177801 1.483541 1.006663 0.364708   0.365514      0.410081
+          ElasticNet           Predicted_logKp_ElasticNet           /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ElasticNet.joblib              cm/h        cm/s               -3.556303                  546 -6.473241 3.736957 1.512484 0.924832   0.100758      0.422975
+Predictions: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/results/huskinDB/huskin_predictions.csv
+Metrics: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/results/huskinDB/huskin_model_metrics.csv
+Descriptor audit: /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/results/huskinDB/huskin_descriptor_audit.csv
+Plots generated: 28 in /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/results/huskinDB/plots

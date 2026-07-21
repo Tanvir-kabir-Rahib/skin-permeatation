@@ -1,0 +1,14 @@
+{
+  "selected_rows": 337,
+  "unique_compounds": 171,
+  "single_measurement_compounds": 117,
+  "repeated_compounds": 54,
+  "repeated_range_gt_0_5": 21,
+  "repeated_range_gt_1_0": 3,
+  "median_experimental_range_repeated": 0.3809999999999998,
+  "median_predicted_range_repeated": 0.013676309999999692,
+  "references": 71,
+  "condition_signatures": 140,
+  "condition_signatures_spanning_multiple_references": 0,
+  "condition_cell_available_percent": 70.79270877490463
+}

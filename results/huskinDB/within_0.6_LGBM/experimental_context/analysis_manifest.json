@@ -1,0 +1,14 @@
+{
+  "tolerance": 0.6,
+  "selected_measurements": 337,
+  "selected_compounds": 171,
+  "all_context_measurements": 437,
+  "files": {
+    "README": "results/huskinDB/within_0.6_LGBM/experimental_context/README.csv",
+    "Selected_Measurements": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_selected_measurement_conditions.csv",
+    "All_Measurements_Context": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_all_measurements_context.csv",
+    "Compound_Variability": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_compound_variability.csv",
+    "Reference_Index": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_reference_index.csv",
+    "Condition_Data_Quality": "results/huskinDB/within_0.6_LGBM/experimental_context/lgbm_within_0.6_condition_data_quality.csv"
+  }
+}

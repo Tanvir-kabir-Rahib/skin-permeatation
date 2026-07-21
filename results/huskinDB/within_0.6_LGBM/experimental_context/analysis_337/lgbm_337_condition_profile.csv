@@ -1,0 +1,15 @@
+Field,Available_Rows,Unavailable_Rows,Unavailable_Percent,Distinct_Reported_Values,Top_Reported_Values
+storage duration (days),96,241,71.51335312,15,7 (14) | 14 (13) | 90 (11) | 8.5 (9) | 180 (7) | 28 (7) | 0.5 (7) | 120 (6)
+acceptor pH,141,196,58.16023739,10,7.4 (99) | 4 (9) | 6.5 (8) | 7.3 (7) | 7 (6) | 7.6 (4) | 7.5 (4) | 7.1 (2)
+donor pH,155,182,54.00593472,42,7.4 (57) | 7 (21) | 4 (14) | 9.7 (5) | 7.5 (4) | 7.3 (3) | 2 (3) | 5.0 (3)
+donor type,212,125,37.09198813,28,"PBS (64) | Water (31) | NaCl solution (17) | Succinate solution (14) | NaCl, sodium azide (14) | Potassium phosphate buffer (12) | Sorensen buffer (8) | Propylene glycol/water (50%) (7)"
+acceptor type,217,120,35.60830861,22,PBS (71) | NaCl solution (35) | Water (22) | PBS with ethanol (11) | Ringer solution (10) | PBS with bovine serum albumin (9) | Succinate solution (9) | PBS with sodium azide (7)
+storage temperature (°C),224,113,33.53115727,14,-20 (84) | 4 (72) | -80 (15) | -30 (10) | 5 (8) | -17 (7) | -25 (6) | -70 (5)
+donor/skin surface temperature (°C),235,102,30.26706231,9,37 (63) | 32 (56) | 25 (50) | 30 (32) | 35 (10) | 31 (8) | 26 (6) | 40 (6)
+acceptor temperature (°C),249,88,26.11275964,10,37 (118) | 32 (45) | 25 (31) | 30 (23) | 35 (10) | 31 (7) | 26 (6) | 22 (4)
+cell type,265,72,21.36498516,7,Glass diffusion cell (95) | Franz cell (82) | Pyrex cell (43) | Flow through cell (40) | Semi-automated apparatus (2) | Static diffusion cell (2) | Teflon cell (1)
+skin preparation,284,53,15.72700297,28,heat separation (136) | fat removed (21) | exposure to ammonia fumes (18) | prepared with NaBr solution (15) | dermatomed (14) | dry heat separation (14) | dermatomed 500um (13) | dermatomed 250-280um (9)
+skin source type,294,43,12.75964392,7,Cadaver (172) | Abdominoplasty (76) | Mammaplasty (16) | Abdominoplasty or cadaver (9) | Surgery (9) | Amputated limb (6) | Abdominoplasty or mammaplasty (6)
+skin source site,296,41,12.16617211,12,"abdomen (208) | thigh (38) | breast (16) | abdomen, chest, back (8) | abdomen, breast (6) | abdomen, back (6) | thigh, leg (4) | leg (3)"
+used layer,335,2,0.59347181,6,"epidermis (171) | epidermis, dermis (132) | stratum corneum (17) | dermis (12) | epidermis without stratum corneum (2) | epidermis, dermis without stratum corneum (1)"
+neat,337,0,0.00000000,2,0 (319) | 1 (18)

@@ -1,0 +1,32 @@
+{
+  "generated_plots": [
+    "experimental_vs_predicted_LGBM.png",
+    "residuals_LGBM.png",
+    "experimental_vs_predicted_Ensemble.png",
+    "residuals_Ensemble.png",
+    "experimental_vs_predicted_CatBoost.png",
+    "residuals_CatBoost.png",
+    "experimental_vs_predicted_XGBoost.png",
+    "residuals_XGBoost.png",
+    "experimental_vs_predicted_RF.png",
+    "residuals_RF.png",
+    "experimental_vs_predicted_ExtraTrees.png",
+    "residuals_ExtraTrees.png",
+    "experimental_vs_predicted_HistGradientBoosting.png",
+    "residuals_HistGradientBoosting.png",
+    "experimental_vs_predicted_Gradient_Boosting.png",
+    "residuals_Gradient_Boosting.png",
+    "experimental_vs_predicted_SVR_RBF.png",
+    "residuals_SVR_RBF.png",
+    "experimental_vs_predicted_StackingRegressor.png",
+    "residuals_StackingRegressor.png",
+    "experimental_vs_predicted_ElasticNet.png",
+    "residuals_ElasticNet.png",
+    "combined_model_comparison.png",
+    "model_performance_comparison.png",
+    "prediction_error_distribution.png",
+    "logkp_distributions.png",
+    "compound_index_comparison.png",
+    "bland_altman_model_comparison.png"
+  ]
+}

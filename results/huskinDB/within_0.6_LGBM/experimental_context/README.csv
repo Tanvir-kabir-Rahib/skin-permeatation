@@ -1,0 +1,28 @@
+Item,Value
+Purpose,"Experimental conditions, references, and within-compound variability for LGBM matches."
+Selection rule,|Predicted logKp − experimental logKp| ≤ 0.60.
+Selection warning,Experimental logKp was used to select these rows; this is not unbiased model validation.
+Source dataset,data/huskinDB/huskinDB.csv
+Prediction dataset,results/huskinDB/huskin_predictions.csv
+Filtered LGBM dataset,results/huskinDB/within_0.6_LGBM/huskin_LGBM_predictions_within_0.6.csv
+Selected measurement rows,337
+Selected unique compounds,171
+All measurements for selected compounds,437
+Excluded context measurements,100
+Single-measurement compounds,96
+Repeated-measurement compounds,75
+Partially selected compounds,45
+Compounds with experimental range >0.5 log unit,49
+Compounds with experimental range >1.0 log unit,36
+Compounds with experimental range >2.0 log units,22
+Compounds with multiple LGBM predictions,47
+Maximum within-compound LGBM prediction range,0.11861448839974464
+LGBM condition feature,"Texpi, mapped from donor/skin surface temperature (°C); the other 145 required features are molecular descriptors."
+Condition fields >50% unavailable in selected rows,3
+Reference coverage,71 distinct references; no selected reference values marked unknown.
+DOI coverage,71 distinct DOI values; no selected DOI values marked unknown.
+Experimental variability,"Calculated across all HuSkinDB measurements for each selected compound, including measurements outside ±0.6."
+Fold range definition,10^(maximum experimental logKp − minimum experimental logKp).
+Variability bands,Single measurement; Low ≤0.5; Moderate >0.5 to 1.0; High >1.0 log10 unit.
+Interpretation limit,Condition and reference differences are observational and co-vary; they do not establish causal effects on permeability.
+Unknown-value handling,"Nulls and sentinel strings such as unknown, N/A, and not reported are treated as unavailable."
