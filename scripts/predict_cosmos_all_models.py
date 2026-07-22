@@ -103,7 +103,12 @@ def safe_name(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9_-]+", "_", value).strip("_")
 
 
-def make_plots(predictions: pd.DataFrame, metrics: pd.DataFrame, output_dir: Path) -> list[Path]:
+def make_plots(
+    predictions: pd.DataFrame,
+    metrics: pd.DataFrame,
+    output_dir: Path,
+    cohort_note: str = "",
+) -> list[Path]:
     import matplotlib
 
     matplotlib.use("Agg")
@@ -124,8 +129,11 @@ def make_plots(predictions: pd.DataFrame, metrics: pd.DataFrame, output_dir: Pat
         ax.scatter(valid["Nearest_Experimental_logKp"], valid["Predicted_logKp_cm_per_s"], s=34, alpha=0.72,
                    color="#2563eb", edgecolors="white", linewidths=0.4)
         ax.plot(limits, limits, color="#334155", linestyle="--", linewidth=1.2, label="Ideal agreement")
+        title = f"COSMOS predicted vs nearest experimental logKp\n{model}"
+        if cohort_note:
+            title += f"\n{cohort_note}"
         ax.set(xlim=limits, ylim=limits, xlabel="Nearest experimental logKp (log10 cm/s)",
-               ylabel="Predicted logKp (log10 cm/s)", title=f"COSMOS predicted vs nearest experimental logKp\n{model}")
+               ylabel="Predicted logKp (log10 cm/s)", title=title)
         ax.text(0.03, 0.97, f"n={int(row['n'])}   RMSE={row['RMSE']:.3f}   MAE={row['MAE']:.3f}   R²={row['R2']:.3f}",
                 transform=ax.transAxes, va="top", fontsize=9, bbox={"facecolor": "white", "alpha": 0.85, "edgecolor": "#cbd5e1"})
         ax.legend(loc="lower right")
@@ -143,7 +151,10 @@ def make_plots(predictions: pd.DataFrame, metrics: pd.DataFrame, output_dir: Pat
     ax.set_yticks(positions, ranked["Model"])
     ax.invert_yaxis()
     ax.set_xlabel("RMSE vs nearest experimental value (log10 cm/s)")
-    ax.set_title("COSMOS model comparison — lower RMSE is better")
+    comparison_title = "COSMOS model comparison — lower RMSE is better"
+    if cohort_note:
+        comparison_title += f"\n{cohort_note}"
+    ax.set_title(comparison_title)
     if len(ranked) > 1:
         display_max = max(1.0, float(ranked["RMSE"].iloc[-2]) * 1.3)
         if float(ranked["RMSE"].max()) > display_max:
@@ -161,13 +172,35 @@ def make_plots(predictions: pd.DataFrame, metrics: pd.DataFrame, output_dir: Pat
     return paths
 
 
-def run(input_path: Path, output_dir: Path, rdkit_python: str | None = None) -> dict[str, object]:
+def run(
+    input_path: Path,
+    output_dir: Path,
+    rdkit_python: str | None = None,
+    exclude_compounds: list[str] | None = None,
+) -> dict[str, object]:
     paths = ProjectPaths.discover(ROOT)
     source = pd.read_csv(input_path)
     required_columns = {SMILES_COLUMN, TARGET_MEAN, TARGET_VALUES}
     missing = sorted(required_columns - set(source.columns))
     if missing:
         raise ValueError(f"COSMOS input is missing required columns: {missing}")
+
+    excluded_requested = [str(value).strip() for value in (exclude_compounds or []) if str(value).strip()]
+    excluded_normalized = {value.casefold() for value in excluded_requested}
+    name_column = "COSMOS Name"
+    if excluded_normalized:
+        if name_column not in source.columns:
+            raise ValueError(f"Cannot exclude compounds because {name_column!r} is absent.")
+        exclude_mask = source[name_column].astype(str).str.strip().str.casefold().isin(excluded_normalized)
+        excluded_found = source.loc[exclude_mask, name_column].astype(str).tolist()
+        missing_exclusions = sorted(excluded_normalized - {value.strip().casefold() for value in excluded_found})
+        if missing_exclusions:
+            raise ValueError(f"Requested excluded compounds were not found: {missing_exclusions}")
+        source = source.loc[~exclude_mask].copy()
+    else:
+        excluded_found = []
+    source.insert(0, "Original_Source_Row", source.index.astype(int))
+    source = source.reset_index(drop=True)
 
     dataset = source.copy()
     for source_name, model_name in COSMOS_DESCRIPTOR_ALIASES.items():
@@ -213,7 +246,7 @@ def run(input_path: Path, output_dir: Path, rdkit_python: str | None = None) -> 
             nearest = nearest_experimental(record[TARGET_VALUES], float(prediction))
             mean = pd.to_numeric(pd.Series([record[TARGET_MEAN]]), errors="coerce").iloc[0]
             rows.append({
-                "Source_Row": int(position), "COSMOS_ID": record.get("COSMOS ID", ""),
+                "Source_Row": int(record["Original_Source_Row"]), "COSMOS_ID": record.get("COSMOS ID", ""),
                 "COSMOS_Name": record.get("COSMOS Name", ""), "SMILES": record[SMILES_COLUMN],
                 "Canonical_SMILES": status.iloc[position]["Canonical_SMILES"], "Model": model.name,
                 "Artifact_Path": str(model.artifact_path), "Predicted_logKp_cm_per_s": float(prediction),
@@ -247,9 +280,11 @@ def run(input_path: Path, output_dir: Path, rdkit_python: str | None = None) -> 
         for model in models
     ]
     build_descriptor_audit(audit_models, audit).to_csv(audit_path, index=False)
-    plot_paths = make_plots(predictions, metrics, output_dir)
+    cohort_note = f"n={len(source)}; excluded {len(excluded_found)} specified compounds" if excluded_found else ""
+    plot_paths = make_plots(predictions, metrics, output_dir, cohort_note=cohort_note)
     summary = {
         "input": str(input_path.resolve()), "compound_rows": len(source), "valid_smiles": int(valid.sum()),
+        "excluded_compounds": excluded_found,
         "model_scope": "models/reproduction/benchmark only",
         "models_loaded": len(models), "models_predicted": int(predictions["Model"].nunique()),
         "prediction_rows": len(predictions), "prediction_unit": "log10(cm/s)",
@@ -270,10 +305,11 @@ def main() -> None:
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--rdkit-python", default=None)
+    parser.add_argument("--exclude-compound", action="append", default=[], help="COSMOS Name to exclude; repeat as needed.")
     args = parser.parse_args()
     input_path = args.input if args.input.is_absolute() else ROOT / args.input
     output_dir = args.output if args.output.is_absolute() else ROOT / args.output
-    print(json.dumps(run(input_path, output_dir, args.rdkit_python), indent=2))
+    print(json.dumps(run(input_path, output_dir, args.rdkit_python, args.exclude_compound), indent=2))
 
 
 if __name__ == "__main__":
