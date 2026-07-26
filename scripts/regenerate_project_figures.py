@@ -615,7 +615,7 @@ def discover_inputs(args: argparse.Namespace) -> ProjectContext:
     if context.external_path:
         context.external = load_table(context.external_path)
 
-    context.metrics_path = select_metrics_table(root)
+    context.metrics_path = resolve_path(root, args.metrics_data) or select_metrics_table(root)
     if context.metrics_path:
         context.metrics = pd.read_csv(context.metrics_path)
         best_row = choose_best_model(context.metrics)
@@ -638,13 +638,21 @@ def discover_inputs(args: argparse.Namespace) -> ProjectContext:
         prediction_candidates = []
         if context.metrics_path and "improved" in context.metrics_path.name.lower():
             prediction_candidates.append("reports/tables/improved_test_errors.csv")
-        prediction_candidates.extend(
-            (
-                "external_test_predictions.csv",
-                "reports/tables/test_predictions.csv",
-                "reports/tables/predictions.csv",
+        elif context.metrics_path and "benchmark" in context.metrics_path.name.lower():
+            prediction_candidates.extend(
+                (
+                    "reports/tables/benchmark_test_errors.csv",
+                    "reports/tables/benchmark_predictions.csv",
+                )
             )
-        )
+        else:
+            prediction_candidates.extend(
+                (
+                    "external_test_predictions.csv",
+                    "reports/tables/test_predictions.csv",
+                    "reports/tables/predictions.csv",
+                )
+            )
         context.prediction_path = first_existing(root, prediction_candidates)
     if context.prediction_path:
         context.predictions = load_table(context.prediction_path)
@@ -1014,10 +1022,16 @@ def plot_model_performance(context: ProjectContext) -> list[Path]:
     if context.metrics is None:
         raise ValueError("no model metrics table was detected")
     metrics = context.metrics.copy()
-    metric_columns = [column for column in ("r2", "rmse", "mae", "cv_rmse", "cv_mae", "mse") if column in metrics.columns]
+    metric_columns = []
+    for column in ("r2", "rmse", "mae", "cv_rmse", "cv_mae", "mse"):
+        if column not in metrics.columns:
+            continue
+        values = pd.to_numeric(metrics[column], errors="coerce")
+        if values.notna().any():
+            metric_columns.append(column)
     if not metric_columns:
         raise ValueError("metrics table contains no supported performance columns")
-    sort_column = "mae" if "mae" in metrics.columns else "rmse" if "rmse" in metrics.columns else "r2"
+    sort_column = "mae" if "mae" in metric_columns else "rmse" if "rmse" in metric_columns else "r2"
     metrics = metrics.sort_values(sort_column, ascending=sort_column != "r2").reset_index(drop=True)
     panel_columns = 2
     panel_rows = math.ceil(len(metric_columns) / panel_columns)
@@ -1807,7 +1821,8 @@ def plot_statistical_heatmap(context: ProjectContext) -> list[Path]:
     tests = pairwise_group_tests(context.external, group, value)
     groups = sorted(set(tests["left"]).union(tests["right"]))
     matrix = pd.DataFrame(np.nan, index=groups, columns=groups)
-    np.fill_diagonal(matrix.values, 0.0)
+    for group_name in groups:
+        matrix.loc[group_name, group_name] = 0.0
     for row in tests.itertuples():
         transformed = -math.log10(max(float(row.adjusted_p_value), np.finfo(float).tiny))
         matrix.loc[row.left, row.right] = transformed
@@ -1815,7 +1830,7 @@ def plot_statistical_heatmap(context: ProjectContext) -> list[Path]:
     size = max(6.5, min(16, len(groups) * 0.55 + 4))
     fig, ax = plt.subplots(figsize=(size, size * 0.88))
     sns.heatmap(
-        matrix,
+        matrix.astype(float).copy(),
         cmap="mako",
         square=True,
         linewidths=0.35,
@@ -1947,6 +1962,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--skin-data", default=None, help="Experimental LogKp dataset (CSV/XLSX).")
     parser.add_argument("--descriptor-data", default=None, help="Optional descriptor table separate from the skin dataset.")
     parser.add_argument("--external-data", default=None, help="External/FDA/DrugBank compound or prediction table.")
+    parser.add_argument("--metrics-data", default=None, help="Model metrics table for comparison and model selection.")
     parser.add_argument("--prediction-data", default=None, help="Actual/predicted validation table.")
     parser.add_argument("--model-dir", default=None, help="Directory containing fitted project model artifacts.")
     parser.add_argument("--output-dir", default="figures", help="Figure output directory.")

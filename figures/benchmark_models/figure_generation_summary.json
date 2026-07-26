@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "project_root": ".",
+    "paper_pdf": null,
+    "paper_pdf_found": false,
+    "skin_data": "data/final/clean_trial4.csv",
+    "descriptor_data": "data/final/clean_trial4.csv",
+    "external_data": "reports/tables/drugbank_predictions_and_clusters.csv",
+    "prediction_data": null,
+    "metrics_data": "reports/tables/benchmark_metrics.csv",
+    "model_dir": "models/reproduction/benchmark",
+    "target_column": "logkpl",
+    "identifier_columns": [
+      "Compound",
+      "SMILES"
+    ],
+    "descriptor_count": 99,
+    "modeling_descriptor_count": 146,
+    "best_model": "Gradient Boosting",
+    "best_model_path": "models/reproduction/benchmark/Gradient_Boosting.joblib",
+    "external_validation_label": "Validation artifact (paper-reproduction)",
+    "descriptor_cleaning": {
+      "excluded_identifiers_and_target": [
+        "Compound",
+        "SMILES",
+        "logkpl"
+      ],
+      "leakage_columns": [],
+      "non_numeric_columns": [],
+      "all_missing_columns": [],
+      "constant_columns": [
+        "C2SP1",
+        "khs.sLi",
+        "khs.ssBe",
+        "khs.ssBH",
+        "khs.sssB",
+        "khs.tCH",
+        "khs.sNH3",
+        "khs.ssNH2",
+        "khs.dNH",
+        "khs.sSiH3",
+        "khs.ssSiH2",
+        "khs.sssSiH",
+        "khs.ssssSi",
+        "khs.sPH2",
+        "khs.ssPH",
+        "khs.sssP",
+        "khs.sssssP",
+        "khs.sSH",
+        "khs.ssS",
+        "khs.dssS",
+        "khs.sGeH3",
+        "khs.ssGeH2",
+        "khs.sssGeH",
+        "khs.ssssGe",
+        "khs.sAsH2",
+        "khs.ssAsH",
+        "khs.sssAs",
+        "khs.sssdAs",
+        "khs.sssssAs",
+        "khs.sSeH",
+        "khs.dSe",
+        "khs.ssSe",
+        "khs.aaSe",
+        "khs.dssSe",
+        "khs.ddssSe",
+        "khs.sSnH3",
+        "khs.ssSnH2",
+        "khs.sssSnH",
+        "khs.ssssSn",
+        "khs.sPbH3",
+        "khs.ssPbH2",
+        "khs.sssPbH",
+        "khs.ssssPb",
+        "nRings4",
+        "nRings7",
+        "nRings8",
+        "nRings9"
+      ],
+      "duplicate_columns": []
+    }
+  },
+  "generated": {
+    "fig01_project_workflow": [
+      "figures/benchmark_models/fig01_project_workflow.png",
+      "figures/benchmark_models/fig01_project_workflow.pdf"
+    ],
+    "fig02_dataset_characterization": [
+      "figures/benchmark_models/fig02_dataset_characterization.png",
+      "figures/benchmark_models/fig02_dataset_characterization.pdf"
+    ],
+    "fig03_descriptor_correlation_heatmap": [
+      "figures/benchmark_models/fig03_descriptor_correlation_heatmap.png",
+      "figures/benchmark_models/fig03_descriptor_correlation_heatmap.pdf"
+    ],
+    "fig04_key_descriptor_logkp_relationships": [
+      "figures/benchmark_models/fig04_key_descriptor_logkp_relationships.png",
+      "figures/benchmark_models/fig04_key_descriptor_logkp_relationships.pdf"
+    ],
+    "fig05_model_performance_comparison": [
+      "figures/benchmark_models/fig05_model_performance_comparison.png",
+      "figures/benchmark_models/fig05_model_performance_comparison.pdf"
+    ],
+    "fig06_predicted_vs_actual": [
+      "figures/benchmark_models/fig06_predicted_vs_actual.png",
+      "figures/benchmark_models/fig06_predicted_vs_actual.pdf"
+    ],
+    "fig07_residual_error_analysis": [
+      "figures/benchmark_models/fig07_residual_error_analysis.png",
+      "figures/benchmark_models/fig07_residual_error_analysis.pdf"
+    ],
+    "fig08_feature_importance_or_shap": [
+      "figures/benchmark_models/fig08_feature_importance_or_shap.png",
+      "figures/benchmark_models/fig08_feature_importance_or_shap.pdf"
+    ],
+    "fig09_dimensionality_reduction": [
+      "figures/benchmark_models/fig09_dimensionality_reduction.png",
+      "figures/benchmark_models/fig09_dimensionality_reduction.pdf"
+    ],
+    "fig10_clustering_analysis": [
+      "figures/benchmark_models/fig10_clustering_analysis.png",
+      "figures/benchmark_models/fig10_clustering_analysis.pdf"
+    ],
+    "fig11_cluster_property_comparison": [
+      "figures/benchmark_models/fig11_cluster_property_comparison.png",
+      "figures/benchmark_models/fig11_cluster_property_comparison.pdf"
+    ],
+    "fig12_predicted_logkp_group_comparison": [
+      "figures/benchmark_models/fig12_predicted_logkp_group_comparison.png",
+      "figures/benchmark_models/fig12_predicted_logkp_group_comparison.pdf"
+    ],
+    "fig13_group_statistical_heatmap": [
+      "figures/benchmark_models/fig13_group_statistical_heatmap.png",
+      "figures/benchmark_models/fig13_group_statistical_heatmap.pdf"
+    ],
+    "fig14_applicability_domain": [
+      "figures/benchmark_models/fig14_applicability_domain.png",
+      "figures/benchmark_models/fig14_applicability_domain.pdf"
+    ]
+  },
+  "skipped": {}
+}

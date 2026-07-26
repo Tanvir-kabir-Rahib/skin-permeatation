@@ -162,12 +162,23 @@ python scripts/regenerate_project_figures.py \
   --skin-data data/final/clean_trial4.csv \
   --descriptor-data data/final/clean_trial4.csv \
   --external-data reports/tables/drugbank_predictions_and_clusters.csv \
+  --metrics-data reports/tables/improved_metrics.csv \
   --prediction-data reports/tables/improved_test_errors.csv \
   --model-dir models/reproduction/improved \
   --output-dir figures \
   --target-column logkpl \
   --random-state 2024 \
   --top-n-features 15
+```
+
+To regenerate figures for the benchmark-optimized models instead of the grouped
+improved models, point the script at the benchmark metrics and model artifacts:
+
+```bash
+python scripts/regenerate_project_figures.py \
+  --metrics-data reports/tables/benchmark_metrics.csv \
+  --model-dir models/reproduction/benchmark \
+  --output-dir figures/benchmark_models
 ```
 
 The paper PDF is optional and is recorded for documentation only. It is never used as
