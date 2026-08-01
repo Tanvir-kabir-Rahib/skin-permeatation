@@ -272,13 +272,13 @@ The current `fig08_feature_importance_or_shap` filename includes the term SHAP, 
 
 ## 12. Applicability Domain and Robustness Analysis
 
-The downstream DrugBank applicability domain is distance-based. A five-nearest-neighbor model is fitted to the 146-input experimental matrix. For each training and query compound, the mean distance to its nearest neighbors is calculated. The 95th percentile of the training mean-distance distribution is used as the applicability threshold:
+The downstream DrugBank applicability domain is distance-based. A five-nearest-neighbor model is fitted to the 146-input experimental matrix. For each training and query compound, the mean distance to its nearest neighbors is calculated. The current DrugBank regeneration uses the 97th percentile of the training mean-distance distribution as the applicability threshold:
 
 $$
-d_{\mathrm{query}} \leq Q_{0.95}(d_{\mathrm{training}})
+d_{\mathrm{query}} \leq Q_{0.97}(d_{\mathrm{training}})
 $$
 
-Compounds satisfying this rule are marked `within_domain=True`. The current DrugBank output classifies 736 of 2,293 compounds (32.1%) as within domain and 1,557 as outside domain. Distances in `analysis/applicability.py` are calculated on the supplied feature values without an internal scaling step; therefore, high-magnitude descriptors can dominate the distance measure.
+Compounds satisfying this rule are marked `within_domain=True`. The current DrugBank output classifies 1,041 of 2,293 compounds (45.4%) as within domain and 1,252 as outside domain. Distances in `analysis/applicability.py` are calculated on the supplied feature values without an internal scaling step; therefore, high-magnitude descriptors can dominate the distance measure.
 
 Robustness analyses additionally include:
 

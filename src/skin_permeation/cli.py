@@ -30,6 +30,12 @@ def build_parser() -> argparse.ArgumentParser:
     cluster = subparsers.add_parser("cluster-drugbank")
     cluster.add_argument("--model-path", default="models/reproduction/benchmark/best_benchmark_model.joblib")
     cluster.add_argument("--scaler-path", default="")
+    cluster.add_argument(
+        "--applicability-threshold-quantile",
+        type=float,
+        default=0.95,
+        help="Training-distance quantile used as the KNN applicability-domain threshold.",
+    )
 
     atc = subparsers.add_parser("run-atc")
     atc.add_argument("--predictions", default="reports/tables/drugbank_predictions_and_clusters.csv")
@@ -52,6 +58,12 @@ def build_parser() -> argparse.ArgumentParser:
     full.add_argument("--improved-config", default="configs/improved.yaml")
     full.add_argument("--model-path", default="models/reproduction/benchmark/best_benchmark_model.joblib")
     full.add_argument("--scaler-path", default="")
+    full.add_argument(
+        "--applicability-threshold-quantile",
+        type=float,
+        default=0.95,
+        help="Training-distance quantile used as the KNN applicability-domain threshold.",
+    )
 
     return parser
 
@@ -96,7 +108,12 @@ def main() -> None:
         from .analysis.clustering import run_clustering
 
         scaler_path = Path(args.scaler_path) if args.scaler_path else None
-        run_clustering(paths, Path(args.model_path), scaler_path)
+        run_clustering(
+            paths,
+            Path(args.model_path),
+            scaler_path,
+            applicability_threshold_quantile=args.applicability_threshold_quantile,
+        )
         return
     if args.command == "run-atc":
         import pandas as pd
@@ -133,7 +150,12 @@ def main() -> None:
         run_benchmark(paths, Path(args.benchmark_config))
         run_improved(paths, Path(args.improved_config))
         scaler_path = Path(args.scaler_path) if args.scaler_path else None
-        clustered = run_clustering(paths, Path(args.model_path), scaler_path)
+        clustered = run_clustering(
+            paths,
+            Path(args.model_path),
+            scaler_path,
+            applicability_threshold_quantile=args.applicability_threshold_quantile,
+        )
         try:
             run_atc_analysis(paths, clustered)
         except FileNotFoundError as exc:

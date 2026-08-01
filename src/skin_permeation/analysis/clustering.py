@@ -48,7 +48,13 @@ def _predict_drugbank(paths: ProjectPaths, model_path: Path, scaler_path: Path |
     return output
 
 
-def run_clustering(paths: ProjectPaths, model_path: Path, scaler_path: Path | None, cluster_range: range = range(2, 11)) -> pd.DataFrame:
+def run_clustering(
+    paths: ProjectPaths,
+    model_path: Path,
+    scaler_path: Path | None,
+    cluster_range: range = range(2, 11),
+    applicability_threshold_quantile: float = 0.95,
+) -> pd.DataFrame:
     output = _predict_drugbank(paths, model_path=model_path, scaler_path=scaler_path)
     descriptor_frame = output.drop(columns=["Name", "SMILES", "predicted_logkpl"])
     scaler = StandardScaler()
@@ -80,6 +86,7 @@ def run_clustering(paths: ProjectPaths, model_path: Path, scaler_path: Path | No
     applicability = knn_applicability_domain(
         x_train=load_bundle(paths).clean_trial4.drop(columns=["logkpl", "Compound", "SMILES"]).assign(Texpi=lambda df: df["Texpi"]),
         x_query=output[[column for column in load_bundle(paths).clean_trial4.columns if column not in {"logkpl", "Compound", "SMILES"}]],
+        threshold_quantile=applicability_threshold_quantile,
     )
     output = pd.concat([output.reset_index(drop=True), applicability.reset_index(drop=True)], axis=1)
     save_table(output, paths.reports / "tables" / "drugbank_predictions_and_clusters.csv")

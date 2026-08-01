@@ -72,7 +72,7 @@ python scripts/run_full_pipeline.py run-baseline --config configs/paper_baseline
 python scripts/run_full_pipeline.py run-benchmark --config configs/benchmark.yaml
 python scripts/run_full_pipeline.py run-benchmark --config configs/benchmark_aggressive.yaml
 python scripts/run_full_pipeline.py run-improved --config configs/improved.yaml
-python scripts/run_full_pipeline.py cluster-drugbank --model-path models/reproduction/benchmark/best_benchmark_model.joblib
+python scripts/run_full_pipeline.py cluster-drugbank --model-path models/reproduction/benchmark/best_benchmark_model.joblib --applicability-threshold-quantile 0.97
 python scripts/run_full_pipeline.py run-atc --predictions reports/tables/drugbank_predictions_and_clusters.csv
 ```
 

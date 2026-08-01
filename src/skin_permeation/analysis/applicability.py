@@ -14,6 +14,8 @@ def knn_applicability_domain(
     k: int = 5,
     threshold_quantile: float = 0.95,
 ) -> pd.DataFrame:
+    if not 0 < threshold_quantile <= 1:
+        raise ValueError("threshold_quantile must be greater than 0 and less than or equal to 1")
     nn = NearestNeighbors(n_neighbors=min(k, len(x_train)))
     nn.fit(x_train)
     train_distances = nn.kneighbors(x_train, return_distance=True)[0].mean(axis=1)

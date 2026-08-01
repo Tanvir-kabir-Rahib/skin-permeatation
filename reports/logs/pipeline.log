@@ -451,3 +451,12 @@
 2026-08-01 17:20:25,940 | INFO | skin_permeation.modeling.benchmark | Blended XGBoost with Gradient Boosting at weight 0.7360: test R2 0.9133, test RMSE 0.3342.
 2026-08-01 17:20:32,857 | INFO | skin_permeation.modeling.benchmark | Blended CatBoost with Gradient Boosting at weight 0.3574: test R2 0.9002, test RMSE 0.3586.
 2026-08-01 17:20:36,569 | INFO | skin_permeation.modeling.benchmark | Blended LGBM with Gradient Boosting at weight 0.6412: test R2 0.9153, test RMSE 0.3304.
+2026-08-02 01:32:13,228 | WARNING | matplotlib.font_manager | Matplotlib is building the font cache; this may take a moment.
+2026-08-02 01:32:22,217 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (unknown file format; error code 0x2)
+2026-08-02 01:32:22,227 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-08-02 01:32:22,249 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+2026-08-02 01:32:22,256 | INFO | matplotlib.font_manager | Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+2026-08-02 01:32:22,301 | INFO | matplotlib.font_manager | generated new fontManager
+2026-08-02 01:32:22,587 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-08-02 01:32:29,142 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data
+2026-08-02 01:32:29,651 | INFO | skin_permeation.data_loading | Loading core datasets from /Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data

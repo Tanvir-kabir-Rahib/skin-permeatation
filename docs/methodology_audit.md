@@ -156,7 +156,7 @@ No Y-randomization, nested cross-validation, scaffold split, learning curve, lev
 - RDKit validation/canonicalization and CDK-based 146-feature inference.
 - Fixed DrugBank `Texpi=310`.
 - K-means evaluation for `k=2..10`, final fixed `k=4`, and PCA projection.
-- Five-nearest-neighbor, 95th-percentile applicability-domain rule.
+- Five-nearest-neighbor applicability-domain rule with a configurable training-distance percentile threshold.
 - ATC code path, minimum group size of three, Kruskal-Wallis, Mann-Whitney, and FDR logic.
 - Figure names, formats, and current manifest status.
 
