@@ -1,0 +1,21 @@
+Model,Training-only OOF R2,Selected
+OOF_Ridge_Ensemble_Calibrated,0.7079390216530609,False
+OOF_Ridge_Ensemble,0.7079117657648712,False
+SVR_RBF_Calibrated,0.7042781294270886,False
+SVR_RBF,0.7003536487169575,True
+RandomForest_Calibrated,0.6847031329363784,False
+CatBoost_Calibrated,0.6839352824792138,False
+RandomForest,0.6823724111120077,False
+ExtraTrees_PowerTarget_Calibrated,0.6816674514893181,False
+GradientBoosting_Calibrated,0.6814846608516769,False
+ExtraTrees_Calibrated,0.6799097675822955,False
+CatBoost,0.6793194694159657,False
+ExtraTrees_PowerTarget,0.6747522135317638,False
+GradientBoosting,0.6746160784475849,False
+XGBoost_Calibrated,0.6739101088572408,False
+ExtraTrees,0.6734976864388802,False
+LightGBM_Calibrated,0.6708681124178696,False
+HistGradientBoosting_Calibrated,0.6681690897370244,False
+XGBoost,0.667651917025885,False
+LightGBM,0.6614694838261306,False
+HistGradientBoosting,0.6595844510196295,False

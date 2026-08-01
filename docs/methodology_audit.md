@@ -170,7 +170,7 @@ No Y-randomization, nested cross-validation, scaffold split, learning curve, lev
    - grouped result by MAE: LGBM;
    - CV-selected benchmark artifact: CatBoost;
    - primary unknown-SMILES prediction: Gradient Boosting;
-   - extended validation model: calibrated RBF-SVR.
+   - extended validation model: uncalibrated RBF-SVR selected by the training-only calibration guard.
 
    `[Confirm which model should be called the final model in the thesis.]`
 
@@ -178,7 +178,7 @@ No Y-randomization, nested cross-validation, scaffold split, learning curve, lev
 
    `[Confirm or regenerate the DrugBank predictions with the intended final model.]`
 
-4. **Meaning of external validation.** The current `external_test_predictions.csv` is a held-out subset of `clean_trial4.csv`, not an independently sourced experimental dataset. It also uses a random row split with repeated SMILES across train and test.
+4. **Meaning of external validation.** The current `external_test_predictions.csv` is a held-out subset of `clean_trial4.csv`, not an independently sourced experimental dataset. It uses a random row split; `validation_protocol.json` records 33 overlapping SMILES and 54 overlapping validation rows.
 
    `[Confirm whether a genuinely independent experimental LogKp dataset exists outside this repository.]`
 
@@ -202,10 +202,8 @@ No Y-randomization, nested cross-validation, scaffold split, learning curve, lev
 
    `[Confirm that 310 K is the intended deployment temperature for all external molecules.]`
 
-10. **Saved-model software versions.** Loading the current validation model in the available interpreter produced scikit-learn version warnings.
+10. **Saved-model software versions.** The regenerated validation artifact records Python 3.13.5 and scikit-learn 1.6.1 in both the model bundle and `validation_protocol.json`.
 
-    `[Record the exact training environment or regenerate artifacts in the declared Python 3.11 environment before archival.]`
+    `[Use the recorded versions when archiving or transferring the serialized model.]`
 
-11. **External-validation fold count.** The training command defaults to five folds, but `external_validation_model.joblib` does not store the `cv_folds` argument.
-
-    `[Confirm that the saved validation model used five cross-validation folds.]`
+11. **External-validation fold count.** The regenerated `external_validation_model.joblib` and `validation_protocol.json` record `cv_folds=5`.

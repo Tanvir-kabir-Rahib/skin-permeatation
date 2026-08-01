@@ -56,17 +56,50 @@ def save_estimator(estimator: Any, destination: Path) -> Path:
 def save_predictions_plot(y_true: pd.Series, y_pred: np.ndarray, destination: Path, title: str) -> None:
     plt = require_module("matplotlib.pyplot", "Install matplotlib to generate figures.")
     destination.parent.mkdir(parents=True, exist_ok=True)
-    plt.figure(figsize=(8, 6))
-    plt.scatter(y_true, y_pred, alpha=0.75)
+    metrics = regression_metrics(y_true, y_pred)
+    figure, axis = plt.subplots(figsize=(7.4, 6.2))
+    figure.patch.set_facecolor("white")
+    axis.set_facecolor("#FBFCFE")
+    axis.scatter(
+        y_true,
+        y_pred,
+        s=42,
+        alpha=0.78,
+        color="#2878B5",
+        edgecolor="white",
+        linewidth=0.55,
+    )
     lower = float(min(np.min(y_true), np.min(y_pred)))
     upper = float(max(np.max(y_true), np.max(y_pred)))
-    plt.plot([lower, upper], [lower, upper], linestyle="--", color="red")
-    plt.xlabel("Actual LogKp")
-    plt.ylabel("Predicted LogKp")
-    plt.title(title)
-    plt.tight_layout()
-    plt.savefig(destination, dpi=200)
-    plt.close()
+    padding = max(0.15, (upper - lower) * 0.04)
+    limits = (lower - padding, upper + padding)
+    axis.plot(
+        limits,
+        limits,
+        linestyle="--",
+        color="#374151",
+        linewidth=1.35,
+        label="Ideal agreement",
+    )
+    axis.set(xlim=limits, ylim=limits, xlabel="Actual logKp", ylabel="Predicted logKp")
+    axis.set_title(title, loc="left", fontsize=12, fontweight="bold", color="#16324F", pad=14)
+    axis.text(
+        0.03,
+        0.97,
+        f"R² = {metrics.r2:.3f}\nRMSE = {metrics.rmse:.3f}\nMAE = {metrics.mae:.3f}\nn = {len(y_true)}",
+        transform=axis.transAxes,
+        va="top",
+        ha="left",
+        color="#16324F",
+        fontsize=9.5,
+        bbox={"boxstyle": "round,pad=0.45", "facecolor": "white", "edgecolor": "#D7DEE5", "alpha": 0.94},
+    )
+    axis.legend(loc="lower right", frameon=False)
+    axis.grid(True, color="#D7DEE5", linewidth=0.6, alpha=0.7)
+    axis.spines[["top", "right"]].set_visible(False)
+    figure.tight_layout()
+    figure.savefig(destination, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.close(figure)
 
 
 def evaluate_regressor(

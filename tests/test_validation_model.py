@@ -12,6 +12,7 @@ if str(SRC) not in sys.path:
 
 from skin_permeation.validation_model import (
     build_candidate_models,
+    calibration_is_beneficial,
     fit_cross_validated_ensemble,
     make_cv_splitter,
     predict_selected_model,
@@ -19,6 +20,21 @@ from skin_permeation.validation_model import (
     resolve_validation_protocol,
     split_external_holdout,
 )
+
+
+def test_calibration_guard_rejects_negligible_r2_gain():
+    y_true = np.array([-4.0, -3.0, -2.0, -1.0, 0.0])
+    raw = np.array([-3.9, -3.1, -1.9, -1.1, 0.1])
+
+    assert calibration_is_beneficial(y_true, raw, raw.copy()) is False
+
+
+def test_calibration_guard_accepts_material_agreement_improvement():
+    y_true = np.array([-4.0, -3.0, -2.0, -1.0, 0.0])
+    raw = 0.60 * y_true
+    calibrated = y_true.copy()
+
+    assert calibration_is_beneficial(y_true, raw, calibrated) is True
 
 
 def test_grouped_external_holdout_has_no_smiles_overlap():

@@ -1,0 +1,12 @@
+Model,Source Artifact,Estimator Class,Fit Seconds,Training Rows,Validation Rows
+Gradient Boosting,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/Gradient_Boosting.joblib,Pipeline,0.502690374996746,354,63
+LGBM,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/LGBM.joblib,CrossValidatedBlendRegressor,3.76854158299102,354,63
+ExtraTrees,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ExtraTrees.joblib,CrossValidatedBlendRegressor,6.202638583999942,354,63
+XGBoost,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/XGBoost.joblib,CrossValidatedBlendRegressor,4.244971291991533,354,63
+HistGradientBoosting,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/HistGradientBoosting.joblib,CrossValidatedBlendRegressor,5.9850227079878096,354,63
+Mean Ensemble,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/MeanEnsemble.joblib,CrossValidatedBlendRegressor,15.994820625011926,354,63
+Stacking Regressor,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/StackingRegressor.joblib,CrossValidatedBlendRegressor,78.06556370800536,354,63
+SVR (RBF),/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/SVR_RBF.joblib,CrossValidatedBlendRegressor,3.474204833008116,354,63
+ElasticNet,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/ElasticNet.joblib,CrossValidatedBlendRegressor,4.360221875002026,354,63
+CatBoost,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/CatBoost.joblib,CrossValidatedBlendRegressor,7.01227066598949,354,63
+RF,/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/models/reproduction/benchmark/RF.joblib,CrossValidatedBlendRegressor,7.41607770799601,354,63

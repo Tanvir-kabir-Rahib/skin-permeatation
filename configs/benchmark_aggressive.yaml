@@ -12,7 +12,10 @@ correlation_threshold_options:
 optimization_scoring: neg_root_mean_squared_error
 use_target_transform: false
 skip_post_search_cv: true
-run_ensembles: false
+run_ensembles: true
+blend_anchor: Gradient Boosting
+blend_cv_folds: 5
+blend_random_state: 2025
 selector_k_options:
   - all
 model_selector_k_options:

@@ -1,0 +1,199 @@
+Model,Metric,Value,Acceptance Criterion,Result
+Gradient Boosting,R2_ext,0.80236562578804,R2_ext > 0.60,Pass
+Gradient Boosting,RMSE_ext,0.45692346270199224,Lower is better,Report only
+Gradient Boosting,MAE_ext,0.29528767494440084,Lower is better,Report only
+Gradient Boosting,Q2_F1,0.8043992239255777,Q2_F1 > 0.70,Pass
+Gradient Boosting,Q2_F2,0.80236562578804,Q2_F2 > 0.70,Pass
+Gradient Boosting,Q2_F3,0.8479706003763199,Q2_F3 > 0.70,Pass
+Gradient Boosting,CCC_ext,0.8889362891961298,CCC_ext > 0.85,Pass
+Gradient Boosting,r_m^2,0.6616846180843238,r_m^2 > 0.65,Pass
+Gradient Boosting,r_m'^2,0.802337965480876,Report alongside r_m^2,Report only
+Gradient Boosting,Average r_m^2,0.7320112917825998,Average r_m^2 > 0.65,Pass
+Gradient Boosting,Delta r_m^2,0.14065334739655222,Delta r_m^2 < 0.20,Pass
+Gradient Boosting,R0^2,0.7766556224785066,Report for Golbraikh-Tropsha,Report only
+Gradient Boosting,R0'^2,0.8101942554943394,Report for Golbraikh-Tropsha,Report only
+Gradient Boosting,k,0.9401876140065476,0.85 <= k <= 1.15,Pass
+Gradient Boosting,k',1.034969990687048,0.85 <= k' <= 1.15,Pass
+Gradient Boosting,abs(R2_ext - R0^2) / R2_ext,0.0320427526843295,< 0.10 OR reverse ratio < 0.10,Pass
+Gradient Boosting,abs(R2_ext - R0'^2) / R2_ext,0.009756935559908274,< 0.10 OR direct ratio < 0.10,Pass
+Gradient Boosting,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+LGBM,R2_ext,0.8037275685384329,R2_ext > 0.60,Pass
+LGBM,RMSE_ext,0.4553463599878726,Lower is better,Report only
+LGBM,MAE_ext,0.2937893632354071,Lower is better,Report only
+LGBM,Q2_F1,0.8057471526956007,Q2_F1 > 0.70,Pass
+LGBM,Q2_F2,0.8037275685384329,Q2_F2 > 0.70,Pass
+LGBM,Q2_F3,0.8490182690295571,Q2_F3 > 0.70,Pass
+LGBM,CCC_ext,0.8896786510837803,CCC_ext > 0.85,Pass
+LGBM,r_m^2,0.6623937912576655,r_m^2 > 0.65,Pass
+LGBM,r_m'^2,0.8044220510926822,Report alongside r_m^2,Report only
+LGBM,Average r_m^2,0.7334079211751738,Average r_m^2 > 0.65,Pass
+LGBM,Delta r_m^2,0.14202825983501666,Delta r_m^2 < 0.20,Pass
+LGBM,R0^2,0.7776667621715936,Report for Golbraikh-Tropsha,Report only
+LGBM,R0'^2,0.8113116543837924,Report for Golbraikh-Tropsha,Report only
+LGBM,k,0.9408611265197602,0.85 <= k <= 1.15,Pass
+LGBM,k',1.0343976396810382,0.85 <= k' <= 1.15,Pass
+LGBM,abs(R2_ext - R0^2) / R2_ext,0.03242492529431394,< 0.10 OR reverse ratio < 0.10,Pass
+LGBM,abs(R2_ext - R0'^2) / R2_ext,0.009436139983540785,< 0.10 OR direct ratio < 0.10,Pass
+LGBM,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+ExtraTrees,R2_ext,0.8052445206208576,R2_ext > 0.60,Pass
+ExtraTrees,RMSE_ext,0.45358330433821575,Lower is better,Report only
+ExtraTrees,MAE_ext,0.29095626537615155,Lower is better,Report only
+ExtraTrees,Q2_F1,0.8072484957983534,Q2_F1 > 0.70,Pass
+ExtraTrees,Q2_F2,0.8052445206208576,Q2_F2 > 0.70,Pass
+ExtraTrees,Q2_F3,0.8501851779504799,Q2_F3 > 0.70,Pass
+ExtraTrees,CCC_ext,0.8902896451662552,CCC_ext > 0.85,Pass
+ExtraTrees,r_m^2,0.659782888572867,r_m^2 > 0.65,Pass
+ExtraTrees,r_m'^2,0.8083865744705135,Report alongside r_m^2,Report only
+ExtraTrees,Average r_m^2,0.7340847315216903,Average r_m^2 > 0.65,Pass
+ExtraTrees,Delta r_m^2,0.1486036858976465,Delta r_m^2 < 0.20,Pass
+ExtraTrees,R0^2,0.7769317336248556,Report for Golbraikh-Tropsha,Report only
+ExtraTrees,R0'^2,0.8120954232294697,Report for Golbraikh-Tropsha,Report only
+ExtraTrees,k,0.9425746905011817,0.85 <= k <= 1.15,Pass
+ExtraTrees,k',1.0326351403449467,0.85 <= k' <= 1.15,Pass
+ExtraTrees,abs(R2_ext - R0^2) / R2_ext,0.03516048389149222,< 0.10 OR reverse ratio < 0.10,Pass
+ExtraTrees,abs(R2_ext - R0'^2) / R2_ext,0.0085078537427736,< 0.10 OR direct ratio < 0.10,Pass
+ExtraTrees,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+XGBoost,R2_ext,0.804677328535651,R2_ext > 0.60,Pass
+XGBoost,RMSE_ext,0.45424331611394686,Lower is better,Report only
+XGBoost,MAE_ext,0.2914579918980677,Lower is better,Report only
+XGBoost,Q2_F1,0.8066871399487345,Q2_F1 > 0.70,Pass
+XGBoost,Q2_F2,0.804677328535651,Q2_F2 > 0.70,Pass
+XGBoost,Q2_F3,0.8497488678575162,Q2_F3 > 0.70,Pass
+XGBoost,CCC_ext,0.8900426077278266,CCC_ext > 0.85,Pass
+XGBoost,r_m^2,0.6604820023167074,r_m^2 > 0.65,Pass
+XGBoost,r_m'^2,0.8070269592070874,Report alongside r_m^2,Report only
+XGBoost,Average r_m^2,0.7337544807618974,Average r_m^2 > 0.65,Pass
+XGBoost,Delta r_m^2,0.14654495689038005,Delta r_m^2 < 0.20,Pass
+XGBoost,R0^2,0.7770543862507755,Report for Golbraikh-Tropsha,Report only
+XGBoost,R0'^2,0.8117633018917486,Report for Golbraikh-Tropsha,Report only
+XGBoost,k,0.9420050273410061,0.85 <= k <= 1.15,Pass
+XGBoost,k',1.0332095800943668,0.85 <= k' <= 1.15,Pass
+XGBoost,abs(R2_ext - R0^2) / R2_ext,0.034327973841569055,< 0.10 OR reverse ratio < 0.10,Pass
+XGBoost,abs(R2_ext - R0'^2) / R2_ext,0.00880598111169933,< 0.10 OR direct ratio < 0.10,Pass
+XGBoost,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+HistGradientBoosting,R2_ext,0.8028412194020046,R2_ext > 0.60,Pass
+HistGradientBoosting,RMSE_ext,0.45637335401092444,Lower is better,Report only
+HistGradientBoosting,MAE_ext,0.29458370476316625,Lower is better,Report only
+HistGradientBoosting,Q2_F1,0.8048699238246133,Q2_F1 > 0.70,Pass
+HistGradientBoosting,Q2_F2,0.8028412194020046,Q2_F2 > 0.70,Pass
+HistGradientBoosting,Q2_F3,0.8483364487358686,Q2_F3 > 0.70,Pass
+HistGradientBoosting,CCC_ext,0.8891148772639315,CCC_ext > 0.85,Pass
+HistGradientBoosting,r_m^2,0.660687999433721,r_m^2 > 0.65,Pass
+HistGradientBoosting,r_m'^2,0.803642762093275,Report alongside r_m^2,Report only
+HistGradientBoosting,Average r_m^2,0.732165380763498,Average r_m^2 > 0.65,Pass
+HistGradientBoosting,Delta r_m^2,0.14295476265955398,Delta r_m^2 < 0.20,Pass
+HistGradientBoosting,R0^2,0.7763238466489835,Report for Golbraikh-Tropsha,Report only
+HistGradientBoosting,R0'^2,0.8104117370547717,Report for Golbraikh-Tropsha,Report only
+HistGradientBoosting,k,0.9407645094380475,0.85 <= k <= 1.15,Pass
+HistGradientBoosting,k',1.0343681310992177,0.85 <= k' <= 1.15,Pass
+HistGradientBoosting,abs(R2_ext - R0^2) / R2_ext,0.03302941118640192,< 0.10 OR reverse ratio < 0.10,Pass
+HistGradientBoosting,abs(R2_ext - R0'^2) / R2_ext,0.00942965740897802,< 0.10 OR direct ratio < 0.10,Pass
+HistGradientBoosting,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+Mean Ensemble,R2_ext,0.8060032928054279,R2_ext > 0.60,Pass
+Mean Ensemble,RMSE_ext,0.4526988561300613,Lower is better,Report only
+Mean Ensemble,MAE_ext,0.29063520319633634,Lower is better,Report only
+Mean Ensemble,Q2_F1,0.807999460445862,Q2_F1 > 0.70,Pass
+Mean Ensemble,Q2_F2,0.8060032928054279,Q2_F2 > 0.70,Pass
+Mean Ensemble,Q2_F3,0.8507688602179567,Q2_F3 > 0.70,Pass
+Mean Ensemble,CCC_ext,0.8906060634093308,CCC_ext > 0.85,Pass
+Mean Ensemble,r_m^2,0.6592882850287998,r_m^2 > 0.65,Pass
+Mean Ensemble,r_m'^2,0.810358162955302,Report alongside r_m^2,Report only
+Mean Ensemble,Average r_m^2,0.7348232239920509,Average r_m^2 > 0.65,Pass
+Mean Ensemble,Delta r_m^2,0.15106987792650228,Delta r_m^2 < 0.20,Pass
+Mean Ensemble,R0^2,0.7771018474191581,Report for Golbraikh-Tropsha,Report only
+Mean Ensemble,R0'^2,0.8127477625013445,Report for Golbraikh-Tropsha,Report only
+Mean Ensemble,k,0.9429056893095585,0.85 <= k <= 1.15,Pass
+Mean Ensemble,k',1.0323708169844192,0.85 <= k' <= 1.15,Pass
+Mean Ensemble,abs(R2_ext - R0^2) / R2_ext,0.035857726195725026,< 0.10 OR reverse ratio < 0.10,Pass
+Mean Ensemble,abs(R2_ext - R0'^2) / R2_ext,0.008367794221337897,< 0.10 OR direct ratio < 0.10,Pass
+Mean Ensemble,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+Stacking Regressor,R2_ext,0.8032017429078758,R2_ext > 0.60,Pass
+Stacking Regressor,RMSE_ext,0.45595590213250803,Lower is better,Report only
+Stacking Regressor,MAE_ext,0.29402321180792385,Lower is better,Report only
+Stacking Regressor,Q2_F1,0.805226737652282,Q2_F1 > 0.70,Pass
+Stacking Regressor,Q2_F2,0.8032017429078758,Q2_F2 > 0.70,Pass
+Stacking Regressor,Q2_F3,0.8486137799054405,Q2_F3 > 0.70,Pass
+Stacking Regressor,CCC_ext,0.8892819905999227,CCC_ext > 0.85,Pass
+Stacking Regressor,r_m^2,0.6610929540738587,r_m^2 > 0.65,Pass
+Stacking Regressor,r_m'^2,0.8044621920540687,Report alongside r_m^2,Report only
+Stacking Regressor,Average r_m^2,0.7327775730639636,Average r_m^2 > 0.65,Pass
+Stacking Regressor,Delta r_m^2,0.14336923798020995,Delta r_m^2 < 0.20,Pass
+Stacking Regressor,R0^2,0.7768061606660583,Report for Golbraikh-Tropsha,Report only
+Stacking Regressor,R0'^2,0.8108925976155559,Report for Golbraikh-Tropsha,Report only
+Stacking Regressor,k,0.9405756466853978,0.85 <= k <= 1.15,Pass
+Stacking Regressor,k',1.0346483735697423,0.85 <= k' <= 1.15,Pass
+Stacking Regressor,abs(R2_ext - R0^2) / R2_ext,0.032862954388340956,< 0.10 OR reverse ratio < 0.10,Pass
+Stacking Regressor,abs(R2_ext - R0'^2) / R2_ext,0.009575246537484372,< 0.10 OR direct ratio < 0.10,Pass
+Stacking Regressor,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+SVR (RBF),R2_ext,0.810717203588343,R2_ext > 0.60,Pass
+SVR (RBF),RMSE_ext,0.44716498561476814,Lower is better,Report only
+SVR (RBF),MAE_ext,0.2857932117839181,Lower is better,Report only
+SVR (RBF),Q2_F1,0.8126648665077392,Q2_F1 > 0.70,Pass
+SVR (RBF),Q2_F2,0.810717203588343,Q2_F2 > 0.70,Pass
+SVR (RBF),Q2_F3,0.8543950159869808,Q2_F3 > 0.70,Pass
+SVR (RBF),CCC_ext,0.8939458879756872,CCC_ext > 0.85,Pass
+SVR (RBF),r_m^2,0.6717175819486603,r_m^2 > 0.65,Pass
+SVR (RBF),r_m'^2,0.8116818548313461,Report alongside r_m^2,Report only
+SVR (RBF),Average r_m^2,0.7416997183900031,Average r_m^2 > 0.65,Pass
+SVR (RBF),Delta r_m^2,0.13996427288268587,Delta r_m^2 < 0.20,Pass
+SVR (RBF),R0^2,0.7857209627305164,Report for Golbraikh-Tropsha,Report only
+SVR (RBF),R0'^2,0.8174823179653745,Report for Golbraikh-Tropsha,Report only
+SVR (RBF),k,0.9435203113336902,0.85 <= k <= 1.15,Pass
+SVR (RBF),k',1.032410382125586,0.85 <= k' <= 1.15,Pass
+SVR (RBF),abs(R2_ext - R0^2) / R2_ext,0.030832256608333806,< 0.10 OR reverse ratio < 0.10,Pass
+SVR (RBF),abs(R2_ext - R0'^2) / R2_ext,0.008344604440473486,< 0.10 OR direct ratio < 0.10,Pass
+SVR (RBF),Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+ElasticNet,R2_ext,0.8071012668893417,R2_ext > 0.60,Pass
+ElasticNet,RMSE_ext,0.45141595572904875,Lower is better,Report only
+ElasticNet,MAE_ext,0.28917830703989134,Lower is better,Report only
+ElasticNet,Q2_F1,0.8090861367074156,Q2_F1 > 0.70,Pass
+ElasticNet,Q2_F2,0.8071012668893417,Q2_F2 > 0.70,Pass
+ElasticNet,Q2_F3,0.851613472100102,Q2_F3 > 0.70,Pass
+ElasticNet,CCC_ext,0.8911059387229164,CCC_ext > 0.85,Pass
+ElasticNet,r_m^2,0.6612936138771635,r_m^2 > 0.65,Pass
+ElasticNet,r_m'^2,0.8130045727603664,Report alongside r_m^2,Report only
+ElasticNet,Average r_m^2,0.737149093318765,Average r_m^2 > 0.65,Pass
+ElasticNet,Delta r_m^2,0.15171095888320296,Delta r_m^2 < 0.20,Pass
+ElasticNet,R0^2,0.7791328929154899,Report for Golbraikh-Tropsha,Report only
+ElasticNet,R0'^2,0.814518946224982,Report for Golbraikh-Tropsha,Report only
+ElasticNet,k,0.9416657890610828,0.85 <= k <= 1.15,Pass
+ElasticNet,k',1.033997055728431,0.85 <= k' <= 1.15,Pass
+ElasticNet,abs(R2_ext - R0^2) / R2_ext,0.034652868383722155,< 0.10 OR reverse ratio < 0.10,Pass
+ElasticNet,abs(R2_ext - R0'^2) / R2_ext,0.00919051876133074,< 0.10 OR direct ratio < 0.10,Pass
+ElasticNet,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+CatBoost,R2_ext,0.809347738694766,R2_ext > 0.60,Pass
+CatBoost,RMSE_ext,0.44877969416283936,Lower is better,Report only
+CatBoost,MAE_ext,0.288298591307097,Lower is better,Report only
+CatBoost,Q2_F1,0.811309492995118,Q2_F1 > 0.70,Pass
+CatBoost,Q2_F2,0.809347738694766,Q2_F2 > 0.70,Pass
+CatBoost,Q2_F3,0.8533415609571744,Q2_F3 > 0.70,Pass
+CatBoost,CCC_ext,0.8909295710146304,CCC_ext > 0.85,Pass
+CatBoost,r_m^2,0.6434947877666566,r_m^2 > 0.65,Fail
+CatBoost,r_m'^2,0.8014160066686266,Report alongside r_m^2,Report only
+CatBoost,Average r_m^2,0.7224553972176415,Average r_m^2 > 0.65,Pass
+CatBoost,Delta r_m^2,0.15792121890196997,Delta r_m^2 < 0.20,Pass
+CatBoost,R0^2,0.7706496897115233,Report for Golbraikh-Tropsha,Report only
+CatBoost,R0'^2,0.8146135036617668,Report for Golbraikh-Tropsha,Report only
+CatBoost,k,0.9467195404783352,0.85 <= k <= 1.15,Pass
+CatBoost,k',1.0284915751035908,0.85 <= k' <= 1.15,Pass
+CatBoost,abs(R2_ext - R0^2) / R2_ext,0.047813871755113556,< 0.10 OR reverse ratio < 0.10,Pass
+CatBoost,abs(R2_ext - R0'^2) / R2_ext,0.006506183578758015,< 0.10 OR direct ratio < 0.10,Pass
+CatBoost,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass
+RF,R2_ext,0.8055532404283575,R2_ext > 0.60,Pass
+RF,RMSE_ext,0.4532236592908994,Lower is better,Report only
+RF,MAE_ext,0.2925177859788069,Lower is better,Report only
+RF,Q2_F1,0.8075540389720919,Q2_F1 > 0.70,Pass
+RF,Q2_F2,0.8055532404283575,Q2_F2 > 0.70,Pass
+RF,Q2_F3,0.8504226593459776,Q2_F3 > 0.70,Pass
+RF,CCC_ext,0.8892931764691584,CCC_ext > 0.85,Pass
+RF,r_m^2,0.6470145918718139,r_m^2 > 0.65,Fail
+RF,r_m'^2,0.8054959775332869,Report alongside r_m^2,Report only
+RF,Average r_m^2,0.7262552847025504,Average r_m^2 > 0.65,Pass
+RF,Delta r_m^2,0.15848138566147307,Delta r_m^2 < 0.20,Pass
+RF,R0^2,0.7706137572180097,Report for Golbraikh-Tropsha,Report only
+RF,R0'^2,0.8117686664813955,Report for Golbraikh-Tropsha,Report only
+RF,k,0.9439904021638984,0.85 <= k <= 1.15,Pass
+RF,k',1.031037368353446,0.85 <= k' <= 1.15,Pass
+RF,abs(R2_ext - R0^2) / R2_ext,0.04337327622413699,< 0.10 OR reverse ratio < 0.10,Pass
+RF,abs(R2_ext - R0'^2) / R2_ext,0.007715723481830751,< 0.10 OR direct ratio < 0.10,Pass
+RF,Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Pass

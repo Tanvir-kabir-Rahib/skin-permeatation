@@ -1,0 +1,55 @@
+{
+  "protocol": "paper-reproduction",
+  "protocol_interpretation": "Paper-reproduction random row holdout; not strict unseen-molecule external validation",
+  "dataset": {
+    "path": "/Users/tanvir/Desktop/skin/skin-permeation-reproduction-project/data/final/clean_trial4.csv",
+    "rows": 417,
+    "feature_columns": 146,
+    "target_column": "logkpl",
+    "target_missing_rows": 0,
+    "feature_missing_cells": 0,
+    "exact_duplicate_rows": 0,
+    "unique_smiles": 146
+  },
+  "split": {
+    "strategy": "random",
+    "test_size": 0.15,
+    "random_state": 1,
+    "training_rows": 354,
+    "validation_rows": 63,
+    "training_unique_smiles": 137,
+    "validation_unique_smiles": 42,
+    "overlapping_smiles": 33,
+    "overlapping_validation_rows": 54
+  },
+  "models": {
+    "count": 11,
+    "names": [
+      "Gradient Boosting",
+      "LGBM",
+      "ExtraTrees",
+      "XGBoost",
+      "HistGradientBoosting",
+      "Mean Ensemble",
+      "Stacking Regressor",
+      "SVR (RBF)",
+      "ElasticNet",
+      "CatBoost",
+      "RF"
+    ],
+    "templates_retrained_on_common_training_rows": true,
+    "external_labels_used_for_training_or_tuning": false,
+    "best_model_selected_after_validation": false
+  },
+  "acceptance_summary": {
+    "criteria_per_model": 13,
+    "models_passing_all_criteria": 9,
+    "models_failing_one_or_more_criteria": 2
+  },
+  "software": {
+    "python": "3.13.5",
+    "scikit_learn": "1.6.1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3"
+  }
+}

@@ -1,0 +1,355 @@
+Compound,SMILES,Experimental_logKp
+"2,3-Butanediol",CC(C(C)O)O,-4.3
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.9
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.79
+4-Hydroxybenzyl alcohol,C1=CC(=CC=C1CO)O,-2.7
+6-Methylcoumarin,CC1=CC2=C(C=C1)OC(=O)C=C2,-1.18
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-3.27
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-3.97
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.29
+Triamcinolone,CC12CC(C3(C(C1CC(C2(C(=O)CO)O)O)CCC4=CC(=O)C=CC43C)F)O,-5.4
+salicylate,C1=CC=C(C(=C1)C(=O)O)[O-],-3.98
+Beta-naphthol; 2-naphthol,C1=CC=C2C=C(C=CC2=C1)O,-1.55
+4-Bromophenyl isocyanate,C1=CC(=CC=C1N=C=O)Br,-1.75
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.51
+Eugenol,COC1=C(C=CC(=C1)CC=C)O,-1.56
+Butylparaben,CCCCOC(=O)C1=CC=C(C=C1)O,-1.15
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.71
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.39
+n-nonanol,CCCCCCCCCO,-1.22
+4-Bromophenyl isocyanate,C1=CC(=CC=C1N=C=O)Br,-1.84
+Benzene,C1=CC=CC=C1,-0.8
+caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-4.15
+o-Phenylenediamine,C1=CC=C(C(=C1)N)N,-3.35
+Naphthalene,C1=CC=C2C=CC=CC2=C1,-1.78
+Testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-3.4
+Cortisone,CC12CCC(=O)C=C1CCC3C2C(=O)CC4(C3CCC4(C(=O)CO)O)C,-5.0
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.36
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.62
+Thymol; 2-Isopropyl-5-methylphenol,CC1=CC(=C(C=C1)C(C)C)O,-1.28
+Sufentanil base,CCC(=O)N(C1=CC=CC=C1)C2(CCN(CC2)CCC3=CC=CS3)COC,-1.82
+Decanol ,CCCCCCCCCCO,-1.15
+p-n-butylphenol; 4-Butylphenol,CCCCC1=CC=C(C=C1)O,-1.11
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.61
+Alprenolol,CC(C)NCC(COC1=CC=CC=C1CC=C)O,-2.79
+Methanol,CO,-3.3
+catechol,C1=CC=C(C(=C1)O)O,-2.51
+Salicylic acid,C1=CC=C(C(=C1)C(=O)O)O,-3.03
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.43
+Ethanol,CCO,-2.72
+Sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-3.13
+n-butanol,CCCCO,-2.6
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.72
+bis(2-ethylhexyl)phthalate,CCCCC(CC)COC(=O)C1=CC=CC=C1C(=O)OCC(CC)CCCC,-4.1
+"2,4-dichlorophenol",C1=CC(=C(C=C1Cl)Cl)O,-1.15
+Triamcinolone acetonide,CC1(OC2CC3C4CCC5=CC(=O)C=CC5(C4(C(CC3(C2(O1)C(=O)CO)C)O)F)C)C,-3.4
+Methyl methanesulfonate,COS(=O)(=O)C,-2.07
+Cinnamyl alcohol,C1=CC=C(C=C1)C=CCO,-1.48
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-5.09
+2-(Acetylamino)fluorene,CC(=O)NC1=CC2=C(C=C1)C3=CC=CC=C3C2,-1.11
+testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-2.11
+4-propoxyphenol,CCCOC1=CC=C(C=C1)O,-1.83
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.03
+Benzoic acid,C1=CC=C(C=C1)C(=O)O,-1.51
+butoxyethanol,CCCCOCCO,-2.36
+methanol,CO,-3.3
+Testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-1.42
+Decanol,CCCCCCCCCCO,-1.1
+beta-Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.01
+propylparaben,CCCOC(=O)C1=CC=C(C=C1)O,-1.71
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.57
+Hydrocortisone ,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4(C(=O)CO)O)C)O,-5.52
+p-Bromophenol,C1=CC(=CC=C1O)Br,-1.44
+7-Ethoxycoumarin,CCOC1=CC2=C(C=C1)C=CC(=O)O2,-0.92
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-3.52
+sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-4.27
+salicylate,C1=CC=C(C(=C1)C(=O)O)[O-],-3.7
+Octanol,CCCCCCCCO,-1.28
+Resorcinol,C1=CC(=CC(=C1)O)O,-2.42
+m-Nitrophenol; 3-nitrophenol,C1=CC(=CC(=C1)O)[N+](=O)[O-],-2.25
+Methanol,CO,-2.8
+Salicylic acid,C1=CC=C(C(=C1)C(=O)O)O,-1.35
+chlorocresol,CC1=C(C=CC(=C1)O)Cl,-1.44
+Cortexone,CC12CCC3C(C1CCC2C(=O)CO)CCC4=CC(=O)CCC34C,-3.35
+"Nicotinate, ethyl",CCOC(=O)C1=CN=CC=C1,-3.09
+Cyclophosphamide monohydrate,C1CNP(=O)(OC1)N(CCCl)CCCl.O,-2.91
+"2,4-dichlorophenol",C1=CC(=C(C=C1Cl)Cl)O,-1.02
+Naphthalene,C1=CC=C2C=CC=CC2=C1,-1.55
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.82
+Nonanol,CCCCCCCCCO,-1.22
+Methyl methanesulfonate,COS(=O)(=O)C,-1.91
+1-(diphenylmethyl)-4-butylpiperazine,CCCCN1CCN(CC1)C(C2=CC=CC=C2)C3=CC=CC=C3,-2.3
+n-heptanol,CCCCCCCO,-1.49
+decanol,CCCCCCCCCCO,-1.88
+Hexanol,CCCCCCO,-1.49
+Chlorocresol,CC1=C(C=CC(=C1)O)Cl,-1.26
+1-(diphenylmethyl)-4-ethylpiperazine,CCN1CCN(CC1)C(C2=CC=CC=C2)C3=CC=CC=C3,-1.36
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.33
+salicylate,C1=CC=C(C(=C1)C(=O)O)[O-],-4.22
+17-alfa-Hydroxyprogesterone,CC(=O)C1(CCC2C1(CCC3C2CCC4=CC(=O)CCC34C)C)O,-3.22
+Cyclophosphamide monohydrate,C1CNP(=O)(OC1)N(CCCl)CCCl.O,-2.54
+beta-Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.28
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.46
+octylparaben,CCCCCCCCOC(=O)C1=CC=C(C=C1)O,-1.91
+p-Tolunitrile,CC1=CC=C(C=C1)C#N,-1.51
+Naltrexone,C1CC1CN2CCC34C5C(=O)CCC3(C2CC6=C4C(=C(C=C6)O)O5)O,-2.67
+Progesterone,CC(=O)C1CCC2C1(CCC3C2CCC4=CC(=O)CCC34C)C,-1.7
+Phenol,C1=CC=C(C=C1)O,-1.71
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.38
+Phenol,C1=CC=C(C=C1)O,-3.83
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.96
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.43
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.68
+octylparaben,CCCCCCCCOC(=O)C1=CC=C(C=C1)O,-1.82
+Urea,C(=O)(N)N,-3.55
+Benzyl bromide,C1=CC=C(C=C1)CBr,-1.55
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.05
+Eugenol,COC1=C(C=CC(=C1)CC=C)O,-1.59
+butoxyethanol,CCCCOCCO,-2.28
+"Resorcinol; 1,3-Benzenediol",C1=CC(=CC(=C1)O)O,-3.62
+Caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-2.61
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.33
+Timolol,CC(C)(C)NCC(COC1=NSN=C1N2CCOCC2)O,-3.57
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.64
+Tetraethylammonium bromide (+),CC[N+](CC)(CC)CC.[Br-],-3.37
+Triamcinolone acetonide,CC1(OC2CC3C4CCC5=CC(=O)C=CC5(C4(C(CC3(C2(O1)C(=O)CO)C)O)F)C)C,-4.71
+p-Tolunitrile,CC1=CC=C(C=C1)C#N,-1.34
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.96
+Methyl 4-hydroxyphenylacetate,COC(=O)CC1=CC=C(C=C1)O,-1.7
+acetic acid,CC(=O)O,-3.1
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-4.0
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.85
+Metoprolol,CC(C)NCC(COC1=CC=C(C=C1)CCOC)O,-3.52
+Methylglucose,COC(C(C=O)O)C(C(CO)O)O,-3.68
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.86
+propylparaben,CCCOC(=O)C1=CC=C(C=C1)O,-1.62
+octylparaben,CCCCCCCCOC(=O)C1=CC=C(C=C1)O,-1.79
+"Nicotinate, methyl",COC(=O)C1=CN=CC=C1,-3.28
+Octanol,CCCCCCCCO,-1.21
+Butanol,CCCCO,-2.6
+ethacrynic acid,CCC(=C)C(=O)C1=C(C(=C(C=C1)OCC(=O)O)Cl)Cl,-3.82
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.13
+o-t-butylphenol,CC(C)(C)C1=CC=CC=C1O,-1.13
+n-hexanol,CCCCCCO,-1.89
+trans-Cinnamaldehyde,C1=CC=C(C=C1)C=CC=O,-1.38
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.42
+Prednisolone,CC12CC(C3C(C1CCC2(C(=O)CO)O)CCC4=CC(=O)C=CC34C)O,-4.33
+Benzyl alcohol,C1=CC=C(C=C1)CO,-2.22
+Thymol; 2-Isopropyl-5-methylphenol,CC1=CC(=C(C=C1)C(C)C)O,-1.21
+"2,4,6-Trichlorophenol",C1=C(C=C(C(=C1Cl)O)Cl)Cl,-1.23
+Progesterone,CC(=O)C1CCC2C1(CCC3C2CCC4=CC(=O)CCC34C)C,-2.82
+Caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-3.66
+sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-4.02
+Glycerol,C(C(CO)O)O,-4.57
+acetic acid,CC(=O)O,-2.49
+Sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-4.18
+testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-1.95
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-5.13
+Testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-3.07
+Phenol,C1=CC=C(C=C1)O,-2.09
+Diethyl phthalate,CCOC(=O)C1=CC=CC=C1C(=O)OCC,-1.71
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.58
+2-Phenylethanol,C1=CC=C(C=C1)CCO,-2.12
+Propanol,CCCO,-2.92
+Iso-thymol; Carvacrol,CC1=C(C=C(C=C1)C(C)C)O,-1.25
+p-Phenylenediamine,C1=CC(=CC=C1N)N,-3.62
+Caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-4.59
+Testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-2.27
+Hydroquinone,C1=CC(=CC=C1O)O,-5.03
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.19
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.49
+benzoic acid,C1=CC=C(C=C1)C(=O)O,-2.12
+propylparaben,CCCOC(=O)C1=CC=C(C=C1)O,-1.56
+Butanol,CCCCO,-2.52
+methyl salicylate,COC(=O)C1=CC=CC=C1O,-1.44
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.38
+Raffinose,C(C1C(C(C(C(O1)OCC2C(C(C(C(O2)OC3(C(C(C(O3)CO)O)O)CO)O)O)O)O)O)O)O,-4.3
+5-Fluorouracil (+ - + -),C1=C(C(=O)NC(=O)N1)F,-4.47
+propylparaben,CCCOC(=O)C1=CC=C(C=C1)O,-1.61
+pyrogallol,C1=CC(=C(C(=C1)O)O)O,-2.81
+Octanol,CCCCCCCCO,-1.15
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.47
+testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-2.01
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-5.38
+Butanol,CCCCO,-2.66
+Betamethasone-17-valerate,CCCCC(=O)OC1(C(CC2C1(CC(C3(C2CCC4=CC(=O)C=CC43C)F)O)C)C)C(=O)CO,-2.88
+Testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-2.06
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.64
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.88
+linolenic acid,CCC=CCC=CCC=CCCCCCCCC(=O)O,-2.43
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.36
+2-Ethoxy ethanol,CCOCCO,-3.6
+HC Red No. 3; 2-(4-Amino-2-nitroanilino)-ethanol,C1=CC(=C(C=C1N)[N+](=O)[O-])NCCO,-1.67
+Sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-4.32
+Benzylideneacetone,CC(=O)C=CC1=CC=CC=C1,-1.12
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.54
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.22
+4-Amino-3-nitrophenol,C1=CC(=C(C=C1O)[N+](=O)[O-])N,-2.27
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.52
+butoxyethanol,CCCCOCCO,-2.27
+Estrone,CC12CCC3C(C1CCC2=O)CCC4=C3C=CC(=C4)O,-2.44
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.21
+"3-Methyl-3H-imidazo[4,5-f]quinolin-2-amine",CN1C2=C(C3=C(C=C2)N=CC=C3)N=C1N,-2.07
+Dimethyl phthalate,COC(=O)C1=CC=CC=C1C(=O)OC,-1.55
+Hexanol,CCCCCCO,-1.89
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.79
+chloroxylenol,CC1=CC(=CC(=C1Cl)C)O,-1.09
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.1
+Diazinon,CCOP(=S)(OCC)OC1=NC(=NC(=C1)C)C(C)C,-2.06
+Sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-5.03
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-3.23
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-4.68
+Progesterone,CC(=O)C1CCC2C1(CCC3C2CCC4=CC(=O)CCC34C)C,-1.89
+Sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-4.72
+o-Cresol,CC1=CC=CC=C1O,-1.8
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.89
+Pregnenolone,CC(=O)C1CCC2C1(CCC3C2CC=C4C3(CCC(C4)O)C)C,-2.82
+Naphthol,C1=CC=C2C(=C1)C=CC=C2O,-1.52
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.9
+Diethyl maleate,CCOC(=O)C=CC(=O)OCC,-1.59
+1-(diphenylmethyl)-4-propylpiperazine,CCCN1CCN(CC1)C(C2=CC=CC=C2)C3=CC=CC=C3,-2.36
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.36
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-3.16
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.74
+"2,4-Dinitrochlorobenzene",C1=CC(=C(C=C1[N+](=O)[O-])[N+](=O)[O-])Cl,-1.5
+octylparaben,CCCCCCCCOC(=O)C1=CC=C(C=C1)O,-2.03
+2-Ethylhexyl acrylate,CCCCC(CC)COC(=O)C=C,-1.82
+p-Ethylphenol,CCC1=CC=C(C=C1)O,-1.46
+p-Cresol,CC1=CC=C(C=C1)O,-1.75
+Benzophenone,C1=CC=C(C=C1)C(=O)C2=CC=CC=C2,-1.25
+phenol,C1=CC=C(C=C1)O,-2.03
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.08
+Beta-naphthol; 2-naphthol,C1=CC=C2C=C(C=CC2=C1)O,-1.2
+decanol,CCCCCCCCCCO,-1.96
+"3,4-Xylenol",CC1=C(C=C(C=C1)O)C,-1.44
+n-propanol,CCCO,-2.92
+phloroglucinol,C1=C(C=C(C=C1O)O)O,-2.51
+Chloroxylenol,CC1=CC(=CC(=C1Cl)C)O,-1.23
+Hydrocortisone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4(C(=O)CO)O)C)O,-2.68
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-4.22
+p-Cresol,CC1=CC=C(C=C1)O,-0.92
+n-pentanol,CCCCCO,-2.22
+Cinnamyl alcohol,C1=CC=C(C=C1)C=CCO,-1.54
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.88
+Hydroxypregnenolone,CC(=O)C1(CCC2C1(CCC3C2CC=C4C3(CCC(C4)O)C)C)O,-3.22
+Hydrocortisone-21-propionate,CCC(=O)OCC(=O)C1(CCC2C1(CC(C3C2CCC4=CC(=O)CCC34C)O)C)O,-2.47
+"2,4-dichlorophenol",C1=CC(=C(C=C1Cl)Cl)O,-1.24
+o-Chlorophenol,C1=CC=C(C(=C1)O)Cl,-1.48
+Hydrocortisone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4(C(=O)CO)O)C)O,-3.64
+2-(Acetylamino)fluorene,CC(=O)NC1=CC2=C(C=C1)C3=CC=CC=C3C2,-1.16
+Nadolol,CC(C)(C)NCC(COC1=CC=CC2=C1CC(C(C2)O)O)O,-4.1
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.94
+sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-4.0
+Pentanol,CCCCCO,-2.22
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.6
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.45
+Benzophenone,C1=CC=C(C=C1)C(=O)C2=CC=CC=C2,-1.14
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.81
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.37
+"2,4-Dinitrochlorobenzene",C1=CC(=C(C=C1[N+](=O)[O-])[N+](=O)[O-])Cl,-1.58
+Fentanyl base,CCC(=O)N(C1CCN(CC1)CCC2=CC=CC=C2)C3=CC=CC=C3,-1.98
+Decanol,CCCCCCCCCCO,-1.05
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.68
+Ethanol,CCO,-3.1
+Glycerol,C(C(CO)O)O,-3.01
+Propylparaben,CCCOC(=O)C1=CC=C(C=C1)O,-1.27
+"2,4-Dichloroacetophenone",C1=CC(=CC=C1C(=O)CCl)Cl,-1.86
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.59
+alfa-(4-Hydroxyphenyl) acetamide,C1=CC(=CC=C1CC(=O)N)O,-3.35
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.8
+"Nicotinate, methyl",COC(=O)C1=CN=CC=C1,-3.31
+Timolol,CC(C)(C)NCC(COC1=NSN=C1N2CCOCC2)O,-3.54
+Propylparaben,CCCOC(=O)C1=CC=C(C=C1)O,-1.2
+Urea,C(=O)(N)N,-3.83
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.67
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.54
+Aldosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C=O)O,-4.01
+Beta-estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-3.52
+n-decanol,CCCCCCCCCCO,-1.1
+Toluene,CC1=CC=CC=C1,-0.08
+sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-3.99
+Diethyl maleate,CCOC(=O)C=CC(=O)OCC,-1.67
+Fentanyl base,CCC(=O)N(C1CCN(CC1)CCC2=CC=CC=C2)C3=CC=CC=C3,-1.95
+cortisone,CC12CCC(=O)C=C1CCC3C2C(=O)CC4(C3CCC4(C(=O)CO)O)C,-3.82
+p-Nitrophenol; 4-nitrophenol,C1=CC(=CC=C1[N+](=O)[O-])O,-2.25
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.68
+Methylparaben,COC(=O)C1=CC=C(C=C1)O,-2.03
+Hydroquinone,C1=CC(=CC=C1O)O,-1.9
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.39
+acetic acid,CC(=O)O,-2.85
+Butylparaben,CCCCOC(=O)C1=CC=C(C=C1)O,-0.98
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.63
+testosterone,CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C,-2.03
+Progesterone,CC(=O)C1CCC2C1(CCC3C2CCC4=CC(=O)CCC34C)C,-1.52
+Isoeugenol,CC=CC1=CC(=C(C=C1)O)OC,-1.75
+p-Chlorophenol,C1=CC(=CC=C1O)Cl,-1.45
+Lidocaine,CCN(CC)CC(=O)NC1=C(C=CC=C1C)C,-2.52
+sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-4.17
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-4.7
+Geraniol,CC(=CCCC(=CCO)C)C,-1.01
+Hydrocortisone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4(C(=O)CO)O)C)O,-2.02
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.6
+Ethyl ether,CCOCC,-1.8
+Benzyl bromide,C1=CC=C(C=C1)CBr,-1.89
+sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-4.03
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.38
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.82
+Sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-4.8
+Hydrocortisone-21-hemisuccinate,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4(C(=O)COC(=O)CCC(=O)O)O)C)O,-3.2
+HC Red No. 3; 2-(4-Amino-2-nitroanilino)-ethanol,C1=CC(=C(C=C1N)[N+](=O)[O-])NCCO,-2.32
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-3.15
+Dexamethasone,CC1CC2C3CCC4=CC(=O)C=CC4(C3(C(CC2(C1(C(=O)CO)O)C)O)F)C,-4.19
+2-phenylethanol,C1=CC=C(C=C1)CCO,-1.26
+Heptanol,CCCCCCCO,-1.49
+2-Ethylhexyl acrylate,CCCCC(CC)COC(=O)C=C,-2.11
+sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-4.36
+"2,4-Dichloroacetophenone",C1=CC(=CC=C1C(=O)CCl)Cl,-0.74
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.89
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-1.99
+Urea,C(=O)(N)N,-3.95
+7-Ethoxycoumarin,CCOC1=CC2=C(C=C1)C=CC(=O)O2,-0.78
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.95
+Methylparaben,COC(=O)C1=CC=C(C=C1)O,-1.96
+Basic Red 76 (Chloride salt),C[N+](C)(C)C1=CC2=C(C=C1)C=CC(=C2N=NC3=CC=CC=C3OC)O.[Cl-],-2.77
+Benzene,C1=CC=CC=C1,-0.95
+Naphthol,C1=CC=C2C(=C1)C=CC=C2O,-1.59
+Methotrexate,CN(CC1=CN=C2C(=N1)C(=NC(=N2)N)N)C3=CC=C(C=C3)C(=O)NC(CCC(=O)O)C(=O)O,-3.44
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.97
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.22
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.92
+decanol,CCCCCCCCCCO,-1.9
+Urea,C(=O)(N)N,-3.69
+Sodium caprate; Decanoic acid soap (C10:0),CCCCCCCCCC(=O)[O-].[Na+],-2.95
+Sucrose,C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O,-5.28
+decanol,CCCCCCCCCCO,-1.8
+decanol,CCCCCCCCCCO,-1.75
+Mannitol,C(C(C(C(C(CO)O)O)O)O)O,-4.0
+acetic acid,CC(=O)O,-2.4
+Hydroquinone,C1=CC(=CC=C1O)O,-2.42
+butoxyethanol,CCCCOCCO,-2.08
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.16
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-1.7
+"1,2,4-Benzenetriol",C1=CC(=C(C=C1O)O)O,-3.9
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.6
+sotalol,CC(C)NCC(C1=CC=C(C=C1)NS(=O)(=O)C)O,-3.1
+Aldosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C=O)O,-4.52
+Caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-3.7
+Diethylene glycol monobutyl ether,CCCCOCCOCCO,-2.24
+Aldosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C=O)O,-4.75
+Beta-Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.39
+m-Cresol,CC1=CC(=CC=C1)O,-1.81
+Estradiol,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,-2.21
+Caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-3.81
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.93
+resorcinol,C1=CC(=CC(=C1)O)O,-3.07
+Benzylideneacetone,CC(=O)C=CC1=CC=CC=C1,-1.41
+acetic acid,CC(=O)O,-3.05
+Heptanol,CCCCCCCO,-1.42
+Acetophenone,CC(=O)C1=CC=CC=C1,-1.63
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.75
+Caffeine,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,-1.6
+Estriol,CC12CCC3C(C1CC(C2O)O)CCC4=C3C=CC(=C4)O,-4.4
+Resorcinol,C1=CC(=CC(=C1)O)O,-2.36
+"3-Methyl-3H-imidazo[4,5-f]quinolin-2-amine",CN1C2=C(C3=C(C=C2)N=CC=C3)N=C1N,-2.43
+Corticosterone,CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4C(=O)CO)C)O,-2.2
+5-Fluorouracil,C1=C(C(=O)NC(=O)N1)F,-4.91

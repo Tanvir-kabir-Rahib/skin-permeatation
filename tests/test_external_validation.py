@@ -107,3 +107,8 @@ def test_run_external_validation_writes_requested_outputs(tmp_path):
     assert (output_dir / "journal_ready_external_validation_table.csv").exists()
     assert (output_dir / "journal_ready_external_validation_table.xlsx").exists()
     assert (output_dir / "experimental_vs_predicted_logKp.png").exists()
+    assert (output_dir / "experimental_vs_predicted_logKp.pdf").exists()
+    assert (output_dir / "external_validation_residual_diagnostics.png").exists()
+    assert (output_dir / "external_validation_residual_diagnostics.pdf").exists()
+    assert (output_dir / "external_validation_criteria_summary.png").exists()
+    assert (output_dir / "external_validation_criteria_summary.pdf").exists()

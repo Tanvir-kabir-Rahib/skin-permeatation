@@ -85,7 +85,7 @@ python scripts/run_java_descriptors.py --java java --maven mvn
 
 ## External QSAR/QSPR validation
 
-Use `skin_permeation.external_validation.run_external_validation` to validate an external prediction CSV with experimental and predicted logKp values. The validator writes `external_validation_metrics.csv`, `external_validation_metrics.xlsx`, a journal-ready table, and `experimental_vs_predicted_logKp.png` to `outputs/external_validation/`.
+Use `skin_permeation.external_validation.run_external_validation` to validate a prediction CSV with experimental and predicted logKp values. The validator writes CSV/XLSX metric tables plus experimental-vs-predicted, residual-diagnostic, and acceptance-criteria figures in both PNG and PDF formats to `outputs/external_validation/`. Model-training runs also save `validation_protocol.json` and `model_selection_scores.csv` there.
 
 ```python
 from skin_permeation.external_validation import run_external_validation
@@ -109,9 +109,17 @@ Metric meanings in simple terms:
 - `r_m^2` checks whether high correlation remains credible after accounting for origin-forced agreement.
 - Golbraikh-Tropsha parameters (`R0^2`, `R0'^2`, `k`, `k'`, and the R2/R0 ratios) test whether predicted and experimental values agree without large slope bias.
 
-`R2_ext` alone is not enough because a model can have a decent squared correlation while still showing biased slopes, shifted predictions, poor concordance, or unacceptable absolute error. The combined metrics give a more defensible view of whether a skin-permeability QSAR/QSPR model predicts unseen compounds, not just whether predicted and experimental values move in roughly the same direction.
+`R2_ext` alone is not enough because a model can have a decent squared correlation while still showing biased slopes, shifted predictions, poor concordance, or unacceptable absolute error. The combined metrics assess prediction agreement, while the saved protocol manifest records whether the split is genuinely molecule-held-out.
 
-For journal reporting, include the generated table with columns `Metric`, `Value`, `Recommended threshold`, and `Interpretation`, and cite the metric definitions used for external QSAR/QSPR validation in the Methods or Model Validation section. A concise reporting sentence is: "The external validation results indicate whether the developed skin-permeability model satisfies the recommended QSAR/QSPR predictivity criteria for unseen compounds."
+For journal reporting, include the generated table with columns `Metric`, `Value`, `Recommended threshold`, and `Interpretation`, cite the metric definitions used for QSAR/QSPR validation, and report the protocol from `validation_protocol.json`. The checked-in result uses the paper-reproduction random-row split; 54 of 63 validation rows have a SMILES identity also present in training, so it must not be described as strict unseen-compound validation.
+
+To repeat the same frozen-holdout assessment for every benchmark artifact, run:
+
+```bash
+python scripts/validate_all_benchmark_models.py
+```
+
+This command clones and retrains all 11 benchmark estimators on the same 354 training rows, evaluates each once on the same 63 validation rows, and writes long- and wide-format predictions, per-criterion results, retrained model artifacts, and PNG/PDF comparison figures to `outputs/external_validation/benchmark_models/`. It does not use the validation labels for fitting, tuning, blending, or model selection. The generated protocol file retains the random-row/SMILES-overlap caveat above.
 
 ## Expected outputs
 
@@ -130,6 +138,7 @@ For journal reporting, include the generated table with columns `Metric`, `Value
 - `reports/tables/atc_group_distributions.csv` and `reports/tables/atc_pairwise_tests.csv` when an ATC mapping file is available
 - `figures/` plots for predicted-vs-actual, clustering, and ATC summaries
 - `models/reproduction/` fitted models and scalers
+- `outputs/external_validation/benchmark_models/` all-benchmark external-validation tables, workbook, retrained artifacts, and figures
 - `REPORT.md`
 
 ## Regenerating publication figures

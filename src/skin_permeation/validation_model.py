@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import json
+import platform
 from dataclasses import dataclass
 from pathlib import Path
 
 import joblib
 import numpy as np
 import pandas as pd
+import sklearn
 from sklearn.base import clone
 from sklearn.compose import TransformedTargetRegressor
 from sklearn.ensemble import (
@@ -22,12 +25,15 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PowerTransformer, StandardScaler
 from sklearn.svm import SVR
 
-from .external_validation import run_external_validation
+from .external_validation import calculate_external_validation_metrics, run_external_validation
 from .validation_data import TARGET_COLUMN_CANDIDATES, resolve_column
 
 
 IDENTIFIER_COLUMNS = ("Compound", "SMILES", "compound", "smiles", "ID", "id")
 VALIDATION_PROTOCOLS = ("strict-grouped", "paper-reproduction")
+MIN_CALIBRATION_R2_GAIN = 0.01
+MAX_CALIBRATION_AGREEMENT_LOSS = 0.01
+MAX_CALIBRATION_DELTA_RM2_INCREASE = 0.02
 
 
 @dataclass
@@ -253,6 +259,7 @@ def build_candidate_models(random_state: int, fast: bool = False) -> dict[str, o
                     random_seed=random_state,
                     verbose=False,
                     thread_count=-1,
+                    allow_writing_files=False,
                 )
             )
         except ImportError:
@@ -285,6 +292,32 @@ def make_cv_splitter(
     return KFold(n_splits=folds, shuffle=True, random_state=random_state), None
 
 
+def calibration_is_beneficial(
+    y_true: np.ndarray,
+    raw_predictions: np.ndarray,
+    calibrated_predictions: np.ndarray,
+) -> bool:
+    """Require material R² gain without sacrificing QSAR agreement diagnostics.
+
+    Calibration is estimated only from training out-of-fold predictions. A tiny R² gain is
+    not enough to justify it because an affine transformation can worsen concordance and the
+    origin-forced r_m² diagnostics even when squared error changes slightly.
+    """
+    raw_metrics = calculate_external_validation_metrics(y_true, raw_predictions, y_train=y_true)
+    calibrated_metrics = calculate_external_validation_metrics(y_true, calibrated_predictions, y_train=y_true)
+    if float(calibrated_metrics["R2_ext"]) < float(raw_metrics["R2_ext"]) + MIN_CALIBRATION_R2_GAIN:
+        return False
+    for metric in ("CCC_ext", "r_m^2", "Average r_m^2"):
+        if float(calibrated_metrics[metric]) < float(raw_metrics[metric]) - MAX_CALIBRATION_AGREEMENT_LOSS:
+            return False
+    if (
+        float(calibrated_metrics["Delta r_m^2"])
+        > float(raw_metrics["Delta r_m^2"]) + MAX_CALIBRATION_DELTA_RM2_INCREASE
+    ):
+        return False
+    return True
+
+
 def fit_cross_validated_ensemble(
     x_train: pd.DataFrame,
     y_train: np.ndarray,
@@ -297,6 +330,7 @@ def fit_cross_validated_ensemble(
     candidates = build_candidate_models(random_state=random_state, fast=fast)
     oof_predictions: dict[str, np.ndarray] = {}
     scores: dict[str, float] = {}
+    accepted_calibrations: dict[str, bool] = {}
 
     for name, model in candidates.items():
         predictions = cross_val_predict(
@@ -317,6 +351,11 @@ def fit_cross_validated_ensemble(
         calibrated_name = f"{name}_Calibrated"
         oof_predictions[calibrated_name] = np.asarray(calibrated_predictions, dtype=float)
         scores[calibrated_name] = float(r2_score(y_train, calibrated_predictions))
+        accepted_calibrations[name] = calibration_is_beneficial(
+            y_train,
+            oof_predictions[name],
+            oof_predictions[calibrated_name],
+        )
 
     base_names = list(candidates)
     ordered_base_names = sorted(base_names, key=lambda name: scores[name], reverse=True)
@@ -331,16 +370,27 @@ def fit_cross_validated_ensemble(
     ensemble_calibrator.fit(ensemble_oof.reshape(-1, 1), y_train)
     calibrated_ensemble_oof = ensemble_calibrator.predict(ensemble_oof.reshape(-1, 1))
     scores["OOF_Ridge_Ensemble_Calibrated"] = float(r2_score(y_train, calibrated_ensemble_oof))
+    ensemble_calibration_accepted = calibration_is_beneficial(
+        y_train,
+        ensemble_oof,
+        calibrated_ensemble_oof,
+    )
 
-    best_candidate_name = max(
-        [*base_names, *(f"{name}_Calibrated" for name in base_names)],
-        key=scores.get,
+    preferred_candidates = [
+        f"{name}_Calibrated" if accepted_calibrations[name] else name
+        for name in base_names
+    ]
+    best_candidate_name = max(preferred_candidates, key=scores.get)
+    best_ensemble_name = (
+        "OOF_Ridge_Ensemble_Calibrated"
+        if ensemble_calibration_accepted
+        else "OOF_Ridge_Ensemble"
     )
-    best_ensemble_name = max(
-        ("OOF_Ridge_Ensemble", "OOF_Ridge_Ensemble_Calibrated"),
-        key=scores.get,
+    best_single_model_reference_score = max(
+        max(scores[name], scores[f"{name}_Calibrated"])
+        for name in base_names
     )
-    if scores[best_ensemble_name] > scores[best_candidate_name] + 0.005:
+    if scores[best_ensemble_name] > best_single_model_reference_score + 0.005:
         selected_models = {name: clone(candidates[name]).fit(x_train, y_train) for name in stack_names}
         if best_ensemble_name.endswith("_Calibrated"):
             ensemble_bundle = {
@@ -359,6 +409,94 @@ def fit_cross_validated_ensemble(
 
     selected_model = clone(candidates[best_candidate_name]).fit(x_train, y_train)
     return best_candidate_name, {best_candidate_name: selected_model}, None, scores
+
+
+def build_validation_manifest(
+    frame: pd.DataFrame,
+    target_col: str,
+    identifiers: pd.DataFrame,
+    train_indices: np.ndarray,
+    external_indices: np.ndarray,
+    protocol: str,
+    split_strategy: str,
+    test_size: float,
+    random_state: int,
+    cv_folds: int,
+    selected_model: str,
+    cv_scores: dict[str, float],
+    summary_table: pd.DataFrame,
+) -> dict[str, object]:
+    """Build a machine-readable audit record for the validation run."""
+    smiles_column = next((column for column in ("SMILES", "smiles") if column in identifiers.columns), None)
+    train_smiles: set[str] = set()
+    external_smiles: set[str] = set()
+    if smiles_column is not None:
+        train_smiles = set(identifiers.iloc[train_indices][smiles_column].fillna("__missing_smiles__").astype(str))
+        external_smiles = set(
+            identifiers.iloc[external_indices][smiles_column].fillna("__missing_smiles__").astype(str)
+        )
+    overlap = train_smiles & external_smiles
+    overlapping_external_rows = 0
+    if smiles_column is not None:
+        overlapping_external_rows = int(
+            identifiers.iloc[external_indices][smiles_column].fillna("__missing_smiles__").astype(str).isin(overlap).sum()
+        )
+    repeated_smiles_rows = 0
+    max_rows_per_smiles = 0
+    if smiles_column is not None:
+        counts = identifiers[smiles_column].fillna("__missing_smiles__").astype(str).value_counts()
+        repeated_smiles_rows = int(counts[counts > 1].sum())
+        max_rows_per_smiles = int(counts.max())
+
+    thresholded = summary_table[summary_table["Result"].isin(["Pass", "Fail"])]
+    return {
+        "protocol": protocol,
+        "protocol_interpretation": (
+            "Strict molecule-group holdout with no SMILES overlap"
+            if split_strategy == "grouped"
+            else "Paper-reproduction random row holdout; not strict unseen-molecule external validation"
+        ),
+        "dataset": {
+            "rows": int(len(frame)),
+            "target_column": target_col,
+            "unique_smiles": int(len(train_smiles | external_smiles)) if smiles_column else None,
+            "rows_from_repeated_smiles": repeated_smiles_rows if smiles_column else None,
+            "maximum_rows_for_one_smiles": max_rows_per_smiles if smiles_column else None,
+        },
+        "split": {
+            "strategy": split_strategy,
+            "test_size": float(test_size),
+            "random_state": int(random_state),
+            "training_rows": int(len(train_indices)),
+            "validation_rows": int(len(external_indices)),
+            "training_unique_smiles": int(len(train_smiles)) if smiles_column else None,
+            "validation_unique_smiles": int(len(external_smiles)) if smiles_column else None,
+            "overlapping_smiles": int(len(overlap)) if smiles_column else None,
+            "overlapping_validation_rows": overlapping_external_rows if smiles_column else None,
+        },
+        "model_selection": {
+            "selected_model": selected_model,
+            "cv_folds": int(cv_folds),
+            "external_labels_used_for_selection": False,
+            "calibration_policy": {
+                "minimum_oof_r2_gain": MIN_CALIBRATION_R2_GAIN,
+                "maximum_agreement_metric_loss": MAX_CALIBRATION_AGREEMENT_LOSS,
+                "maximum_delta_rm2_increase": MAX_CALIBRATION_DELTA_RM2_INCREASE,
+            },
+            "cross_validated_r2": {name: float(score) for name, score in cv_scores.items()},
+        },
+        "acceptance_summary": {
+            "criteria_passed": int((thresholded["Result"] == "Pass").sum()),
+            "criteria_failed": int((thresholded["Result"] == "Fail").sum()),
+            "all_thresholded_criteria_pass": bool((thresholded["Result"] == "Pass").all()),
+        },
+        "software": {
+            "python": platform.python_version(),
+            "scikit_learn": sklearn.__version__,
+            "numpy": np.__version__,
+            "pandas": pd.__version__,
+        },
+    }
 
 
 def predict_selected_model(
@@ -440,6 +578,8 @@ def train_and_validate_external_model(
     )
 
     train_data = pd.DataFrame({"Experimental_logKp": y[train_indices]})
+    training_membership = identifiers.iloc[train_indices].reset_index(drop=True).copy()
+    training_membership["Experimental_logKp"] = y[train_indices]
     external_predictions = identifiers.iloc[external_indices].reset_index(drop=True).copy()
     external_predictions["Experimental_logKp"] = y[external_indices]
     external_predictions["Predicted_logKp"] = prediction_values
@@ -449,6 +589,7 @@ def train_and_validate_external_model(
     train_path = output_dir / "train_data.csv"
     external_path = output_dir / "external_test_predictions.csv"
     train_data.to_csv(train_path, index=False)
+    training_membership.to_csv(output_dir / "training_set_membership.csv", index=False)
     external_predictions.to_csv(external_path, index=False)
     joblib.dump(
         {
@@ -458,7 +599,11 @@ def train_and_validate_external_model(
             "feature_columns": list(features.columns),
             "protocol": protocol,
             "split_strategy": split_strategy,
+            "test_size": test_size,
             "random_state": random_state,
+            "cv_folds": cv_folds,
+            "target_column": resolved_target,
+            "scikit_learn_version": sklearn.__version__,
             "cv_scores": cv_scores,
         },
         output_dir / "external_validation_model.joblib",
@@ -481,6 +626,34 @@ def train_and_validate_external_model(
         train_target_col="Experimental_logKp",
         output_dir=output_dir / "outputs" / "external_validation",
     )
+    score_table = pd.DataFrame(
+        sorted(cv_scores.items(), key=lambda item: item[1], reverse=True),
+        columns=["Model", "Training-only OOF R2"],
+    )
+    score_table["Selected"] = score_table["Model"].eq(selected_name)
+    score_table.to_csv(output_dir / "outputs" / "external_validation" / "model_selection_scores.csv", index=False)
+    manifest = build_validation_manifest(
+        frame=frame,
+        target_col=resolved_target,
+        identifiers=identifiers,
+        train_indices=train_indices,
+        external_indices=external_indices,
+        protocol=protocol,
+        split_strategy=split_strategy,
+        test_size=test_size,
+        random_state=random_state,
+        cv_folds=cv_folds,
+        selected_model=selected_name,
+        cv_scores=cv_scores,
+        summary_table=summary,
+    )
+    manifest_path = output_dir / "outputs" / "external_validation" / "validation_protocol.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    if split_strategy == "random" and manifest["split"]["overlapping_validation_rows"]:
+        print(
+            "Warning: paper-reproduction validation contains "
+            f"{manifest['split']['overlapping_validation_rows']} validation rows whose SMILES also occur in training."
+        )
     return ValidationTrainingResult(
         selected_model=selected_name,
         cross_validated_scores=cv_scores,

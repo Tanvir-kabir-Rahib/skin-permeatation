@@ -1,19 +1,19 @@
 Metric,Value,Recommended threshold,Interpretation
-R2_ext,0.7988393552116125,R2_ext > 0.60,Satisfies the recommended criterion
-RMSE_ext,0.4609817448290185,Lower is better,Reported as an error/diagnostic metric; lower values indicate better predictions
-MAE_ext,0.2897017854978407,Lower is better,Reported as an error/diagnostic metric; lower values indicate better predictions
-Q2_F1,0.800909237610455,Q2_F1 > 0.70,Satisfies the recommended criterion
-Q2_F2,0.7988393552116125,Q2_F2 > 0.70,Satisfies the recommended criterion
-Q2_F3,0.8452580317718827,Q2_F3 > 0.70,Satisfies the recommended criterion
-CCC_ext,0.8803671700200552,CCC_ext > 0.85,Satisfies the recommended criterion
-r_m^2,0.5814957467602162,r_m^2 > 0.65,Does not satisfy the recommended criterion
-r_m'^2,0.7579231833244402,Report alongside r_m^2,Reported as an error/diagnostic metric; lower values indicate better predictions
-Average r_m^2,0.6697094650423282,Average r_m^2 > 0.65,Satisfies the recommended criterion
-Delta r_m^2,0.176427436564224,Delta r_m^2 < 0.20,Satisfies the recommended criterion
-R0^2,0.7279232433569645,Report for Golbraikh-Tropsha,Reported as an error/diagnostic metric; lower values indicate better predictions
-R0'^2,0.8015972488934877,Report for Golbraikh-Tropsha,Reported as an error/diagnostic metric; lower values indicate better predictions
-k,0.9523438277962404,0.85 <= k <= 1.15,Satisfies the recommended criterion
-k',1.0204781040114523,0.85 <= k' <= 1.15,Satisfies the recommended criterion
-abs(R2_ext - R0^2) / R2_ext,0.08877393357249205,< 0.10 OR reverse ratio < 0.10,Satisfies the recommended criterion
-abs(R2_ext - R0'^2) / R2_ext,0.0034523758298620785,< 0.10 OR direct ratio < 0.10,Satisfies the recommended criterion
+R2_ext,0.8000088320523371,R2_ext > 0.60,Satisfies the recommended criterion
+RMSE_ext,0.45963979917626874,Lower is better,Prediction-error metric; lower values indicate better predictions
+MAE_ext,0.2882966457846711,Lower is better,Prediction-error metric; lower values indicate better predictions
+Q2_F1,0.8020666808870048,Q2_F1 > 0.70,Satisfies the recommended criterion
+Q2_F2,0.8000088320523371,Q2_F2 > 0.70,Satisfies the recommended criterion
+Q2_F3,0.8461576468448078,Q2_F3 > 0.70,Satisfies the recommended criterion
+CCC_ext,0.8877279806716551,CCC_ext > 0.85,Satisfies the recommended criterion
+r_m^2,0.6515985820035656,r_m^2 > 0.65,Satisfies the recommended criterion
+r_m'^2,0.7979065794914906,Report alongside r_m^2,Reverse-axis modified correlation reported alongside r_m^2; higher values are better
+Average r_m^2,0.7247525807475281,Average r_m^2 > 0.65,Satisfies the recommended criterion
+Delta r_m^2,0.146307997487925,Delta r_m^2 < 0.20,Satisfies the recommended criterion
+R0^2,0.7686988978675616,Report for Golbraikh-Tropsha,Origin-forced direct-fit statistic used by the Golbraikh-Tropsha assessment
+R0'^2,0.8049418697189394,Report for Golbraikh-Tropsha,Origin-forced reverse-fit statistic used by the Golbraikh-Tropsha assessment
+k,0.9462316023913716,0.85 <= k <= 1.15,Satisfies the recommended criterion
+k',1.0275715094961408,0.85 <= k' <= 1.15,Satisfies the recommended criterion
+abs(R2_ext - R0^2) / R2_ext,0.03913698565608728,< 0.10 OR reverse ratio < 0.10,Satisfies the recommended criterion
+abs(R2_ext - R0'^2) / R2_ext,0.0061662290076813,< 0.10 OR direct ratio < 0.10,Satisfies the recommended criterion
 Golbraikh-Tropsha criteria,1.0,"R2_ext > 0.60, slopes in range, and one ratio < 0.10",Satisfies the recommended criterion

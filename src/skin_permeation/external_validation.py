@@ -16,8 +16,8 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 DEFAULT_OUTPUT_DIR = Path("outputs") / "external_validation"
 FINAL_STATEMENT = (
-    "The external validation results indicate whether the developed skin-permeability "
-    "model satisfies the recommended QSAR/QSPR predictivity criteria for unseen compounds."
+    "Interpret the metrics together with the saved validation protocol: only an independent "
+    "or zero-overlap molecule-group holdout supports an unseen-compound predictivity claim."
 )
 
 
@@ -336,14 +336,25 @@ def build_journal_table(summary_table: pd.DataFrame) -> pd.DataFrame:
             "Result": "Interpretation",
         }
     ).copy()
-    journal["Interpretation"] = journal["Interpretation"].replace(
-        {
-            "Pass": "Satisfies the recommended criterion",
-            "Fail": "Does not satisfy the recommended criterion",
-            "Report only": "Reported as an error/diagnostic metric; lower values indicate better predictions",
-            "Not available": "Not available because the required training-set information was not provided",
-        }
-    )
+    report_only_text = {
+        "RMSE_ext": "Prediction-error metric; lower values indicate better predictions",
+        "MAE_ext": "Prediction-error metric; lower values indicate better predictions",
+        "r_m'^2": "Reverse-axis modified correlation reported alongside r_m^2; higher values are better",
+        "R0^2": "Origin-forced direct-fit statistic used by the Golbraikh-Tropsha assessment",
+        "R0'^2": "Origin-forced reverse-fit statistic used by the Golbraikh-Tropsha assessment",
+    }
+
+    def interpretation(row: pd.Series) -> str:
+        result = str(row["Interpretation"])
+        if result == "Pass":
+            return "Satisfies the recommended criterion"
+        if result == "Fail":
+            return "Does not satisfy the recommended criterion"
+        if result == "Not available":
+            return "Not available because the required training-set information was not provided"
+        return report_only_text.get(str(row["Metric"]), "Supporting validation statistic")
+
+    journal["Interpretation"] = journal.apply(interpretation, axis=1)
     return journal[["Metric", "Value", "Recommended threshold", "Interpretation"]]
 
 
@@ -366,6 +377,7 @@ def plot_experimental_vs_predicted(
     output_path: str | Path,
     x_label: str = "Experimental logKp",
     y_label: str = "Predicted logKp",
+    title: str = "Validation predictions: experimental vs predicted logKp",
 ) -> Path:
     """Create and save a publication-quality predicted-vs-experimental scatter plot."""
     output_path = Path(output_path)
@@ -391,11 +403,11 @@ def plot_experimental_vs_predicted(
         y_true,
         y_pred,
         s=48,
-        color="#1f77b4",
+        color="#2563a6",
         edgecolor="white",
         linewidth=0.7,
         alpha=0.88,
-        label="External compounds",
+        label="Validation observations",
     )
 
     xy_min = float(np.nanmin([np.min(y_true), np.min(y_pred)]))
@@ -407,10 +419,11 @@ def plot_experimental_vs_predicted(
 
     ax.plot(line_x, line_x, color="#222222", linestyle="--", linewidth=1.3, label="Ideal agreement")
     slope, intercept = np.polyfit(y_true, y_pred, deg=1)
-    ax.plot(line_x, slope * line_x + intercept, color="#d62728", linewidth=1.7, label="Fitted regression")
+    ax.plot(line_x, slope * line_x + intercept, color="#d58a19", linewidth=1.7, label="Fitted regression")
 
     text = (
-        f"R2 = {float(metrics['R2_ext']):.3f}\n"
+        f"n = {len(y_true)}\n"
+        f"R² = {float(metrics['R2_ext']):.3f}\n"
         f"RMSE = {float(metrics['RMSE_ext']):.3f}\n"
         f"MAE = {float(metrics['MAE_ext']):.3f}\n"
         f"CCC = {float(metrics['CCC_ext']):.3f}"
@@ -427,7 +440,7 @@ def plot_experimental_vs_predicted(
 
     ax.set_xlabel(x_label)
     ax.set_ylabel(y_label)
-    ax.set_title("External validation: experimental vs predicted logKp")
+    ax.set_title(title)
     ax.set_xlim(plot_min, plot_max)
     ax.set_ylim(plot_min, plot_max)
     ax.legend(frameon=False, loc="lower right")
@@ -435,6 +448,135 @@ def plot_experimental_vs_predicted(
     ax.set_axisbelow(True)
     fig.tight_layout()
     fig.savefig(output_path, bbox_inches="tight")
+    if output_path.suffix.lower() == ".png":
+        fig.savefig(output_path.with_suffix(".pdf"), bbox_inches="tight")
+    plt.close(fig)
+    return output_path
+
+
+def plot_residual_diagnostics(
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    output_path: str | Path,
+) -> Path:
+    """Plot residuals against fitted values and their distribution."""
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    residuals = np.asarray(y_pred, dtype=float) - np.asarray(y_true, dtype=float)
+
+    fig, axes = plt.subplots(1, 2, figsize=(10.4, 4.6), gridspec_kw={"width_ratios": [1.35, 1.0]})
+    scatter_axis, histogram_axis = axes
+    scatter_axis.axhspan(-0.5, 0.5, color="#2563a6", alpha=0.08, label="±0.5 logKp")
+    scatter_axis.axhline(0.0, color="#222222", linestyle="--", linewidth=1.2)
+    scatter_axis.scatter(
+        y_pred,
+        residuals,
+        s=42,
+        color="#2563a6",
+        edgecolor="white",
+        linewidth=0.6,
+        alpha=0.86,
+    )
+    scatter_axis.set_xlabel("Predicted logKp")
+    scatter_axis.set_ylabel("Residual (predicted − experimental)")
+    scatter_axis.set_title("Residuals versus predictions")
+    scatter_axis.legend(frameon=False, loc="upper right")
+    scatter_axis.grid(True, color="#d9d9d9", linewidth=0.6, alpha=0.70)
+    scatter_axis.set_axisbelow(True)
+
+    histogram_axis.hist(residuals, bins="auto", color="#2563a6", edgecolor="white", linewidth=0.8, alpha=0.88)
+    histogram_axis.axvline(0.0, color="#222222", linestyle="--", linewidth=1.2)
+    histogram_axis.axvline(float(np.mean(residuals)), color="#d58a19", linewidth=1.6, label="Mean residual")
+    histogram_axis.set_xlabel("Residual (predicted − experimental)")
+    histogram_axis.set_ylabel("Observation count")
+    histogram_axis.set_title("Residual distribution")
+    histogram_axis.legend(frameon=False, loc="upper left")
+    histogram_axis.grid(True, axis="y", color="#d9d9d9", linewidth=0.6, alpha=0.70)
+    histogram_axis.set_axisbelow(True)
+
+    fig.suptitle(f"Validation residual diagnostics (n={len(y_true)})", y=1.02, fontsize=13)
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight")
+    if output_path.suffix.lower() == ".png":
+        fig.savefig(output_path.with_suffix(".pdf"), bbox_inches="tight")
+    plt.close(fig)
+    return output_path
+
+
+def calculate_criteria_margins(metrics: dict[str, float | bool]) -> list[tuple[str, float, str]]:
+    """Return normalized margins from the project acceptance cutoffs for plotting."""
+
+    def lower_margin(value: float, cutoff: float) -> float:
+        return value / cutoff - 1.0
+
+    def upper_margin(value: float, cutoff: float) -> float:
+        return 1.0 - value / cutoff
+
+    def bounded_margin(value: float, lower: float, upper: float) -> float:
+        half_width = (upper - lower) / 2.0
+        return min((value - lower) / half_width, (upper - value) / half_width)
+
+    ratio = min(
+        float(metrics["abs(R2_ext - R0^2) / R2_ext"]),
+        float(metrics["abs(R2_ext - R0'^2) / R2_ext"]),
+    )
+    k_prime = float(metrics["k'"])
+    return [
+        ("R²ext > 0.60", lower_margin(float(metrics["R2_ext"]), 0.60), f"{float(metrics['R2_ext']):.3f}"),
+        ("Q²F1 > 0.70", lower_margin(float(metrics["Q2_F1"]), 0.70), f"{float(metrics['Q2_F1']):.3f}"),
+        ("Q²F2 > 0.70", lower_margin(float(metrics["Q2_F2"]), 0.70), f"{float(metrics['Q2_F2']):.3f}"),
+        ("Q²F3 > 0.70", lower_margin(float(metrics["Q2_F3"]), 0.70), f"{float(metrics['Q2_F3']):.3f}"),
+        ("CCC > 0.85", lower_margin(float(metrics["CCC_ext"]), 0.85), f"{float(metrics['CCC_ext']):.3f}"),
+        ("rₘ² > 0.65", lower_margin(float(metrics["r_m^2"]), 0.65), f"{float(metrics['r_m^2']):.3f}"),
+        ("Average rₘ² > 0.65", lower_margin(float(metrics["Average r_m^2"]), 0.65), f"{float(metrics['Average r_m^2']):.3f}"),
+        ("Δrₘ² < 0.20", upper_margin(float(metrics["Delta r_m^2"]), 0.20), f"{float(metrics['Delta r_m^2']):.3f}"),
+        ("0.85 ≤ k ≤ 1.15", bounded_margin(float(metrics["k"]), 0.85, 1.15), f"{float(metrics['k']):.3f}"),
+        ("0.85 ≤ k′ ≤ 1.15", bounded_margin(k_prime, 0.85, 1.15), f"{k_prime:.3f}"),
+        ("Best GT ratio < 0.10", upper_margin(ratio, 0.10), f"{ratio:.3f}"),
+    ]
+
+
+def plot_validation_criteria(metrics: dict[str, float | bool], output_path: str | Path) -> Path:
+    """Plot each thresholded metric as its relative margin from the acceptance cutoff."""
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    rows = calculate_criteria_margins(metrics)
+    labels = [row[0] for row in rows]
+    margins = np.asarray([row[1] for row in rows], dtype=float)
+    values = [row[2] for row in rows]
+    colors = ["#2563a6" if margin > 0.0 else "#d58a19" for margin in margins]
+
+    fig, ax = plt.subplots(figsize=(8.7, 6.6))
+    positions = np.arange(len(rows))
+    ax.barh(positions, margins * 100.0, color=colors, edgecolor="#243240", linewidth=0.5)
+    ax.axvline(0.0, color="#222222", linewidth=1.2)
+    ax.set_yticks(positions, labels)
+    ax.invert_yaxis()
+    ax.set_xlabel("Relative margin from acceptance cutoff (%)")
+    ax.set_title(
+        "Positive margins pass; labels show the metric value",
+        loc="left",
+        color="#4a5560",
+        fontsize=10,
+        pad=10,
+    )
+    fig.suptitle("Validation acceptance criteria", y=0.985, fontsize=13)
+    margin_percent = margins * 100.0
+    x_min = min(-5.0, float(np.nanmin(margin_percent)) - 5.0)
+    x_max = max(10.0, float(np.nanmax(margin_percent)) + 12.0)
+    padding = 0.02 * (x_max - x_min)
+    for position, (margin, value) in enumerate(zip(margin_percent, values)):
+        if margin >= 0.0:
+            ax.text(margin + padding, position, value, va="center", ha="left", fontsize=9)
+        else:
+            ax.text(margin - padding, position, value, va="center", ha="right", fontsize=9)
+    ax.set_xlim(x_min, x_max)
+    ax.grid(True, axis="x", color="#d9d9d9", linewidth=0.6, alpha=0.70)
+    ax.set_axisbelow(True)
+    fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.955))
+    fig.savefig(output_path, bbox_inches="tight")
+    if output_path.suffix.lower() == ".png":
+        fig.savefig(output_path.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
     return output_path
 
@@ -490,6 +632,15 @@ def run_external_validation(
             y_pred,
             metrics,
             output_path=output_dir / "experimental_vs_predicted_logKp.png",
+        )
+        plot_residual_diagnostics(
+            y_true,
+            y_pred,
+            output_path=output_dir / "external_validation_residual_diagnostics.png",
+        )
+        plot_validation_criteria(
+            metrics,
+            output_path=output_dir / "external_validation_criteria_summary.png",
         )
         print_validation_report(summary_table, journal_table, output_dir)
         return summary_table

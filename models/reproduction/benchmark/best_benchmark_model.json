@@ -2,13 +2,18 @@
   "model": "CatBoost",
   "selection_basis": "lowest repeated-CV RMSE on the training set",
   "metrics": {
-    "r2": 0.87831997002753,
-    "rmse": 0.39592311446973977,
-    "mae": 0.2916869311046544,
-    "cv_rmse": 0.6655621128136894,
+    "r2": 0.9001721082455977,
+    "rmse": 0.3586139279720716,
+    "mae": 0.2581347271212447,
+    "cv_rmse": 0.6833188928070207,
+    "cv_mae": 0.4547985966672593,
+    "tuning_rmse": 0.6833188928070207,
     "mae_ci_low": NaN,
     "mae_ci_high": NaN,
-    "cv_mae": NaN,
-    "tuning_rmse": 0.6655621128136894
+    "base_r2": 0.87831997002753,
+    "base_rmse": 0.39592311446973977,
+    "base_mae": 0.2916869311046544,
+    "blend_anchor": "Gradient Boosting",
+    "anchor_weight": 0.3574363665392678
   }
 }

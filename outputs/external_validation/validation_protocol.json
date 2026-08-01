@@ -1,0 +1,65 @@
+{
+  "protocol": "paper-reproduction",
+  "protocol_interpretation": "Paper-reproduction random row holdout; not strict unseen-molecule external validation",
+  "dataset": {
+    "rows": 417,
+    "target_column": "logkpl",
+    "unique_smiles": 146,
+    "rows_from_repeated_smiles": 352,
+    "maximum_rows_for_one_smiles": 53
+  },
+  "split": {
+    "strategy": "random",
+    "test_size": 0.15,
+    "random_state": 1,
+    "training_rows": 354,
+    "validation_rows": 63,
+    "training_unique_smiles": 137,
+    "validation_unique_smiles": 42,
+    "overlapping_smiles": 33,
+    "overlapping_validation_rows": 54
+  },
+  "model_selection": {
+    "selected_model": "SVR_RBF",
+    "cv_folds": 5,
+    "external_labels_used_for_selection": false,
+    "calibration_policy": {
+      "minimum_oof_r2_gain": 0.01,
+      "maximum_agreement_metric_loss": 0.01,
+      "maximum_delta_rm2_increase": 0.02
+    },
+    "cross_validated_r2": {
+      "ExtraTrees": 0.6734976864388802,
+      "ExtraTrees_Calibrated": 0.6799097675822955,
+      "RandomForest": 0.6823724111120077,
+      "RandomForest_Calibrated": 0.6847031329363784,
+      "GradientBoosting": 0.6746160784475849,
+      "GradientBoosting_Calibrated": 0.6814846608516769,
+      "HistGradientBoosting": 0.6595844510196295,
+      "HistGradientBoosting_Calibrated": 0.6681690897370244,
+      "ExtraTrees_PowerTarget": 0.6747522135317638,
+      "ExtraTrees_PowerTarget_Calibrated": 0.6816674514893181,
+      "SVR_RBF": 0.7003536487169575,
+      "SVR_RBF_Calibrated": 0.7042781294270886,
+      "XGBoost": 0.667651917025885,
+      "XGBoost_Calibrated": 0.6739101088572408,
+      "LightGBM": 0.6614694838261306,
+      "LightGBM_Calibrated": 0.6708681124178696,
+      "CatBoost": 0.6793194694159657,
+      "CatBoost_Calibrated": 0.6839352824792138,
+      "OOF_Ridge_Ensemble": 0.7079117657648712,
+      "OOF_Ridge_Ensemble_Calibrated": 0.7079390216530609
+    }
+  },
+  "acceptance_summary": {
+    "criteria_passed": 13,
+    "criteria_failed": 0,
+    "all_thresholded_criteria_pass": true
+  },
+  "software": {
+    "python": "3.13.5",
+    "scikit_learn": "1.6.1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3"
+  }
+}
